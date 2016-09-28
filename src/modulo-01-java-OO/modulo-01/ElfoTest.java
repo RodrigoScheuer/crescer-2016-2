@@ -34,46 +34,53 @@ public class ElfoTest
     
     @Test
     public void elfoAtiraFlecha(){
-        //act
+        //arrange
         Elfo elfoDoTeste = new Elfo("Rodrigo");
-        //assert
+        //act
         elfoDoTeste.atiraFlecha();
+        //assert
         assertEquals(41, elfoDoTeste.getFlecha().getQuantidade());
+        assertEquals(1, elfoDoTeste.getExperiencia());
     }
     
     @Test
     public void elfoAtiraFlechasFogo(){
-        //act
+        //arrange
         Elfo elfoDoTeste = new Elfo("Rodrigo");
+        //act
+        elfoDoTeste.atiraFlecha();
+        elfoDoTeste.atiraFlecha();
         //assert
-        elfoDoTeste.atiraFlecha();
-        elfoDoTeste.atiraFlecha();
         assertEquals(40, elfoDoTeste.getFlecha().getQuantidade());
+        assertEquals(2, elfoDoTeste.getExperiencia());
     }
     
     @Test
     public void elfoAtiraMultiplasFlechas(){
-        //act
+        //arrange
         Elfo elfoDoTeste = new Elfo("Rodrigo");
+        //act
+        elfoDoTeste.atiraFlecha();
+        elfoDoTeste.atiraFlecha();
+        elfoDoTeste.atiraFlecha();
+        elfoDoTeste.atiraFlecha();
         //assert
-        elfoDoTeste.atiraFlecha();
-        elfoDoTeste.atiraFlecha();
-        elfoDoTeste.atiraFlecha();
-        elfoDoTeste.atiraFlecha();
         assertEquals(38, elfoDoTeste.getFlecha().getQuantidade());
-        
+        assertEquals(4, elfoDoTeste.getExperiencia());
     }
     
     @Test
     public void elfoAtiraEmDwarves(){
-        // act
+        // arrange
         Elfo elfoDoTeste = new Elfo("Legolas");
         Dwarves DwarvesDoTeste = new Dwarves();
-        // assert
+        // act
         elfoDoTeste.atiraFlechaEmDwarves();
         DwarvesDoTeste.levaFlechada();
+        // assert
         assertEquals(41, elfoDoTeste.getFlecha().getQuantidade());
         assertEquals(100, DwarvesDoTeste.getVida());
+        assertEquals(1, elfoDoTeste.getExperiencia());
     }
     
 }

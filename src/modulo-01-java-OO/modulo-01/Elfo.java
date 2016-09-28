@@ -20,11 +20,10 @@ public class Elfo{
     }
     
     public void atiraFlecha(){
-        if(flecha.getQuantidade() > 0){
+        boolean temFlecha = flecha.getQuantidade() > 0; // facilita a leitura
+        if(temFlecha){
             flecha.setQuantidade(flecha.getQuantidade() - 1);
             experiencia++;
-        }else{
-            System.out.println("Acabou as flechas!");
         }
     }
     
@@ -34,6 +33,10 @@ public class Elfo{
     
     public Item getFlecha(){
         return this.flecha;
+    }
+    
+    public int getExperiencia(){
+        return this.experiencia;
     }
     
     public void atiraFlechaEmDwarves(){
