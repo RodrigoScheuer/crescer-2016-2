@@ -4,11 +4,16 @@ public class Elfo{
     private Item arco;
     private Item flecha;
     private int experiencia;
-
+    
     public Elfo(String n) {
-        nome = n;
+        // Chamando construtor debaixo
+        this(n, 42);
+    }
+    
+    public Elfo(String nome, int quantidadeFlechas) {
+        this.nome = nome;
         arco = new Item("Arco", 1);
-        flecha = new Item("Flechas", 42);
+        flecha = new Item("Flechas", quantidadeFlechas >= 0 ? quantidadeFlechas : 42);
     }
     
         public Elfo(String n, int quantidadeFlechas) {
