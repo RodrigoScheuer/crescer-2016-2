@@ -1,19 +1,12 @@
-
 public class CestoDeLembas
 {
-    int quantidade;
+    private int numeroPaes;
     
-   public CestoDeLembas(int quantidade){
-       if(quantidade >= 1 && quantidade <= 100)
-            this.quantidade = quantidade;
-   }
-   
-   public boolean podeDividirEmPares(){
-       return quantidade > 2 && quantidade % 2 == 0;
+    public CestoDeLembas(int numeroPaes) {
+        this.numeroPaes = numeroPaes;
     }
     
-    public int getQuantidade(){
-        return quantidade;
+    public boolean podeDividirEmPares() {
+        return numeroPaes > 2 && numeroPaes % 2 == 0 && numeroPaes <= 100;
     }
-    
 }

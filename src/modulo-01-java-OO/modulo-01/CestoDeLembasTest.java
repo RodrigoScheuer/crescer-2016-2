@@ -1,5 +1,3 @@
-
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -8,34 +6,54 @@ import org.junit.Test;
 public class CestoDeLembasTest
 {
     @Test
-    public void criarCestoComUmPao(){
-        // arrange
-        CestoDeLembas cesto = new CestoDeLembas(2);
-        // act & assert
+    public void dividirCestoComUmPao() {
+        // Arrange
+        CestoDeLembas cesto = new CestoDeLembas(1);
+        // Act & Assert
         assertFalse(cesto.podeDividirEmPares());
     }
     
     @Test
-    public void criarCestoComUmQuatroPaes(){
-        // arrange
+    public void dividirCestoComDoisPaes() {
+        // Arrange
+        CestoDeLembas cesto = new CestoDeLembas(2);
+        // Act & Assert
+        assertFalse(cesto.podeDividirEmPares());
+    }
+    
+    @Test
+    public void dividirCestoComQuatroPaes() {
+        // Arrange
         CestoDeLembas cesto = new CestoDeLembas(4);
-        // act & assert
+        // Act & Assert
         assertTrue(cesto.podeDividirEmPares());
     }
-
+    
     @Test
-    public void criarCestoComUm101Paes(){
-        // arrange
+    public void dividirCestoCom101Paes() {
+        // Arrange
         CestoDeLembas cesto = new CestoDeLembas(101);
-        // act & assert
+        // Act & Assert
         assertFalse(cesto.podeDividirEmPares());
     }
     
     @Test
-    public void criarCestoSemPaes(){
-        // arrange
-        CestoDeLembas cesto = new CestoDeLembas(0);
-        // act & assert
+    public void dividirCestoComMenos6Paes() {
+        // Arrange
+        CestoDeLembas cesto = new CestoDeLembas(-6);
+        // Act & Assert
         assertFalse(cesto.podeDividirEmPares());
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
