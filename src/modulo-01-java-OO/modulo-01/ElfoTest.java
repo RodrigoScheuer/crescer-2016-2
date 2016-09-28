@@ -197,6 +197,25 @@ public class ElfoTest
         assertEquals(100, balin.getVida());
         assertEquals(100, gloin.getVida());
     }
+    
+    @Test
+    public void toStringElfo(){
+        Elfo elfo = new Elfo("Legolas");
+        elfo.toString();
+        assertEquals("Legolas possui 42 flecha(s) e 0 níveis de experiência.", elfo.toString());
+    }
+    
+    @Test
+    public void elfoNasceComNomeEQuantidadeFlechas() {
+        // Arrange
+        int quantidadeFlechas = 15;
+        // Act
+        Elfo elfoDoTeste = new Elfo("Rodrigo", quantidadeFlechas);
+        // Assert
+        assertEquals("Rodrigo", elfoDoTeste.getNome());
+        assertEquals(quantidadeFlechas, elfoDoTeste.getFlecha().getQuantidade());
+    }
+    
 }
 
 
