@@ -9,12 +9,11 @@ public class CestoDeLembas
    }
    
    public boolean podeDividirEmPares(){
-          if(quantidade > 2 && quantidade % 2 == 0)
-             return true;
-       return false;
+       return quantidade > 2 && quantidade % 2 == 0;
     }
     
     public int getQuantidade(){
         return quantidade;
     }
+    
 }
