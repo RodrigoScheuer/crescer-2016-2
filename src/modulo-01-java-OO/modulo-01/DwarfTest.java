@@ -6,9 +6,10 @@ import org.junit.Test;
 public class DwarfTest
 {
     @Test
-    public void dwarfNasceCom110Vida() {
+    public void dwarfNasceVivo() {
         Dwarf gimli = new Dwarf();
         assertEquals(110, gimli.getVida());
+        assertEquals(Status.VIVO, gimli.getStatus());
     }
 
     @Test
@@ -27,7 +28,25 @@ public class DwarfTest
     }
 
     @Test
-    public void dwarfPerdeVidaVinteVezes() {
+    public void dwarfPerdeTodaVida() {
+        Dwarf gimli = new Dwarf();
+        gimli.perderVida();
+        gimli.perderVida();
+        gimli.perderVida();
+        gimli.perderVida();
+        gimli.perderVida();
+        gimli.perderVida();
+        gimli.perderVida();
+        gimli.perderVida();
+        gimli.perderVida();
+        gimli.perderVida();
+        gimli.perderVida();
+        assertEquals(0, gimli.getVida());
+        assertEquals(Status.MORTO, gimli.getStatus());
+    }
+    
+    @Test
+    public void dwarfPerde120Vida() {
         Dwarf gimli = new Dwarf();
         gimli.perderVida();
         gimli.perderVida();
@@ -41,15 +60,8 @@ public class DwarfTest
         gimli.perderVida();
         gimli.perderVida();
         gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        assertEquals(-90, gimli.getVida());
+        assertEquals(0, gimli.getVida());
+        assertEquals(Status.MORTO, gimli.getStatus());
     }
 
     @Test
