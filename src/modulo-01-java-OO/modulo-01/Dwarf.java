@@ -8,12 +8,7 @@ public class Dwarf {
     {
         vida = 110;
     }
-    
-    public Dwarf(){
-        this.nome = "dwarf";
-        this.dataNascimento = new DataTerceiraEra(1,1,1);
-    }
-    
+        
     public Dwarf(String nome, DataTerceiraEra data){
         this.nome = nome;
         this.dataNascimento = data;
@@ -21,11 +16,6 @@ public class Dwarf {
 
     public Dwarf() {
         this(null, new DataTerceiraEra(1,1,1));
-    }
-
-    public Dwarf(String nome, DataTerceiraEra dataNascimento) {
-        this.nome = nome;
-        this.dataNascimento = dataNascimento;
     }
 
     public void perderVida() {
