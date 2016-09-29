@@ -1,4 +1,5 @@
-public class Elfo {
+public class Elfo{
+
     private String nome;
     private Item arco;
     private Item flecha;
@@ -13,6 +14,12 @@ public class Elfo {
         this.nome = nome;
         arco = new Item("Arco", 1);
         flecha = new Item("Flechas", quantidadeFlechas >= 0 ? quantidadeFlechas : 42);
+    }
+    
+        public Elfo(String n, int quantidadeFlechas) {
+        nome = n;
+        arco = new Item("Arco", 1);
+        flecha = new Item("Flechas", quantidadeFlechas);
     }
 
     public void setNome(String n) {
@@ -42,6 +49,10 @@ public class Elfo {
             experiencia++;
             dwarf.perderVida();
         }
+    }
+    
+    public String toString(){
+        return nome + " possui " + flecha.getQuantidade() + " flecha(s) e " + getExperiencia() + " níveis de experiência."; 
     }
 
     public String toString() {
