@@ -1,9 +1,8 @@
 public class Dwarf {
-    private String nome;
-    private int vida;
-    private int experiencia;
+    private int vida, experiencia;
     private DataTerceiraEra dataNascimento;
-    
+    private String nome;
+
     // java type initializer
     // vai ser replicado para cada construtor
     {
@@ -20,38 +19,54 @@ public class Dwarf {
         this.dataNascimento = data;
     }
 
+    public Dwarf() {
+        this(null, new DataTerceiraEra(1,1,1));
+    }
+
+    public Dwarf(String nome, DataTerceiraEra dataNascimento) {
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+    }
+
     public void perderVida() {
-        if(getNumeroSorte() < 0)
-            experiencia += 2;
-            
-        if(getNumeroSorte() > 100)
-            this.vida -= 10;
+        double numero = this.getNumeroSorte();
+        if (numero < 0) {
+            this.experiencia += 2;
+        }
+        if (numero > 100) {
+            vida -= 10;
+        }
     }
 
     public int getVida() {
         return vida;
     }
-    
-    public String getNome(){
+
+    public int getExperiencia() {
+        return experiencia;
+    }
+
+    public String getNome() {
         return this.nome;
     }
-    
-    public DataTerceiraEra getDataNascimento(){
+
+    public DataTerceiraEra getDataNascimento() {
         return this.dataNascimento;
     }
-    
-    public double getNumeroSorte(){
-        if(dataNascimento.ehBissexto(dataNascimento.getAno()) == true && getVida() >= 80 && getVida() <= 90)
-            return -33 * 101;
-        
-        if(dataNascimento.ehBissexto(dataNascimento.getAno()) == false && getNome() == "Seixas" || getNome() == "Meireles")
-            return (101.0 * 33) % 100;
-            
-        return 101.0;
-    }
-    
-    public int getExperiencia(){
-        return this.experiencia;
+
+    public double getNumeroSorte() {
+        double resultado = 101.;
+        boolean ehBissexto = dataNascimento.ehBissexto();
+
+        if (ehBissexto && this.vida >= 80 && this.vida <= 90) {
+            resultado *= -33.0;
+        }
+        //if (!dataNascimento.ehBissexto() && this.nome != null && (this.nome.equals("Seixas") || this.nome.equals("Meireles"))) {
+        if (!ehBissexto && ("Seixas".equals(this.nome) || "Meireles".equals(this.nome))) {
+            resultado = resultado * 33 % 100;
+        }
+
+        return resultado;
     }
 }
 

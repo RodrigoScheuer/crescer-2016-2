@@ -1,52 +1,47 @@
-
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-
-public class DataTerceiraEraTest{
-
+public class DataTerceiraEraTest
+{
     @Test
-    public void iniciaDataTerceiraEra(){        
-        DataTerceiraEra data = new DataTerceiraEra(30,12,1992);
-        
-        assertEquals(30, data.getDia());
-        assertEquals(12, data.getMes());
-        assertEquals(1992, data.getAno());
-    }
-
-    @Test
-    public void DataTerceiraEraFimDaGuerraDoAnel(){        
+    public void criarAno3019QueNaoEhBissexto() {
+        // Arrange
         DataTerceiraEra data = new DataTerceiraEra(1, 10, 3019);
-        
-        assertEquals(1, data.getDia());
-        assertEquals(10, data.getMes());
-        assertEquals(3019, data.getAno());
+        // Act
+        boolean obtido = data.ehBissexto();
+        // Assert
+        assertFalse(obtido);
     }
     
     @Test
-    public void DataTerceiraEraEhBissexto(){        
-        DataTerceiraEra data = new DataTerceiraEra(25,12,2016);
-        assertEquals(true, data.ehBissexto(2016));
+    public void criarAno2000QueEhBissexto() {
+        // Arrange
+        DataTerceiraEra data = new DataTerceiraEra(1, 1, 2000);
+        // Act
+        boolean obtido = data.ehBissexto();
+        // Assert
+        assertTrue(obtido);
     }
     
     @Test
-    public void DataTerceiraEraNaoEhBissexto(){        
-        DataTerceiraEra data = new DataTerceiraEra(25,10,2010);
-        assertEquals(false, data.ehBissexto(2010));
+    public void criarAno1900NaoEhBissexto() {
+        assertFalse(new DataTerceiraEra(1,1,1900).ehBissexto());
     }
     
     @Test
-    public void DataTerceiraEraNaoEhBissextoAntesDeMil(){        
-        DataTerceiraEra data = new DataTerceiraEra(25,10,300);
-        assertEquals(false, data.ehBissexto(300));
+    public void criarAno2012QueEhBissexto() {
+        assertTrue(new DataTerceiraEra(04, 05, 2012).ehBissexto());
     }
-   
+    
     @Test
-    public void DataTerceiraEraEhBissextoAntesDeMil(){        
-        DataTerceiraEra data = new DataTerceiraEra(25,10,400);
-        assertEquals(true, data.ehBissexto(400));
+    public void criarAno2200QueNaoEhBissexto() {
+        assertFalse(new DataTerceiraEra(04, 05, 2200).ehBissexto());
+    }
+    
+    @Test
+    public void criarAno2015QueNaoEhBissexto() {
+        assertFalse(new DataTerceiraEra(04, 05, 2015).ehBissexto());
     }
 }

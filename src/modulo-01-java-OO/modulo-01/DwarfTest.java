@@ -51,86 +51,95 @@ public class DwarfTest
         gimli.perderVida();
         assertEquals(-90, gimli.getVida());
     }
-    
-     @Test
-    public void dwarfNasceComNomeEDataNascimento() {
-        DataTerceiraEra data = new DataTerceiraEra(30,12,1992);
-        Dwarf gimli = new Dwarf("Rodrigo", data);
-        assertEquals("Rodrigo", gimli.getNome());
-        assertEquals(data, gimli.getDataNascimento());
+
+    @Test
+    public void dwarfCriadoInformandoNomeENascimento() {
+        Dwarf gimli = new Dwarf("Gimli", new DataTerceiraEra(12, 11, 1900));
+        assertEquals("Gimli", gimli.getNome());
+        assertEquals(12, gimli.getDataNascimento().getDia());
+        assertEquals(11, gimli.getDataNascimento().getMes());
+        assertEquals(1900, gimli.getDataNascimento().getAno());
     }
-    
-     @Test
-    public void dwarfNasce() {
+
+    @Test
+    public void dwarfCriadoSemInformarNomeENascimento() {
         Dwarf gimli = new Dwarf();
-        assertEquals(110, gimli.getVida());
-        assertEquals("dwarf", gimli.getNome());
+        assertNull(gimli.getNome());
         assertEquals(1, gimli.getDataNascimento().getDia());
         assertEquals(1, gimli.getDataNascimento().getMes());
         assertEquals(1, gimli.getDataNascimento().getAno());
     }
-    
+
     @Test
-    public void dwarfGetNumeroSorteAnoEhBissexto() {
-        double Epsilon = 0.001;
-        DataTerceiraEra data = new DataTerceiraEra(30,12,2012);
-        Dwarf gimli = new Dwarf("Rodrigo", data);
-        gimli.perderVida();
-        gimli.perderVida();
-        assertEquals(-3333.0, gimli.getNumeroSorte(),Epsilon); // não sei se esta correto, calculadora exibe valor diferente
+    public void gerarNumeroAnoBissextoVidaEntre80e90() {
+        // Arrange
+        Dwarf bernardin = new Dwarf("Bernardin", new DataTerceiraEra(01, 01, 2016));
+        bernardin.perderVida();
+        bernardin.perderVida();
+        bernardin.perderVida();
+        // Act
+        double resultado = bernardin.getNumeroSorte();
+        // Assert
+        assertEquals(-3333.0, resultado, .0);
     }
-    
+
     @Test
-    public void dwarfGetNumeroSorteAnoNaoEhBissexto() {
-        double Epsilon = 0.001;
-        DataTerceiraEra data = new DataTerceiraEra(30,12,2013);
-        Dwarf gimli = new Dwarf("Seixas", data);
-        gimli.perderVida();
-        gimli.perderVida();
-        assertEquals(33, gimli.getNumeroSorte(),Epsilon);
+    public void gerarNumeroAnoNaoBissextoNomeSeixas() {
+        // Arrange
+        Dwarf seixas = new Dwarf("Seixas", new DataTerceiraEra(01, 01, 2015));
+        // Act
+        double resultado = seixas.getNumeroSorte();
+        // Assert
+        assertEquals(33.0, resultado, .0);
     }
-    
+
     @Test
-    public void dwarfSemSorte() {
-        double Epsilon = 0.001;
-        DataTerceiraEra data = new DataTerceiraEra(30,12,2013);
-        Dwarf gimli = new Dwarf("Rodrigo", data);
-        assertEquals(101, gimli.getNumeroSorte(), Epsilon);
+    public void gerarNumeroAnoNaoBissextoNomeMeireles() {
+        // Arrange
+        Dwarf seixas = new Dwarf("Meireles", new DataTerceiraEra(01, 01, 2015));
+        // Act
+        double resultado = seixas.getNumeroSorte();
+        // Assert
+        assertEquals(33.0, resultado, .0);
     }
-    
+
     @Test
-    public void DwarfNaoLevaFlechada(){
-                                        // ano nao é bissexto
-        DataTerceiraEra data = new DataTerceiraEra(30,12,2013);
-        Dwarf gimli = new Dwarf("Seixas", data);
-        gimli.perderVida();
-        assertEquals(110, gimli.getVida());
-        assertEquals(0, gimli.getExperiencia());
+    public void gerarNumeroSemEntrarNasCondicoes() {
+        // Arrange
+        Dwarf balin = new Dwarf("Balin", new DataTerceiraEra(1, 1, 2015));
+        // Act
+        double resultado = balin.getNumeroSorte();
+        // Assert
+        assertEquals(101.0, resultado, .0);
     }
-    
+
     @Test
-    public void DwarfLevaFlechada(){
-                                        // ano não é bissexto
-        DataTerceiraEra data = new DataTerceiraEra(30,12,2013);
-        Dwarf gimli = new Dwarf("Rodrigo", data);
-        gimli.perderVida();
-        assertEquals(100, gimli.getVida());
-        assertEquals(0, gimli.getExperiencia());
+    public void dwarfPerderVidaComNumeroSorteNegativo() {
+        // Arrange
+        Dwarf dwarf = new Dwarf("Gimli", new DataTerceiraEra(1,1,2000));
+        dwarf.perderVida();
+        dwarf.perderVida();
+        // Act
+        dwarf.perderVida();
+        // Assert
+        assertEquals(2, dwarf.getExperiencia());
+        assertEquals(90, dwarf.getVida(), .0);   
     }
-    
-     @Test
-    public void DwarfNaoLevaFlechadaEGanhaExperiencia(){
-                                        // ano não é bissexto
-        DataTerceiraEra data = new DataTerceiraEra(30,12,2012);
-        Dwarf gimli = new Dwarf("Rodrigo", data);
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        assertEquals(90, gimli.getVida());
-        assertEquals(2, gimli.getExperiencia());
+
+    @Test
+    public void dwarfPerderVidaComAnoNaoBissextoMeirelesNaoPerde() {
+        Dwarf meireles = new Dwarf("Meireles", new DataTerceiraEra(2, 3, 2015));
+        meireles.perderVida();
+        assertEquals(0, meireles.getExperiencia());
+        assertEquals(110, meireles.getVida(), .0);
     }
-        
+
+    @Test
+    public void dwarfPerderVidaNormal(){
+        Dwarf dwarf = new Dwarf("André Nunin", new DataTerceiraEra(2, 3, 2015));
+        dwarf.perderVida();
+        assertEquals(100, dwarf.getVida(), .0);
+        assertEquals(0, dwarf.getExperiencia());
+    }
 }
-
-
 
