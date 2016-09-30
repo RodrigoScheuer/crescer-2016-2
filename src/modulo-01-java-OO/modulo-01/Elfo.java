@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Elfo{
 
     private String nome;
@@ -5,6 +7,7 @@ public class Elfo{
     private Item flecha;
     private int experiencia;
     private Status status;
+    private Inventario itens = new Inventario();
     
     public Elfo(String n) {
         // Chamando construtor debaixo
@@ -16,6 +19,8 @@ public class Elfo{
         arco = new Item("Arco", 1);
         flecha = new Item("Flechas", quantidadeFlechas >= 0 ? quantidadeFlechas : 42);
         status = Status.VIVO;
+        itens.adicionarItem(arco);
+        itens.adicionarItem(flecha);
     }
 
     public void setNome(String n) {
@@ -65,6 +70,10 @@ public class Elfo{
     
     public Status getStatus(){
         return this.status;
+    }
+    
+    public ArrayList<Item> getItens(){
+        return this.itens.getItens(); 
     }
 
     /*public void atirarFlechaRefactory() {

@@ -296,7 +296,31 @@ public class ElfoTest
         Elfo elfo = new Elfo("Legolas");
         assertEquals(Status.VIVO, elfo.getStatus());
     }
+    
+    @Test
+    public void ElfoNasceComInventarioComArcoEFlechas(){
+        Elfo elfo = new Elfo("Legolas");
+        assertEquals(true, elfo.getItens().contains(elfo.getArco()));
+        assertEquals(true, elfo.getItens().contains(elfo.getFlecha()));
+    }
+    
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
