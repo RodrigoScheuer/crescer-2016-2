@@ -153,5 +153,52 @@ public class DwarfTest
         assertEquals(100, dwarf.getVida(), .0);
         assertEquals(0, dwarf.getExperiencia());
     }
+    
+    @Test
+    public void dwarfGanhaItem(){
+        Dwarf dwarf = new Dwarf();
+        Item item01 = new Item("Espada",1);
+        dwarf.GanharItem(item01);
+        assertEquals(1, dwarf.getItens().size());
+    }
+    
+    @Test
+    public void dwarfPerdeItem(){
+        Dwarf dwarf = new Dwarf();
+        Item item01 = new Item("Espada",1);
+        dwarf.GanharItem(item01);
+        dwarf.PerderItem(item01);
+        assertEquals(0, dwarf.getItens().size());
+    }
+    
+    @Test
+    public void dwarfTentaSorteEGanhaMaisMilItens(){
+        // Arrange
+        Dwarf bernardin = new Dwarf("Bernardin", new DataTerceiraEra(01, 01, 2016));
+        Item item01 = new Item("poção",2);
+        bernardin.perderVida();
+        bernardin.perderVida();
+        bernardin.perderVida();
+        // Act
+        bernardin.GanharItem(item01);
+        bernardin.tentarSorte();
+        // Assert
+        assertEquals(1002, bernardin.getItens().get(0).getQuantidade());
+    }
+    
+    @Test
+    public void dwarfTentaSorteEPerde(){
+        // Arrange
+        Dwarf bernardin = new Dwarf("Bernardin", new DataTerceiraEra(01, 01, 2017));
+        Item item01 = new Item("poção",2);
+        bernardin.perderVida();
+        bernardin.perderVida();
+        bernardin.perderVida();
+        // Act
+        bernardin.GanharItem(item01);
+        bernardin.tentarSorte();
+        // Assert
+        assertEquals(2, bernardin.getItens().get(0).getQuantidade());
+    }
 }
 

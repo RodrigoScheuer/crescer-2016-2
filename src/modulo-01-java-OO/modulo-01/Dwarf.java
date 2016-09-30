@@ -1,8 +1,11 @@
+import java.util.ArrayList;
+
 public class Dwarf {
     private int vida, experiencia;
     private DataTerceiraEra dataNascimento;
     private String nome;
     private Status status;
+    private Inventario itens = new Inventario();
 
     // java type initializer
     // vai ser replicado para cada construtor
@@ -68,6 +71,26 @@ public class Dwarf {
         }
 
         return resultado;
+    }
+    
+    public void GanharItem(Item item){
+             itens.adicionarItem(item);
+    }
+    
+    public void PerderItem(Item item){
+        itens.removerItem(item);
+    }
+    
+    public ArrayList<Item> getItens(){
+        return this.itens.getItens(); 
+    }
+    
+    public void tentarSorte(){
+        if(getNumeroSorte() == -3333.0){
+            for(int i = 0; i < itens.getItens().size(); i++){
+                itens.getItens().get(i).setQuantidade(itens.getItens().get(i).getQuantidade() + 1000);
+            }
+        }
     }
 }
 
