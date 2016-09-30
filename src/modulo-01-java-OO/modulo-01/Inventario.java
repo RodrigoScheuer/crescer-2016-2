@@ -9,18 +9,29 @@ public class Inventario{
     }
     
     public void adicionarItem(Item item){
-        /*for(int i = 0; i < itens.length; i++){
-            if(itens[i] == null){
-                itens[i].add(item);
-            } 
-        }*/
+             itens.add(item);
     }
     
     public void removerItem(Item item){
-        /*for(int i = 0; i < itens.length; i++){
-            if(itens[i].equals(item)){
-                itens[i].remove(item);
-            } 
-        }*/
+        itens.remove(item);
     }
+    
+    public String getDescricoesItens(){
+        String s = " ";
+        for(int i = 0; i < itens.size(); i++){
+            s += this.getItens().get(i).getDescricao() +", "; 
+        }
+        return s;
+    }
+    
+    public Item getItemMaiorQuantidade(){
+        Item itemMaior = itens.get(0);
+        for(int i = 1; i < itens.size(); i++){
+            if(getItens().get(i).getQuantidade() > itemMaior.getQuantidade()){
+                itemMaior = getItens().get(i);
+            }
+        }
+        return itemMaior;
+    }
+    
 }
