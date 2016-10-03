@@ -19,7 +19,7 @@ public class Dwarf {
         this.dataNascimento = data;
     }
 
-    public Dwarf() {
+    public Dwarf() { // recebe ainda o java type initializer
         this(null, new DataTerceiraEra(1,1,1));
     }
 
@@ -87,10 +87,11 @@ public class Dwarf {
     
     public void tentarSorte(){
         if(getNumeroSorte() == -3333.0){
+            Item itemAtual;
             for(int i = 0; i < itens.getItens().size(); i++){
-                itens.getItens().get(i).setQuantidade(itens.getItens().get(i).getQuantidade() + 1000);
+                itemAtual = itens.getItens().get(i); 
+                itemAtual.setQuantidade(itemAtual.getQuantidade() + 1000);
             }
         }
     }
 }
-

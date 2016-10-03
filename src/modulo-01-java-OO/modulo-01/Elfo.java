@@ -61,7 +61,6 @@ public class Elfo{
         return String.format("%s possui %d %s e %d %s de experiência.",
             this.nome,
             this.flecha.getQuantidade(),
-            // ?:
             flechaNoSingular ? "flecha" : "flechas",
             this.experiencia,
             experienciaNoSingular ? "nível" : "níveis"
@@ -75,10 +74,5 @@ public class Elfo{
     public ArrayList<Item> getItens(){
         return this.itens.getItens(); 
     }
-
-    /*public void atirarFlechaRefactory() {
-    experiencia++;
-    flecha.setQuantidade(flecha.getQuantidade()-1);
-    }*/
 }
 
