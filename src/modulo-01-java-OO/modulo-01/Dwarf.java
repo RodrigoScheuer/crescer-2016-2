@@ -1,21 +1,17 @@
 import java.util.ArrayList;
 
-public class Dwarf {
-    private int vida, experiencia;
-    private DataTerceiraEra dataNascimento;
-    private String nome;
-    private Status status;
-    private Inventario itens = new Inventario();
+public class Dwarf extends Personagem{
+    protected int vida, experiencia;
+    protected DataTerceiraEra dataNascimento;
 
     // java type initializer
     // vai ser replicado para cada construtor
     {
         vida = 110;
-        this.status = Status.VIVO;
     }
 
     public Dwarf(String nome, DataTerceiraEra data){
-        this.nome = nome;
+        super(nome);
         this.dataNascimento = data;
     }
 
@@ -24,7 +20,7 @@ public class Dwarf {
     }
 
     public void perderVida() {
-        if(status == Status.VIVO){
+        if(getStatus() == Status.VIVO){
             double numero = this.getNumeroSorte();
             if (numero < 0) {
                 this.experiencia += 2;
@@ -32,7 +28,7 @@ public class Dwarf {
             if (numero > 100) {
                 vida -= 10;
                 if(vida == 0){
-                    status = Status.MORTO;
+                    setStatus(Status.MORTO);
                 }
             }
         }
@@ -44,14 +40,6 @@ public class Dwarf {
 
     public int getExperiencia() {
         return experiencia;
-    }
-
-    public String getNome() {
-        return this.nome;
-    }
-    
-    public Status getStatus(){
-        return status;
     }
 
     public DataTerceiraEra getDataNascimento() {
@@ -71,18 +59,6 @@ public class Dwarf {
         }
 
         return resultado;
-    }
-    
-    public void GanharItem(Item item){
-             itens.adicionarItem(item);
-    }
-    
-    public void PerderItem(Item item){
-        itens.removerItem(item);
-    }
-    
-    public ArrayList<Item> getItens(){
-        return this.itens.getItens(); 
     }
     
     public void tentarSorte(){

@@ -158,7 +158,7 @@ public class DwarfTest
     public void dwarfGanhaItem(){
         Dwarf dwarf = new Dwarf();
         Item item01 = new Item("Espada",1);
-        dwarf.GanharItem(item01);
+        dwarf.adicionarItem(item01);
         assertEquals(1, dwarf.getItens().size());
     }
     
@@ -166,8 +166,8 @@ public class DwarfTest
     public void dwarfPerdeItem(){
         Dwarf dwarf = new Dwarf();
         Item item01 = new Item("Espada",1);
-        dwarf.GanharItem(item01);
-        dwarf.PerderItem(item01);
+        dwarf.adicionarItem(item01);
+        dwarf.perderItem(item01);
         assertEquals(0, dwarf.getItens().size());
     }
     
@@ -180,7 +180,7 @@ public class DwarfTest
         bernardin.perderVida();
         bernardin.perderVida();
         // Act
-        bernardin.GanharItem(item01);
+        bernardin.adicionarItem(item01);
         bernardin.tentarSorte();
         // Assert
         assertEquals(1002, bernardin.getItens().get(0).getQuantidade());
@@ -195,7 +195,7 @@ public class DwarfTest
         bernardin.perderVida();
         bernardin.perderVida();
         // Act
-        bernardin.GanharItem(item01);
+        bernardin.adicionarItem(item01);
         bernardin.tentarSorte();
         // Assert
         assertEquals(2, bernardin.getItens().get(0).getQuantidade());
