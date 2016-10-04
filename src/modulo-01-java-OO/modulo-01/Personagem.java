@@ -3,12 +3,15 @@ import java.util.ArrayList;
 public class Personagem
 {
     protected String nome;
-    private Status status;
+    protected Status status;
     protected Inventario itens;
+    protected int experiencia;
+    protected int vida;
     
     public Personagem(String nome){
         this.nome = nome;
         this.status = Status.VIVO;
+        this.itens = new Inventario();
     }
     
     public void setNome(String n) {
@@ -20,7 +23,7 @@ public class Personagem
     }
     
     public void adicionarItem(Item item){
-             itens.adicionarItem(item);
+        itens.adicionarItem(item);
     }
     
     public void perderItem(Item item){
@@ -38,4 +41,13 @@ public class Personagem
     public void setStatus(Status status){
         this.status = status;
     }
+    
+    public int getExperiencia() {
+        return experiencia;
+    }
+    
+        public int getVida() {
+        return this.vida;
+    }
+
 }

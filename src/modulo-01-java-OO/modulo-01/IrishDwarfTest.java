@@ -220,7 +220,7 @@ public class IrishDwarfTest
         dwarf.perderVida();
         dwarf.perderVida();
         dwarf.tentarSorte();
-        assertEquals(14995, dwarf.getItens().get(0).getQuantidade());
+        assertEquals(15005, dwarf.getItens().get(0).getQuantidade());
     }
     
 }

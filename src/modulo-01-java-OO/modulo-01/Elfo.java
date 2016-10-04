@@ -1,8 +1,7 @@
 import java.util.ArrayList;
 
 public class Elfo extends Personagem{
-    private int experiencia;
-    
+
     public Elfo(String n) {
         // Chamando construtor debaixo
         this(n, 42);
@@ -10,18 +9,15 @@ public class Elfo extends Personagem{
     
     public Elfo(String nome, int quantidadeFlechas) {
         super(nome);
+        this.vida = 100;
         Item arco = new Item("Arco", 1);
         Item flecha = new Item("Flechas", quantidadeFlechas >= 0 ? quantidadeFlechas : 42);
-        itens.adicionarItem(arco);
-        itens.adicionarItem(flecha);
+        this.itens.adicionarItem(arco);
+        this.itens.adicionarItem(flecha);
     }
 
     public Item getArco() {
         return itens.getItens().get(0);
-    }
-
-    public int getExperiencia() {
-        return experiencia;
     }
 
     public Item getFlecha() {
@@ -51,8 +47,5 @@ public class Elfo extends Personagem{
             experienciaNoSingular ? "nível" : "níveis"
         );
     }
-    
-    
-    
 }
 

@@ -12,23 +12,11 @@ public class IrishDwarf extends Dwarf{
 
     public void tentarSorte(){
         if(getNumeroSorte() == -3333.0){
-            Item itemAtual;
-            int total = 0, soma = 0, quantidade = 0;
-                // faz para todos os itens do inventario
-            for(int i = 0; i < itens.getItens().size(); i++){
-                itemAtual = itens.getItens().get(i);
-                quantidade = itemAtual.getQuantidade();
-                if(quantidade < 0){
-                    quantidade = quantidade * -1;   // transforma numero negativo em positivo
-                }
-                while(soma < quantidade){
-                    soma += 1;
-                    total += soma * 1000;   // dwarf mt sortudo
-                }
-                    // set quantidade ganha mais quantidade q tinha no inventario
-                itemAtual.setQuantidade(total + itemAtual.getQuantidade());
-            }
+           for(int i = 0; i < this.itens.getItens().size() ; i++){ 
+                this.itens.getItens().get(i).aumentaQuantidadeItens();
+           }
         }
     }
+    
 }
 

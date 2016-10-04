@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 public class Dwarf extends Personagem{
-    protected int vida, experiencia;
     protected DataTerceiraEra dataNascimento;
 
     // java type initializer
@@ -34,16 +33,16 @@ public class Dwarf extends Personagem{
         }
     }
 
-    public int getVida() {
-        return vida;
-    }
-
-    public int getExperiencia() {
-        return experiencia;
-    }
-
     public DataTerceiraEra getDataNascimento() {
         return this.dataNascimento;
+    }
+    
+    public void adicionarItem(Item item) {
+        this.itens.adicionarItem(item);
+    }
+    
+    public void perderItem(Item item) {
+        this.itens.removerItem(item);
     }
 
     public double getNumeroSorte() {
