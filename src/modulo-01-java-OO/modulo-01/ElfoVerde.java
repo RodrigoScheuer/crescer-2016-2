@@ -4,6 +4,10 @@ public class ElfoVerde extends Elfo {
     public ElfoVerde(String nome){
         super(nome);
     }
+    
+    public ElfoVerde(String nome, int quantidade){
+        super(nome, quantidade);
+    }
 
     public void atirarFlecha(Dwarf dwarf){
         super.atirarFlecha(dwarf);
