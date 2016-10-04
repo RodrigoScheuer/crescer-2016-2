@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Personagem
+public abstract class Personagem
 {
     protected String nome;
     protected Status status;
