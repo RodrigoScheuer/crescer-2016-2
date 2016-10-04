@@ -34,58 +34,31 @@ public class Inventario{
         return itemMaior;
     }
 
-    public void ordenarItens(){         // *talvez da pra otimizar
-        Item itemAtual, proximoItem;
-        boolean achou = true; // começa true pra entrar no metodo
-        while(achou == true){
-            achou = false;
-            for(int i = 0; i < itens.size(); i++){
-                itemAtual = getItens().get(i);
-                for(int j = 1; j < itens.size(); j++){
-                    proximoItem = getItens().get(j);
-                    if(i < j){ // para não fazer troca errada
-                        if(itemAtual.getQuantidade() > proximoItem.getQuantidade()){
-                            getItens().set(j, itemAtual);
-                            getItens().set(i, proximoItem);
-                            achou = true;
-                            break; // sai do for
-                        }
-                    }
-                }
-                if(achou == true){
-                    break;  // sai do segundo for
-                }
-            }
-        }
+    public void ordenarItens() {
+        ordenarItens(TipoOrdenacao.ASCENDENTE);
     }
 
-    public void ordenarItens(TipoOrdenacao tipo){
-        if(tipo == TipoOrdenacao.ASCENDENTE){
-            ordenarItens();
-        }else{
-            Item itemAtual, proximoItem;
-            boolean achou = true; // começa true pra entrar no metodo
-            while(achou == true){
-                achou = false;
-                for(int i = 0; i < itens.size(); i++){
-                    itemAtual = getItens().get(i);
-                    for(int j = 1; j < itens.size(); j++){
-                        proximoItem = getItens().get(j);
-                        if(i < j){ // para não fazer troca errada
-                            if(itemAtual.getQuantidade() < proximoItem.getQuantidade()){
-                                getItens().set(j, itemAtual);
-                                getItens().set(i, proximoItem);
-                                achou = true;
-                                break; // sai do for
-                            }
-                        }
-                    }
-                    if(achou == true){
-                        break;  // sai do segundo for
-                    }
+    public void ordenarItens(TipoOrdenacao tipoOrdenacao) {
+        // Versão mais estável do Bubblesort - Melhor caso O(n), Pior caso O(n^2)
+        // homenagem ao do-while: para forçar entrada na lógica
+        boolean posicoesSendoTrocadas;
+        boolean ascendente = tipoOrdenacao == TipoOrdenacao.ASCENDENTE;
+        do {
+            posicoesSendoTrocadas = false;
+            for (int j = 0; j < this.itens.size() - 1; j++) {
+                Item itemAtual = this.itens.get(j);
+                Item proximo = this.itens.get(j + 1);
+
+                boolean precisaTrocar = 
+                    ascendente ? itemAtual.getQuantidade() > proximo.getQuantidade() : itemAtual.getQuantidade() < proximo.getQuantidade();
+
+                if (precisaTrocar) {
+                    this.itens.set(j, proximo);
+                    this.itens.set(j + 1, itemAtual);
+                    posicoesSendoTrocadas = true;
                 }
             }
-        }
+        } while (posicoesSendoTrocadas);
 
     }
 }
