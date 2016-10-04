@@ -31,4 +31,14 @@ public class Item{
         // set quantidade ganha mais quantidade q tinha no inventario
         setQuantidade(total + this.quantidade);
     }
+    
+    @Override
+    public boolean equals(Object obj){
+        Item outro = (Item)obj;
+        return this.descricao.equals(outro.getDescricao()) &&
+               this.quantidade == outro.quantidade;
+    }
+    
+    
+    
 }
