@@ -3,8 +3,10 @@ public class ElfoNoturno extends Elfo{
 
     /* Atualmente os Elfos Noturnos podem morrer atirando flechas? Justifique.
     não, pois nao possui nem um metodo que altere o status do elfo.*/
-
-                        // recebe qtdFlechas para poder testar
+    public ElfoNoturno(String nome) {
+        super(nome);
+    }
+    
     public ElfoNoturno(String nome, int quantidadeFlechas){
         super(nome, quantidadeFlechas);
         this.vida = super.vida;

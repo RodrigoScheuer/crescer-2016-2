@@ -10,10 +10,7 @@ public class Elfo extends Personagem{
     public Elfo(String nome, int quantidadeFlechas) {
         super(nome);
         this.vida = 100;
-        Item arco = new Item("Arco", 1);
-        Item flecha = new Item("Flechas", quantidadeFlechas >= 0 ? quantidadeFlechas : 42);
-        this.itens.adicionarItem(arco);
-        this.itens.adicionarItem(flecha);
+        this.inicializarInventario(quantidadeFlechas);
     }
 
     public Item getArco() {
@@ -46,6 +43,11 @@ public class Elfo extends Personagem{
             this.experiencia,
             experienciaNoSingular ? "nível" : "níveis"
         );
+    }
+    
+    protected void inicializarInventario(int quantidadeFlechas) {
+        this.itens.adicionarItem(new Item("Arco", 1));
+        this.itens.adicionarItem(new Item("Flechas", quantidadeFlechas >= 0 ? quantidadeFlechas : 42));
     }
 }
 
