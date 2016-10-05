@@ -7,13 +7,6 @@ import org.junit.Test;
 public class ExercitoDeElfosTest{
 
     @Test
-    public void CriaExercito(){
-        ExercitoDeElfos exercito = new ExercitoDeElfos();
-
-        assertEquals(5, exercito.getSoldados().size());
-    }
-
-    @Test
     public void AlistaElfoVerde(){
         ExercitoDeElfos exercito = new ExercitoDeElfos();
         ElfoVerde elfo = new ElfoVerde("Andre");
@@ -40,12 +33,16 @@ public class ExercitoDeElfosTest{
     @Test
     public void BuscarPorStatusVivo(){
         ExercitoDeElfos exercito = new ExercitoDeElfos();
-        assertEquals(5, (exercito.buscar(Status.VIVO)).size());
+        ElfoNoturno elfo = new ElfoNoturno("Rodrigo",2);
+        exercito.alistarElfo(elfo);
+        assertEquals(1, (exercito.buscar(Status.VIVO)).size());
     }
 
     @Test
     public void BuscarPorStatusMorto(){
         ExercitoDeElfos exercito = new ExercitoDeElfos();
+        ElfoNoturno elfo = new ElfoNoturno("Rodrigo",90);
+        exercito.alistarElfo(elfo);
         for(int i = 0; i < 90; i++){
             exercito.buscarPeloNome("Rodrigo").atirarFlecha(new Dwarf());
         }

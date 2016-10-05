@@ -5,16 +5,7 @@ public class ExercitoDeElfos
     ArrayList<Elfo> exercito = new ArrayList<>();
     
     public ExercitoDeElfos(){
-        Elfo elfo01 = new ElfoVerde("Legolas");
-        Elfo elfo02 = new ElfoNoturno("Rodrigo",100);
-        Elfo elfo03 = new ElfoVerde("Rambo");
-        Elfo elfo04 = new ElfoNoturno("Hitman",5);
-        Elfo elfo05 = new ElfoVerde("Legolas");
-        exercito.add(elfo01);
-        exercito.add(elfo02);
-        exercito.add(elfo03);
-        exercito.add(elfo04);
-        exercito.add(elfo05);
+        new ArrayList<>();
     }
 
     public void alistarElfo(Elfo elfo){
@@ -24,11 +15,9 @@ public class ExercitoDeElfos
     }
 
     public Elfo buscarPeloNome(String nome){
-        if(exercito != null){
-            for(int i = 0; i < exercito.size(); i++){
-                if(exercito.get(i).getNome().equals(nome)){
-                    return exercito.get(i);
-                }
+        for(Elfo elfo : exercito){
+            if(nome.equals(elfo.getNome())){
+                return elfo;
             }
         }
         return null;
@@ -36,14 +25,14 @@ public class ExercitoDeElfos
 
     public ArrayList<Elfo> buscar(Status status){
         ArrayList<Elfo> elfos = new ArrayList<>();
-        for(int i = 0; i < exercito.size(); i++){
-            if(exercito.get(i).getStatus() == status){
-                elfos.add(exercito.get(i));
+        for(Elfo elfo : exercito){
+            if(elfo.getStatus() == status){
+                elfos.add(elfo);
             }
         }
         return elfos;
     }
-    
+
     public ArrayList<Elfo> getSoldados(){
         return this.exercito; 
     }
