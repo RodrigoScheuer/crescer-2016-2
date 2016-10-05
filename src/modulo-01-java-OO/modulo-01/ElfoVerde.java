@@ -16,13 +16,14 @@ public class ElfoVerde extends Elfo {
     
     @Override
     protected void inicializarInventario(int quantidadeFlechas) {
-        this.adicionarItem(new Item("Arco de Vidro", 1));
-        this.adicionarItem(new Item("Flecha de Vidro", quantidadeFlechas >= 0 ? quantidadeFlechas : 42));
+        adicionarItem(new Item("Arco de Vidro", 1));
+        adicionarItem(new Item("Flecha de Vidro", quantidadeFlechas >= 0 ? quantidadeFlechas : 42));
     }
 
     public void adicionarItem(Item item){
         if(item.getDescricao() == "Espada de aço valiriano" || 
-        item.getDescricao() == "Arco e Flecha de Vidro"){
+        item.getDescricao() == "Arco de Vidro" ||
+        item.getDescricao() == "Flecha de Vidro"){
             this.itens.adicionarItem(item);
         }
     }

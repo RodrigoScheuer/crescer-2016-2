@@ -38,11 +38,11 @@ public class ElfoVerdeTest
     public void AdicionarItemCorreto(){
         ElfoVerde elfo = new ElfoVerde("Lidiane");
         Item item01 = new Item("Espada de aço valiriano", 1);
-        Item item02 = new Item("Arco e Flecha de Vidro", 1);
+        Item item02 = new Item("Arco de Vidro", 1);
         elfo.adicionarItem(item01);
         elfo.adicionarItem(item02);
-        assertEquals("Espada de aço valiriano", elfo.getItens().get(0).getDescricao());
-        assertEquals("Arco e Flecha de Vidro", elfo.getItens().get(1).getDescricao());
+        assertEquals("Espada de aço valiriano", elfo.getItens().get(2).getDescricao());
+        assertEquals("Arco de Vidro", elfo.getItens().get(3).getDescricao());
     }
 
     @Test
@@ -52,8 +52,8 @@ public class ElfoVerdeTest
         Item item02 = new Item("Arco Madeira", 1);
         elfo.adicionarItem(item01);
         elfo.adicionarItem(item02);
-        assertEquals("Espada de aço valiriano", elfo.getItens().get(0).getDescricao());
-        assertEquals(1, elfo.getItens().size()); // tem dois do construtor Elfo.
+        assertEquals("Espada de aço valiriano", elfo.getItens().get(2).getDescricao());
+        assertEquals(3, elfo.getItens().size()); // tem dois do construtor Elfo.
     }
     
 }
