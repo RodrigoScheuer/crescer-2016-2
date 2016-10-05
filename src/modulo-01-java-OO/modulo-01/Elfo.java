@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 
 public class Elfo extends Personagem{
+    
+    private static int contador = 0;
 
     public Elfo(String n) {
         // Chamando construtor debaixo
@@ -9,6 +11,7 @@ public class Elfo extends Personagem{
     
     public Elfo(String nome, int quantidadeFlechas) {
         super(nome);
+        this.contador ++;
         this.vida = 100;
         this.inicializarInventario(quantidadeFlechas);
     }
@@ -48,6 +51,15 @@ public class Elfo extends Personagem{
     protected void inicializarInventario(int quantidadeFlechas) {
         this.itens.adicionarItem(new Item("Arco", 1));
         this.itens.adicionarItem(new Item("Flechas", quantidadeFlechas >= 0 ? quantidadeFlechas : 42));
+    }
+    
+    public static int getContador(){
+        return contador;
+    }
+    
+    protected void finalize() throws Throwable{
+        super.finalize();
+        Elfo.contador--;
     }
 }
 

@@ -5,6 +5,12 @@ import org.junit.Test;
 
 public class ElfoTest
 {
+    @After
+    // executa após cada cenário de testes.
+    public void tearDown(){
+        System.gc();
+    }
+    
     @Test
     public void elfoNasceComNome() {
         // Arrange
@@ -304,7 +310,26 @@ public class ElfoTest
         assertEquals(true, elfo.getItens().contains(elfo.getFlecha()));
     }
     
+    @Test
+    public void ContadorElfosAumenta1() {
+        Elfo elfoDoTeste = new Elfo("Legolas");
+        assertEquals(1, elfoDoTeste.getContador());
+    }
     
+    @Test
+    public void ContadorElfosAumenta10() {
+        Elfo elfoDoTeste1 = new Elfo("Legolas");
+        Elfo elfoDoTeste2 = new Elfo("Legolas");
+        Elfo elfoDoTeste3 = new Elfo("Legolas");
+        Elfo elfoDoTeste4 = new Elfo("Legolas");
+        Elfo elfoDoTeste5 = new Elfo("Legolas");
+        Elfo elfoDoTeste6 = new Elfo("Legolas");
+        Elfo elfoDoTeste7 = new Elfo("Legolas");
+        Elfo elfoDoTeste8 = new Elfo("Legolas");
+        Elfo elfoDoTeste9 = new Elfo("Legolas");
+        Elfo elfoDoTeste10 = new Elfo("Legolas");
+        assertEquals(10, elfoDoTeste10.getContador());
+    }
     
 }
 

@@ -5,6 +5,12 @@ import org.junit.Test;
 
 public class ElfoVerdeTest
 {
+        @After
+    // executa após cada cenário de testes.
+    public void tearDown(){
+        System.gc();
+    }
+    
     @Test
     public void testaExperiencia(){
         ElfoVerde elfo = new ElfoVerde("Lidiane");
