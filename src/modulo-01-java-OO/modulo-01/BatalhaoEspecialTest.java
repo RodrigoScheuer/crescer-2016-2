@@ -10,7 +10,7 @@ public class BatalhaoEspecialTest{
     @Test
     public void alistarElfo(){
         BatalhaoEspecial POE = new BatalhaoEspecial();
-        Elfo elfo = new Elfo("Legolas");
+        Elfo elfo = new ElfoVerde("Legolas");
         POE.alistar(elfo);
         Elfo[] elfos = new Elfo[5];
         elfos = POE.getContingente();
@@ -21,11 +21,11 @@ public class BatalhaoEspecialTest{
     @Test
     public void alistar5Elfo(){
         BatalhaoEspecial POE = new BatalhaoEspecial();
-        POE.alistar(new Elfo("Legolas1"));
-        POE.alistar(new Elfo("Legolas2"));
-        POE.alistar(new Elfo("Legolas3"));
-        POE.alistar(new Elfo("Legolas4"));
-        POE.alistar(new Elfo("Legolas5"));
+        POE.alistar(new ElfoVerde("Legolas1"));
+        POE.alistar(new ElfoNoturno("Legolas2"));
+        POE.alistar(new ElfoVerde("Legolas3"));
+        POE.alistar(new ElfoNoturno("Legolas4"));
+        POE.alistar(new ElfoVerde("Legolas5"));
         Elfo[] elfos = new Elfo[5];
         elfos = POE.getContingente();
         assertEquals("Legolas1", elfos[0].getNome());
@@ -41,7 +41,7 @@ public class BatalhaoEspecialTest{
     @Test
     public void BuscarPeloNome(){
         BatalhaoEspecial POE = new BatalhaoEspecial();
-        Elfo elfo = new Elfo("Legolas");
+        Elfo elfo = new ElfoVerde("Legolas");
         POE.alistar(elfo);
         Elfo[] elfos = new Elfo[5];
         elfos = POE.getContingente();
@@ -50,9 +50,20 @@ public class BatalhaoEspecialTest{
     }
     
     @Test
+    public void BuscarPeloNomeDuplicado(){
+        BatalhaoEspecial POE = new BatalhaoEspecial();
+        Elfo elfo = new ElfoVerde("Legolas");
+        Elfo elfo2 = new ElfoVerde("Legolas");
+        POE.alistar(elfo);
+        POE.alistar(elfo2);
+        // elfo2 substitui elfo pq tem a chave igual
+        assertEquals(elfo, POE.buscarPeloNome("Legolas"));
+    }    
+    
+    @Test
     public void BuscarPeloNomeInvalido(){
         BatalhaoEspecial POE = new BatalhaoEspecial();
-        Elfo elfo = new Elfo("Pedro");
+        Elfo elfo = new ElfoVerde("Pedro");
         POE.alistar(elfo);
         Elfo[] elfos = new Elfo[5];
         elfos = POE.getContingente();
@@ -63,7 +74,7 @@ public class BatalhaoEspecialTest{
     @Test
     public void BuscarPeloStatusVIVO(){
         BatalhaoEspecial POE = new BatalhaoEspecial();
-        Elfo elfo = new Elfo("Legolas");
+        Elfo elfo = new ElfoVerde("Legolas");
         POE.alistar(elfo);
         ArrayList<Elfo> elfosVivos = POE.buscar(Status.VIVO);
         assertEquals(1, elfosVivos.size());

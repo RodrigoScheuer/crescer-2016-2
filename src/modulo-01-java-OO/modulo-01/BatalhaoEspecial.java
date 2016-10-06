@@ -8,35 +8,25 @@ public class BatalhaoEspecial{
     }
 
     public Elfo[] getContingente(){
-        Elfo[] elfos = new Elfo[contingente.size()];
-        if(contingente.isEmpty()){
-            return null;
-        }else{
-            int i = 0;
-            for(String key : contingente.keySet()){
-                elfos[i] = contingente.get(key);
-                i++;
-            }
-            return elfos;   
-        }
+        return contingente.values().toArray(new Elfo[contingente.size()]);
     }
 
     public void alistar(Elfo elfo){
-        contingente.put(elfo.getNome(), elfo);
+        if(elfo instanceof ElfoVerde || elfo instanceof ElfoNoturno){
+            contingente.put(elfo.getNome(), elfo);
+        }
     }
 
     public Elfo buscarPeloNome(String nome){
-        if(contingente.containsKey(nome)){
-            return contingente.get(nome);
-        }
-        return null;
+        return contingente.get(nome);
     }
 
     public ArrayList<Elfo> buscar(Status status){
         ArrayList<Elfo> elfos = new ArrayList<Elfo>();
-        for(String key : contingente.keySet()){
-            if(contingente.get(key).getStatus() == status){
-                elfos.add(contingente.get(key));
+        // percorre map pelos valores contidos nele.
+        for(Elfo elfo : contingente.values()){
+            if(elfo.getStatus() == status){
+                elfos.add(elfo);
             }
         }
         return elfos;
