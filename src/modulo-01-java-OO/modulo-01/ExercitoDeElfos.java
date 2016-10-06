@@ -33,7 +33,7 @@ public class ExercitoDeElfos
         return elfos;
     }
 
-    public ArrayList<Elfo> getSoldados(){
-        return this.exercito; 
+    public Elfo[] getContingente(){
+        return exercito.toArray(new Elfo[exercito.size()]); 
     }
 }
