@@ -1,20 +1,19 @@
 import java.util.ArrayList;
 
-public class ExercitoDeElfos
-{
-    ArrayList<Elfo> exercito = new ArrayList<>();
-    
+public class ExercitoDeElfos implements Exercito {
+    ArrayList<Elfo> exercito;
+
     public ExercitoDeElfos(){
-        new ArrayList<>();
+        exercito = new ArrayList<>();
     }
 
-    public void alistarElfo(Elfo elfo){
+    public void alistar(Elfo elfo){
         if(elfo instanceof ElfoVerde || elfo instanceof ElfoNoturno){
             exercito.add(elfo);
         }
     }
 
-    public Elfo buscarPeloNome(String nome){
+    public Elfo buscar(String nome){
         for(Elfo elfo : exercito){
             if(nome.equals(elfo.getNome())){
                 return elfo;
@@ -35,5 +34,8 @@ public class ExercitoDeElfos
 
     public Elfo[] getContingente(){
         return exercito.toArray(new Elfo[exercito.size()]); 
+    }
+
+    public void atacar(){
     }
 }
