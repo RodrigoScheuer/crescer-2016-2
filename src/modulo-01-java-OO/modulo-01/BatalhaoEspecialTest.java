@@ -46,7 +46,7 @@ public class BatalhaoEspecialTest{
         Elfo[] elfos = new Elfo[5];
         elfos = POE.getContingente();
         assertEquals(1, elfos.length);
-        assertEquals(elfos[0], POE.buscarPeloNome("Legolas"));
+        assertEquals(elfos[0], POE.buscar("Legolas"));
     }
     
     @Test
@@ -57,7 +57,7 @@ public class BatalhaoEspecialTest{
         POE.alistar(elfo);
         POE.alistar(elfo2);
         // elfo2 substitui elfo pq tem a chave igual
-        assertEquals(elfo, POE.buscarPeloNome("Legolas"));
+        assertEquals(elfo, POE.buscar("Legolas"));
     }    
     
     @Test
@@ -68,7 +68,7 @@ public class BatalhaoEspecialTest{
         Elfo[] elfos = new Elfo[5];
         elfos = POE.getContingente();
         assertEquals(1, elfos.length);
-        assertEquals(null, POE.buscarPeloNome("Legolas"));
+        assertEquals(null, POE.buscar("Legolas"));
     }
     
     @Test
