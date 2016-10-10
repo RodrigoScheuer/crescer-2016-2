@@ -29,34 +29,28 @@ public class Estrategias implements ContratoDeEstrategias{
             }
         }
 
-        try{
-            if(contadorElfoVerde == contadorElfoNoturno) {
-                List<Elfo> alternados = new ArrayList<>();
-                List<Elfo> ordenados = getOrdemDeAtaque(atacantes);
-                boolean elfoVerdePrimeiro;
-                int inicio = 0;
-                int fim = atacantes.size() - 1;
-                
-                for(int i = 0; i < ordenados.size(); i++){
-                    if(i % 2 == 0){
-                        alternados.add(ordenados.get(inicio));
-                        inicio++;
-                    }else{
-                        alternados.add(ordenados.get(fim));
-                        fim --;
-                    }
+        List<Elfo> alternados = new ArrayList<>();
+        if(contadorElfoVerde == contadorElfoNoturno) {
+            List<Elfo> ordenados = getOrdemDeAtaque(atacantes);
+            boolean elfoVerdePrimeiro;
+            int inicio = 0;
+            int fim = atacantes.size() - 1;
+
+            for(int i = 0; i < ordenados.size(); i++){
+                if(i % 2 == 0){
+                    alternados.add(ordenados.get(inicio));
+                    inicio++;
+                }else{
+                    alternados.add(ordenados.get(fim));
+                    fim --;
                 }
-                return alternados;
-            }else{
-                throw new ContingenteDesproporcionalException("Contingente Desproporcional!");
             }
-            
-        }catch(ContingenteDesproporcionalException ce){
-            System.out.println(ce.getMessage());
-            return null;
+        }else{
+            throw new ContingenteDesproporcionalException("Contingente Desproporcional!");
         }
+        return alternados;
     }
-    
+
     public List<Elfo> little(List<Elfo> atacantes){
         List<Elfo> aptos = new ArrayList<>();
         for(Elfo elfo : atacantes){
@@ -64,7 +58,7 @@ public class Estrategias implements ContratoDeEstrategias{
                 aptos.add(elfo);
             }
         }
-        
+
         double qtd = aptos.size() * 0.3;
         int qtdNoturnos = (int) qtd;
         List<Elfo> efetivo = new ArrayList<>();

@@ -52,7 +52,7 @@ public class EstrategiasTest
         assertTrue(lista2.get(5) instanceof ElfoNoturno);
     }
     
-    @Test
+    @Test(expected=ContingenteDesproporcionalException.class)
     public void ataqueAlternadoFalhando() throws ContingenteDesproporcionalException {
         List<Elfo> lista = new ArrayList<>();
         List<Elfo> lista2 = new ArrayList<>();
@@ -64,8 +64,7 @@ public class EstrategiasTest
         Elfo elfo05 = new ElfoVerde("Legolas4");
         Elfo elfo06 = new ElfoNoturno("Legolas5");
         lista.addAll(Arrays.asList(elfo01, elfo02, elfo03, elfo04, elfo05, elfo06));
-        //lista2.addAll(estrategia.ataqueIntercalado(lista));
-        assertEquals(null , estrategia.ataqueIntercalado(lista));
+        lista2.addAll(estrategia.ataqueIntercalado(lista));
     }
     
     @Test
