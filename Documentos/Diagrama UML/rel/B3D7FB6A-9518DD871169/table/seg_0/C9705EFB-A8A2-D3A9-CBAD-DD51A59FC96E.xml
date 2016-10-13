@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C9705EFB-A8A2-D3A9-CBAD-DD51A59FC96E" name="Projeto_Empregado">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 16:56:37 UTC</createdTime>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<ordsAlias>relation_2</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDEmpregadoProjeto" id="E87AD635-F838-E112-8E58-DDF9CB4F6495">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 17:06:00 UTC</createdTime>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDProjeto" id="EDEAB53E-B06A-1B9A-6366-FC7BF12E4ED6">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 16:56:37 UTC</createdTime>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>28</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F1EF42EB-F0EF-5837-4C5A-152931B8E333" referredColumn="3A9037E8-3D7D-74E5-F9D3-B5BDF60CA55C"/>
+</associations>
+</Column>
+<Column name="IDEmpregado" id="898D9739-B922-446E-EBAF-CC1E57D5EB2F">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 16:56:37 UTC</createdTime>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>28</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="81DABCC9-70C9-D804-B8F2-FF3A86246357" referredColumn="70222441-17B2-F142-FD40-B52CEC384290"/>
+</associations>
+</Column>
+<Column name="Percentual_Participacao" id="30A56AD5-4BB0-4CF7-422D-66D88EC96DB2">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 17:43:01 UTC</createdTime>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,3,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="096F86DD-A000-FC5D-84F0-4B1836BCED2D" name="Projeto_Empregado_PK">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 16:56:37 UTC</createdTime>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E87AD635-F838-E112-8E58-DDF9CB4F6495"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FF7E1091-02B3-E370-812A-C42B3172F0C4" name="UK_ProjetoEmpregado">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 17:06:42 UTC</createdTime>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EDEAB53E-B06A-1B9A-6366-FC7BF12E4ED6"/>
+<colUsage columnID="898D9739-B922-446E-EBAF-CC1E57D5EB2F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7A6D70AD-8C6A-1238-29C5-470846445D43" name="FK_EmpregadoProjeto_Projeto">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 16:56:37 UTC</createdTime>
+<generatorID>4CC876EC-657D-ED25-02C6-79BD254A6DDA</generatorID>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EDEAB53E-B06A-1B9A-6366-FC7BF12E4ED6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A6D4868F-CC2F-ED74-2096-C285E3E9B8BC" name="FK_EmpregadoPojeto_Empregado">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 16:56:37 UTC</createdTime>
+<generatorID>4CC876EC-657D-ED25-02C6-79BD254A6DDA</generatorID>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="898D9739-B922-446E-EBAF-CC1E57D5EB2F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

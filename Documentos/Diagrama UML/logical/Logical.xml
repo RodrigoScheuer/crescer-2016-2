@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="6FDA1E2E-2781-D229-E155-E3E2AEB4075C" mainViewID="FEF2F7E2-054D-3E64-C5DE-0C156BC811DE">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 16:39:21 UTC</createdTime>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

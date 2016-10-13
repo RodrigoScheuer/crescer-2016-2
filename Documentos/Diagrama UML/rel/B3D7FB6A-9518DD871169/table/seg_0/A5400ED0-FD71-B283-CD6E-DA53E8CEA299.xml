@@ -1,0 +1,151 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A5400ED0-FD71-B283-CD6E-DA53E8CEA299" name="Projeto">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 16:56:37 UTC</createdTime>
+<generatorID>EB0DFB8C-3554-8525-F857-6F8742A1608D</generatorID>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDProjeto" id="3A9037E8-3D7D-74E5-F9D3-B5BDF60CA55C">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 16:56:37 UTC</createdTime>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>28</dataTypePrecision>
+<ownDataTypeParameters>,28,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+<Column name="Nome" id="9F964267-0EFD-5F29-65B0-7BE4239FE954">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 17:07:14 UTC</createdTime>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDEmpregadoResponsavel" id="24A54816-BB02-1A57-BA01-AB7B5D76BE44">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 17:24:54 UTC</createdTime>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>28</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0FBECF2F-BF81-2715-FDEA-629994524C36" referredColumn="70222441-17B2-F142-FD40-B52CEC384290"/>
+</associations>
+</Column>
+<Column name="DataInicio" id="9121ACEA-C968-0EBE-B003-C28B891FF22A">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 17:26:39 UTC</createdTime>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataFimPrevisto" id="BB89D6D0-C4A1-591F-EC6B-8754B76E4766">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 17:26:58 UTC</createdTime>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataFimReal" id="8C01CB01-523C-2463-11DE-45ECFADD9515">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 17:27:34 UTC</createdTime>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Situacao" id="95446511-6398-35CE-C910-43E50B289F8C">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 17:27:34 UTC</createdTime>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ValorPrevisto" id="345CCED7-E784-25D5-F205-716BC3ABDFDA">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 17:37:52 UTC</createdTime>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ValorRealizado" id="FEAB28C5-B0AF-552C-55A3-A860ED90FDA8">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 17:39:02 UTC</createdTime>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ValorFaturado" id="2ECCF689-ED02-CCB5-3CF9-5B293C9CF8EA">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 17:39:02 UTC</createdTime>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3B7D6509-FD40-AC2D-1B1D-5884655916AF" name="Projeto_PK">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 16:56:37 UTC</createdTime>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="3A9037E8-3D7D-74E5-F9D3-B5BDF60CA55C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5F882628-341A-5CD9-15CA-084D9F600ECC" name="FK_Projeto_Empregado">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 17:24:54 UTC</createdTime>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="24A54816-BB02-1A57-BA01-AB7B5D76BE44"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

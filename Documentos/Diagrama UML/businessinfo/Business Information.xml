@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="2D05625A-117C-5DA9-CB05-CEAFA09994BB">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-13 16:39:21 UTC</createdTime>
+<ownerDesignName>Diagrama UML</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</BusinessInfoDesign>
