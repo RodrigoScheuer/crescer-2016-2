@@ -186,51 +186,15 @@ select IDCidade from Cidade where nome = 'Uberlândia';
 
 select IDCidade, nome from Cidade where UF = 'RS';
 
+select nomeEmpregado, salario, isnull(comissao, 0) comissao,
+ salario + isnull(comissao, 0) salario_mes
+from Empregado;
 
-------------------------   tarefa2	--------------------------------------------------------------
+----------------------------------------
 
-create table Responsavel(
-	IDResponsavel int IDENTITY,
-	Nome		varchar(50)	not null,
-	constraint PK_IDResponsavel primary key(IDResponsavel),
-);
+select NomeEmpregado from Empregado 
+where convert(char(10), DataAdmissao, 103) between '01/05/1980' and '20/01/1982';
 
-create table Datas(
-	IDDatasProjeto		int identity,
-	DataInicio			datetime not null,
-	DataFimPrevisto		datetime not null,
-	DataFimReal			datetime not null,
-	constraint PK_IDDatasProjeto primary key(IDDatasProjeto)
-);
-
-create table Valores(
-	IDValores int IDENTITY,
-	ValorPrevisto       decimal(18,2),
-	ValorRealizado      decimal(18,2),
-	ValorFaturado       decimal(18,2),
-	constraint PK_IDValores primary key(IDValores),
-);
-
-create table Empregado(
-	IDEmpregado int IDENTITY,
-	Nome		varchar(50)	not null,
-	ParticipacaoPerc    decimal(3,2),
-	constraint PK_IDEmpregado primary key(IDEmpregado)
-);
-
-create table Projeto(
-	IDProjeto			int identity,
-	NomeProjeto			varchar(100),
-	IDResponsavel		int not null,
-	IDDatasProjeto		int not null,
-	IDValores			int not null,
-	IDEmpregado			int not null,
-	constraint PK_IDProjeto primary key(IDProjeto),
-	constraint FK_Projeto_IDResponsavel foreign key(IDResponsavel) references Responsavel(IDResponsavel),
-	constraint FK_Projeto_IDDatasProjeto foreign key(IDDatasProjeto) references Datas(IDDatasProjeto),
-	constraint FK_Projeto_IDValores foreign key(IDValores) references Valores(IDValores),
-	constraint FK_Projeto_IDEmpregado foreign key(IDEmpregado) references Empregado(IDEmpregado),
-);
--------------------------------------------------------------------------------------------------------------
-
+select  datediff(DAY, convert(char(10), DataAdmissao, 103), '31/12/2000') as meses_Trabalhados 
+from Empregado;
 
