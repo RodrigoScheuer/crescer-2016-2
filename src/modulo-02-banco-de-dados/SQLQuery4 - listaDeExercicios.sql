@@ -104,9 +104,8 @@ RollBack
 
 ------------------------------------------------ verificação dados
 
-select p.situacao from PedidoItem pei
-inner join Produto p on p.IDProduto = pei.IDProduto
-inner join ProdutoMaterial pm on pm.IDProduto = pei.IDProduto
+select p.situacao from Produto p
+inner join ProdutoMaterial pm on pm.IDProduto = p.IDProduto
 where (pm.IDMaterial = 14650 or pm.IDMaterial = 15703 or pm.IDMaterial = 15836 or
 pm.IDMaterial = 16003 or pm.IDMaterial = 16604 or pm.IDMaterial = 17226);
 
