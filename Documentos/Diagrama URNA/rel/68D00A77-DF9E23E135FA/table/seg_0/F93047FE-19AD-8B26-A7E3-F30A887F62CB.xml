@@ -1,0 +1,112 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F93047FE-19AD-8B26-A7E3-F30A887F62CB" name="Eleitor">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:50:49 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<ordsAlias>table_2</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDEleitor" id="823C0DFF-98AC-C26E-32B6-64389C1B6CAC">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:54:07 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="88B976C0-C141-29B7-CC65-C74290378908">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:54:07 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tituloEleitoral" id="71562E14-9DCB-92AD-8144-90381EEDCF8C">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:54:07 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>14</dataTypeSize>
+<ownDataTypeParameters>14,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RG" id="2412416F-5395-9D07-6FD0-2BF5DDF829DF">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:54:07 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataNascimento" id="3399234E-0AC5-CDA6-4A80-2807D3D31C3B">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:54:07 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Zona" id="E3B5C24E-DF1D-5D13-D9FA-961A72C5B876">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:54:07 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>3</dataTypeSize>
+<ownDataTypeParameters>3,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Secao" id="4C1620C6-8706-0263-F74E-418FA0A8C6E0">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:54:07 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4</dataTypeSize>
+<ownDataTypeParameters>4,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SituacaoVotacao" id="9B836EA5-91E1-BFEB-B4B9-772B6E65EBE9">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 19:04:24 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A72C8BE5-EDA0-9877-4A0B-127DE68442A4" name="Eleitor_PK">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:54:07 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="823C0DFF-98AC-C26E-32B6-64389C1B6CAC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

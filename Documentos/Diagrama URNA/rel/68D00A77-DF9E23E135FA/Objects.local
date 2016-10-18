@@ -1,0 +1,5 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="Table" objectID="431441FC-6495-495A-BC97-6AE16932202C" name="Candidato" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.relational.Table" propertyParentId="68D00A77-0516-3D01-927D-DF9E23E135FA" propertySourceId="" propertyTargetId=""/>
+   <object objectType="Table" objectID="F93047FE-19AD-8B26-A7E3-F30A887F62CB" name="Eleitor" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.relational.Table" propertyParentId="68D00A77-0516-3D01-927D-DF9E23E135FA" propertySourceId="" propertyTargetId=""/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

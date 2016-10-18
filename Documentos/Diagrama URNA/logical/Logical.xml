@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="CD032116-4D68-E0D7-FA64-0369925E6D2C" mainViewID="6023DAC7-B53A-101A-63EA-FB14FA181038">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:44:42 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

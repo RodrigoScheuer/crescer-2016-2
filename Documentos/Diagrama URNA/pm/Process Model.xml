@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="330CC126-F284-52C8-464A-BD14F6DE613C">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:44:43 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</ProcessModel>

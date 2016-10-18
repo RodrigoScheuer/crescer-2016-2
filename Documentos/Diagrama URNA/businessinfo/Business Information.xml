@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="E123A268-A341-7332-A782-A71AD9B3C009">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:44:43 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</BusinessInfoDesign>

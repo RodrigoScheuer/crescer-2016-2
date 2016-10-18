@@ -1,0 +1,164 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="431441FC-6495-495A-BC97-6AE16932202C" name="Candidato">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:45:03 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDCandidato" id="3A862E9C-FB38-BF66-8ECF-91F5611434D9">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:50:24 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NomeComleto" id="58676C66-43A7-D5D7-C61F-E6D526540FF5">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:50:24 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NomePopular" id="896B5D37-1381-B364-D386-91F3AD142326">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:50:24 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataNascimento" id="480F0367-636D-E791-4499-BB4A508683C6">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:50:24 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cidade" id="34DBFFD7-2B7C-0780-5C2E-95EBC2F95825">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:50:24 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UF" id="EAB9BC14-F4AE-854B-AC91-55C33C31AB99">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:50:24 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>3</dataTypeSize>
+<ownDataTypeParameters>3,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Registro" id="69BD1761-5C03-A439-0B30-F86B98D72BF8">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:50:24 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Partido" id="4229BDD1-348B-FBDB-4729-27630AEA58B4">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:50:24 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Foto" id="FB959A46-917E-C87F-CF02-764336157A96">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:50:24 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120</dataTypeSize>
+<ownDataTypeParameters>120,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NumeroCandidato" id="38C0E909-A3B3-25D9-6C38-3ACCDBAFBB8D">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:50:24 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cargo" id="1B642321-C0DF-AA11-55EF-616A3E456E8E">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:50:24 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="QtdVotosRecebidos" id="9C93AE9F-66CC-1A5A-47F1-8634C242DB8C">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 19:02:45 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D8A8DEAB-4E49-FFCB-AC1F-A7F05C746125" name="Candidato_PK">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 18:50:24 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3A862E9C-FB38-BF66-8ECF-91F5611434D9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5BB5F6EA-686E-77A6-5258-2730E583E658" name="UN_Candidato_NumeroCandidato">
+<createdBy>rodrigo.scheuer</createdBy>
+<createdTime>2016-10-18 19:23:28 UTC</createdTime>
+<ownerDesignName>Diagrama URNA</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="38C0E909-A3B3-25D9-6C38-3ACCDBAFBB8D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
