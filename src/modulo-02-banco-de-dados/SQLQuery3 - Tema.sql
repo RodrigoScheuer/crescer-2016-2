@@ -58,7 +58,7 @@ from Empregado e
 INNER JOIN Empregado g on e.IDGerente = g.IDEmpregado
 INNER JOIN Departamento d ON e.IDDepartamento = d.IDDepartamento
 INNER JOIN Departamento f on e.IDGerente = g.IDEmpregado and 
-		   g.IDDepartamento = f.IDDepartamento;
+		  g.IDDepartamento = f.IDDepartamento;
 
 -----------------------------------------------------------------
 
@@ -72,12 +72,22 @@ from copia_Empregado e
 inner join Departamento d on e.IDDepartamento = d.IDDepartamento
 where d.localizacao = 'Sao Paulo';
 
+-- OUTRA MANEIRA
+
+-- update copia_Empregado
+--	set Salario = salario * 1.145
+--	where exists(select 1 
+--				 from departamento 
+--				 where departamento.IDDepartamento = Empregado.IDDepartamento
+--				 and Departamento.localizacao = 'Sao Paulo' )
+
+
 -- usei somente para conferir resultado
 select Salario from copia_Empregado e
 inner join Departamento d on e.IDDepartamento = d.IDDepartamento
 where d.localizacao = 'Sao Paulo';
 
-select Salario from Empregado e
+select e.Salario, d.IDDepartamento from Empregado e
 inner join Departamento d on e.IDDepartamento = d.IDDepartamento
 where d.localizacao = 'Sao Paulo';
 ----------------------------------------------------------------
@@ -95,3 +105,5 @@ from Empregado e
 inner join Departamento d on e.IDDepartamento = d.IDDepartamento
 group by NomeDepartamento
 order by maior_salario desc;
+
+-- melhor trazer informaçoes com exists

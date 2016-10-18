@@ -3,8 +3,13 @@
 
 -- 01
 select count(*) as Total_Pedidos from Pedido
-where DataEntrega between CONVERT(datetime, '01/09/2016', 103) and 
-						  CONVERT(datetime, '30/09/2016', 103);
+where DataPedido between CONVERT(datetime, '01/09/2016', 103) and 
+						  CONVERT(datetime, '30/09/2016', 103) +.99999;
+
+-- sempre se preocupar com hr em datas
+-- .99999 pega a ultima hr e adiciona no dia 30
+-- sem ela pega somente a primeira hr do dia 30 
+-- e os pedidos do dia 30 nao aparecem no select
 
 -- 02
 select p.Nome from ProdutoMaterial pm
@@ -12,9 +17,14 @@ inner join Produto p on p.IDProduto = pm.IDProduto
 inner join Material m on m.IDMaterial = pm.IDMaterial
 where m.IDMaterial = '15836';
 
+-- select IDProdutoMaterial, IDProduto
+-- from ProdutoMaterial pm
+-- where pm.IDMaterial = '15836';
+
 -- 03
-select nome from Cliente
-where Nome like '%LTDA%' or RazaoSocial like '%LTDA%';
+select nome, RazaoSocial from Cliente
+where  Nome like '%LTDA%' or 
+	   RazaoSocial like '%LTDA%';
 
 -- 04
 insert into Produto
@@ -25,7 +35,7 @@ values
 select * from Produto where Nome = 'Galocha Maragato';
 
 -- 05
-select p.Nome 
+select p.IDProduto, p.Nome 
 from Produto p
 left join PedidoItem pe on pe.IDProduto = p.IDProduto
 where pe.IDProduto is null;
