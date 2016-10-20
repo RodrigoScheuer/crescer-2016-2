@@ -1,0 +1,75 @@
+
+body{
+    margin: 300px 250px 10px; 
+    background: url(http://cdn.ndtv.com/tech/gadgets/street-fighter-v-ryu-artwork.jpg) no-repeat center top;
+    font-family: Arial; 
+}
+
+.nav-bar{
+    margin: auto; 
+    margin-top: 50px; 
+    background-color: rgba(218, 214, 223, 0.4); 
+    border-radius: 10px; 
+    width: 500px; 
+    color: rgba(234, 255, 255, 1);
+    
+}
+
+.nav-bar td{
+    padding: 20px;
+    padding-left: 40px;
+    cursor: pointer;
+}
+
+.nav-bar a{
+    color: rgba(234, 255, 255, 1); 
+    text-decoration: none;
+}
+
+.cabecalho{
+    background-color: #333;
+}
+
+.cabecalho h2{
+    color: #ddd; 
+    margin-top: 20px; 
+    margin-bottom: 0px; 
+    padding: 20px;
+}
+
+.menu{
+    background-color: #ddd; 
+    padding: 10px;
+}
+
+h1{
+    margin-top: 20px; 
+    margin-bottom: 1px; 
+    padding-left: 2px;
+}
+
+.text-float-blanka{
+    margin-left: 10px; 
+    overflow: hidden; 
+    width: 560px; 
+    height:480px; 
+    float:right; 
+    text-align: left; 
+    line-height: 8px;
+}
+
+.text-float-perfil{
+    margin-left: 10px; 
+    overflow: hidden;
+    width: 530px; 
+    height:340px; 
+    float:right; 
+    text-align: left; 
+    line-height: 8px;
+}
+
+
+
+
+
+
