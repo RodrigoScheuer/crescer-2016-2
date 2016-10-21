@@ -48,24 +48,22 @@ h1{
     padding-left: 2px;
 }
 
-.text-float-blanka{
+.text-float{
     margin-left: 10px; 
     overflow: hidden; 
-    width: 560px; 
-    height:480px; 
     float:right; 
     text-align: left; 
     line-height: 8px;
 }
 
-.text-float-perfil{
-    margin-left: 10px; 
-    overflow: hidden;
+#blanka{
+    width: 560px; 
+    height:480px; 
+}
+
+#perfil{
     width: 530px; 
     height:340px; 
-    float:right; 
-    text-align: left; 
-    line-height: 8px;
 }
 
 
