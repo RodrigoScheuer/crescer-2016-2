@@ -44,10 +44,13 @@ header h1{
 
 nav {
     text-align: center;
-    word-spacing: 100px;
     border-radius: 5px;
     background-color: rgba(218, 214, 223, 0.4);
     padding: 15px;
+}
+
+nav span{
+    padding-left: 100px;
 }
 
 .whatever{
@@ -118,7 +121,7 @@ nav {
 }
 
 .treinadores-pokemon li:nth-child(3):hover{
-    content: url('http://webresizer.com/session/nJUhQ5Gtk7ipdcq2McmPeCX4jJrXrVeK/result.png?1477315204.2151');
+    content: url('http://cdn.bulbagarden.net/upload/thumb/2/21/Brock_DP_Anime_art.png/150px-Brock_DP_Anime_art.png');
 }
 
 footer{
@@ -145,3 +148,4 @@ h1 span:first-child{
 .digiescolhidos{
     display: none;
 }
+
