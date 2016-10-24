@@ -1,0 +1,147 @@
+
+body{
+    font-family: Arial;
+    background: url(http://4.bp.blogspot.com/-w_GprQ4SLoE/VQHySIpXH5I/AAAAAAAANQE/58anVPr_o7w/s1600/Pok%C3%A9mon%2B8.gif)
+    no-repeat center top;
+}
+
+header{
+    margin-top: 350px;
+}
+
+.logo{
+    margin-top: -405px;
+    position: absolute;
+    display: -webkit-inline-box;
+    width: 348px;
+    height: 255px;
+    background: url(http://pixelslogodesign.com/blog/wp-content/uploads/2016/07/post-pic-1.gif);
+}
+
+@font-face {
+    font-family: "My Custom Font";
+    src: url(http://www.example.org/mycustomfont.ttf) format("truetype");
+}
+
+header h1{
+    font-family: "My Custom Font";
+    margin-top: 50px;
+    margin-left: auto;
+    text-align: center;
+}
+
+.historia-pokemon h1:before{
+    content: "História "; 
+}
+
+.historia-pokemon p:nth-of-type(2){
+    margin-top: 35px; 
+}
+
+.historia-pokemon span{
+    font-weight: bold;
+}
+
+nav {
+    text-align: center;
+    word-spacing: 100px;
+    border-radius: 5px;
+    background-color: rgba(218, 214, 223, 0.4);
+    padding: 15px;
+}
+
+.whatever{
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background-repeat: no-repeat;
+    background-image: url(http://3.bp.blogspot.com/-2XVUBhCNWlo/U2rtZiJMRDI/AAAAAAAAFZA/AttDUeQaHOg/s1600/Pokemon+9.gif); 
+    top: 162px;
+    right: 5px;
+}
+
+.historia-pokemon{
+    border: solid;
+    border-color: silver;
+    margin: auto;
+    width: 480px;
+    height: 400px;
+    text-align: center;
+}
+
+.autenticacao{
+    margin-top: -140px;
+    margin-left: 100px;
+    border: none;
+    word-spacing: 30px;    
+    position: absolute;    
+}
+
+.personagens{
+    left: 10px;
+    top: 460px;
+    width: 160px;
+    height: 300px;
+    overflow: scroll;
+    position: absolute;
+}
+
+.personagens h2{
+    text-align: center;
+}
+
+.treinadores-pokemon h3{
+    text-align: center;
+}
+
+
+.treinadores-pokemon{
+    top: 460px;
+    right: 10px;
+    position: absolute;
+    width: 170px;
+    height: 400px;
+}
+
+.treinadores-pokemon li:hover{
+    position: absolute;
+    right: 200px;
+    top: 2px;
+}
+
+.treinadores-pokemon li:first-child:hover {
+   content: url('https://s-media-cache-ak0.pinimg.com/236x/bb/2e/20/bb2e20a576d581e82af02c803f1988c1.jpg');
+}
+
+.treinadores-pokemon li:nth-child(2):hover{
+    content: url('https://upload.wikimedia.org/wikipedia/pt/b/b1/MistyEP.png');
+}
+
+.treinadores-pokemon li:nth-child(3):hover{
+    content: url('http://webresizer.com/session/nJUhQ5Gtk7ipdcq2McmPeCX4jJrXrVeK/result.png?1477315204.2151');
+}
+
+footer{
+    margin: 20px;
+    text-align: center;
+}
+
+.historia-digimon{
+    display: none;
+}
+
+.personagens h2:nth-child(2){
+    display: none;
+}
+
+.personagens > ul:last-child {
+    display: none;
+}
+
+h1 span:first-child{
+    display: none;
+}
+
+.digiescolhidos{
+    display: none;
+}
