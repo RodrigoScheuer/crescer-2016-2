@@ -3,9 +3,10 @@ console.log(marvel);
 console.log("");
 
 class Herois {
+
   constructor(array){
       this.heroi = array;
-}
+  }
 
   foraGuerraCivil(){
     let pacificos = [];
