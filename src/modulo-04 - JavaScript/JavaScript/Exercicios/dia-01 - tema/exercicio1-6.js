@@ -9,9 +9,11 @@
 
     foraGuerraCivil(){
       let pacificos = [];
+      let cont = 0;
+      let eventos = [];
       for (let i = 0, len = this.heroi.length; i < len; i++) {
-        let eventos = this.heroi[i].events.items;
-        let cont = 0;
+        eventos = this.heroi[i].events.items;
+        cont = 0;
         for (let j = 0, len = eventos.length; j < len; j++) {
           if(eventos[j].name === 'Civil War'){
               cont++;
@@ -39,10 +41,11 @@
 
   mediaPaginas(){
     let media = 0;
+    let tamanhoQuadrinhos = 0;
     for (let i = 0, len = this.heroi.length; i < len; i++) {
-      let tamanhoQuadrinhos = this.heroi[i].comics.items.length;
+       tamanhoQuadrinhos = this.heroi[i].comics.items.length;
       for (let j = 0, len = tamanhoQuadrinhos ; j < len; j++) {
-        media += this.heroi[i].comics.items[j].pageCount;
+         media += this.heroi[i].comics.items[j].pageCount;
       }
     }
     return media/this.heroi.length;
@@ -51,8 +54,9 @@
   seriesPorLongevidade(){
     let arraySeries = [];
     let tempoDuracao = 0;
+    let tamanhoSeries = 0;
     for (let i = 0, len = this.heroi.length; i < len; i++) {
-      let tamanhoSeries = this.heroi[i].series.items.length;
+       tamanhoSeries = this.heroi[i].series.items.length;
       for (let j = 0, len = tamanhoSeries ; j < len; j++) {
         tempoDuracao = (this.heroi[i].series.items[j].endYear)  - (this.heroi[i].series.items[j].startYear);
         arraySeries.push(tempoDuracao);
@@ -60,6 +64,27 @@
       }
     }
     return arraySeries;
+  }
+
+  comicMaisCara(){
+    let maior = 0;
+    let soma = 0;
+    let tamanhoQuadrinhos = 0;
+    let tamanhoPrices = 0;
+    for (let i = 0, len = this.heroi.length; i < len; i++) {
+      tamanhoQuadrinhos = this.heroi[i].comics.items.length;
+      soma = 0;
+      for (let j = 0, len = tamanhoQuadrinhos; j < len; j++) {
+          tamanhoPrices = this.heroi[i].comics.items[j].prices.length;
+        for (let l = 0, len = tamanhoPrices; l < len; l++) {
+            soma += this.heroi[i].comics.items[j].prices[l].price;
+        }
+      }
+      if(soma > maior){
+        maior = soma;
+      }
+    }
+    return maior;
   }
 
 
@@ -78,3 +103,6 @@ console.log(personagem.mediaPaginas());
 console.log("");
 console.log("Series mais longas");
 console.log(personagem.seriesPorLongevidade());
+console.log("");
+console.log("Comic mais Cara");
+console.log(personagem.comicMaisCara());
