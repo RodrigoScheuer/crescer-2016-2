@@ -35,58 +35,26 @@
 
 
   maisPublicado(){
-    let personagem;
-    let maior = 0;
-    let heroi = this.heroi; // array marvel
-    for(let i of heroi){
-      if(i.comics.available > maior){
-        maior = i.comics.available;
-        personagem = i;
-      }
-    }
-    /*for (let i = 1, len = this.heroi.length; i < len; i++) {
-      if(this.heroi[i].comics.available > maior){
-         maior = this.heroi[i].comics.available;
-         personagem = this.heroi[i];
-      }
-    }*/
-    return personagem;
+    return this.heroi
+    .sort((heroi1, heroi2) => heroi2.comics.available - heroi1.comics.available)[0];
   }
 
   mediaPaginas(){
-    let media = 0;
-    //let tamanhoQuadrinhos = 0;
-    for (let i = 0, len = this.heroi.length; i < len; i++) {
-      media += this.heroi[i].comics.items.reduce((acumulador, items) => acumulador + items.pageCount, 0);
-       //tamanhoQuadrinhos = this.heroi[i].comics.items.length;
-      /*for (let j = 0, len = tamanhoQuadrinhos ; j < len; j++) {
-         media += this.heroi[i].comics.items[j].pageCount;
-      }*/
-    }
-    return media/this.heroi.length;
+    //pagecount
+    return this.heroi.reduce((acumulador, heroi) => acumulador +
+    heroi.comics.items.reduce((ac, comic) => ac + comic.pageCount,0),0) / this.heroi.length;
   }
 
   seriesPorLongevidade(){
-    let arraySeries = [];
-    let tempoDuracao = 0;
-    //let tamanhoSeries = 0;
-    let Series = [];
-    for (let i = 0, len = this.heroi.length; i < len; i++) {
-       Series = this.heroi[i].series.items;
-       for(let i of Series){
-         tempoDuracao = i.endYear - i.startYear;
-         arraySeries.push(tempoDuracao);
-       }
-       arraySeries.sort(function(a, b){return b-a});
+    let todasSeries = this.heroi
+    .map(heroi => heroi.series.items)
+    .reduce(
+    (ac, series) => ac.concat(series), []);
 
-      /* tamanhoSeries = this.heroi[i].series.items.length;
-      for (let j = 0, len = tamanhoSeries ; j < len; j++) {
-        tempoDuracao = (this.heroi[i].series.items[j].endYear) - (this.heroi[i].series.items[j].startYear);
-        arraySeries.push(tempoDuracao);
-        arraySeries.sort(function(a, b){return b-a});
-      }*/
-    }
-    return arraySeries;
+    let diff = serie => serie.endYear - serie.startYear;
+
+    return todasSeries
+    .sort((serie1, serie2) => diff(serie2) - diff(serie1));
   }
 
   comicMaisCara(){
