@@ -157,66 +157,63 @@ article{
 }
 
 h2, h3{
+    padding: 10px; 
+    font-size: 20px;
     margin: 1px;
     font-family: times;
     text-align: center;
     background-color: silver;
 }
 
-.personagens h2{
-    padding: 10px; 
-    font-size: 20px;
-}
-
-.personagens li:hover{
+.personagens li:hover:after{
     position: absolute;
     right: 20px;
     top: 100px;
 }
 
-.personagens li:first-child:hover{
-    content: url('http://cdn.bulbagarden.net/upload/thumb/2/21/001Bulbasaur.png/250px-001Bulbasaur.png');
+.personagens li:first-child:hover:after{
+   content: url('http://cdn.bulbagarden.net/upload/thumb/2/21/001Bulbasaur.png/250px-001Bulbasaur.png');
 }
-.personagens li:nth-child(2):hover{
+.personagens li:nth-child(2):hover:after{
     content: url('http://cdn.bulbagarden.net/upload/thumb/7/73/002Ivysaur.png/250px-002Ivysaur.png');
 }
-.personagens li:nth-child(3):hover{
+.personagens li:nth-child(3):hover:after{
     content: url('http://cdn.bulbagarden.net/upload/thumb/a/ae/003Venusaur.png/250px-003Venusaur.png');
 }
-.personagens li:nth-child(4):hover{
+.personagens li:nth-child(4):hover:after{
     content: url('http://cdn.bulbagarden.net/upload/thumb/7/73/004Charmander.png/250px-004Charmander.png');
 }
-.personagens li:nth-child(5):hover{
+.personagens li:nth-child(5):hover:after{
     content: url('http://cdn.bulbagarden.net/upload/thumb/4/4a/005Charmeleon.png/250px-005Charmeleon.png');
 }
-.personagens li:nth-child(6):hover{
+.personagens li:nth-child(6):hover:after{
     content: url('http://cdn.bulbagarden.net/upload/thumb/7/7e/006Charizard.png/250px-006Charizard.png');
 }
-.personagens li:nth-child(7):hover{
+.personagens li:nth-child(7):hover:after{
     content: url('http://cdn.bulbagarden.net/upload/thumb/3/39/007Squirtle.png/250px-007Squirtle.png');
 }
-.personagens li:nth-child(8):hover{
+.personagens li:nth-child(8):hover:after{
     content: url('http://cdn.bulbagarden.net/upload/thumb/0/0c/008Wartortle.png/250px-008Wartortle.png');
 }
-.personagens li:nth-child(9):hover{
+.personagens li:nth-child(9):hover:after{
     content: url('http://cdn.bulbagarden.net/upload/thumb/0/02/009Blastoise.png/250px-009Blastoise.png');
 }
-.personagens li:nth-child(10):hover{
+.personagens li:nth-child(10):hover:after{
     content: url('http://cdn.bulbagarden.net/upload/thumb/5/5d/010Caterpie.png/250px-010Caterpie.png');
 }
-.personagens li:nth-child(11):hover{
+.personagens li:nth-child(11):hover:after{
     content: url('http://cdn.bulbagarden.net/upload/thumb/c/cd/011Metapod.png/250px-011Metapod.png');
 }
-.personagens li:nth-child(12):hover{
+.personagens li:nth-child(12):hover:after{
     content: url('http://cdn.bulbagarden.net/upload/thumb/d/d1/012Butterfree.png/250px-012Butterfree.png');
 }
-.personagens li:nth-child(13):hover{
+.personagens li:nth-child(13):hover:after{
     content: url('http://cdn.bulbagarden.net/upload/thumb/d/df/013Weedle.png/250px-013Weedle.png');
 }
-.personagens li:nth-child(14):hover{
+.personagens li:nth-child(14):hover:after{
     content: url('http://cdn.bulbagarden.net/upload/thumb/f/f0/014Kakuna.png/250px-014Kakuna.png');
 }
-.personagens li:nth-child(15):hover{
+.personagens li:nth-child(15):hover:after{
     content: url('http://cdn.bulbagarden.net/upload/thumb/6/61/015Beedrill.png/250px-015Beedrill.png');
 }
 
@@ -227,49 +224,49 @@ h2, h3{
 .personagens::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); z-index: 1}
 .personagens::-webkit-scrollbar-thumb { border-radius:10px; background:#8b8778;  z-index: 1}
 
-.treinadores-pokemon li:hover{
+.treinadores-pokemon li:hover:after{
     position: absolute;
     right: 130px;
     top: 50px;
 }
 
-.treinadores-pokemon li:first-child:hover {
+.treinadores-pokemon li:first-child:hover:after {
    content: url('http://vignette1.wikia.nocookie.net/pokemonshow/images/8/81/Ash_bw.png/revision/latest?cb=20110630181426&path-prefix=pt-br');
 }
 
-.treinadores-pokemon li:nth-child(2):hover{
+.treinadores-pokemon li:nth-child(2):hover:after{
     content: url('https://upload.wikimedia.org/wikipedia/pt/b/b1/MistyEP.png');
 }
 
-.treinadores-pokemon li:nth-child(3):hover{
+.treinadores-pokemon li:nth-child(3):hover:after{
     content: url('http://cdn.bulbagarden.net/upload/thumb/2/21/Brock_DP_Anime_art.png/150px-Brock_DP_Anime_art.png');
 }
 
-.treinadores-pokemon li:nth-child(4):hover{
+.treinadores-pokemon li:nth-child(4):hover:after{
     content: url('http://cdn.bulbagarden.net/upload/e/e1/TraceyEP.png');
 }
-.treinadores-pokemon li:nth-child(5):hover{
+.treinadores-pokemon li:nth-child(5):hover:after{
     content: url('http://4.bp.blogspot.com/_PBvx3Zh8Fjc/ShBqVQrUx1I/AAAAAAAAACg/fvKrWu1dEPU/s400/may.gif');
 }
-.treinadores-pokemon li:nth-child(6):hover{
+.treinadores-pokemon li:nth-child(6):hover:after{
     content: url('http://1.bp.blogspot.com/_M6aw73pV4kg/SmkWURiU-QI/AAAAAAAAAUk/vYRCuzhIEMc/s320/max.gif');
 }
-.treinadores-pokemon li:nth-child(7):hover{
+.treinadores-pokemon li:nth-child(7):hover:after{
     content: url('http://i297.photobucket.com/albums/mm236/pokemyth/personagens/protagonistas/p_dawn1.png');
 }
-.treinadores-pokemon li:nth-child(8):hover{
+.treinadores-pokemon li:nth-child(8):hover:after{
     content: url('http://4.bp.blogspot.com/-WEQperszHZ4/ViFpB1rFPCI/AAAAAAAAAPE/7qMBOOj7XKc/s1600/12852715290084.png');
 }
-.treinadores-pokemon li:nth-child(9):hover{
+.treinadores-pokemon li:nth-child(9):hover:after{
     content: url('http://2.bp.blogspot.com/-kARgCITBvRw/UIQ_LUa6IbI/AAAAAAAAEAM/b0b9gNzCcjM/s1600/100px-CilanBW.png');
 }
-.treinadores-pokemon li:nth-child(10):hover{
+.treinadores-pokemon li:nth-child(10):hover:after{
     content: url('http://static3.wikia.nocookie.net/__cb20130928235052/p__/protagonist/images/b/b5/Clemont_XY.png');
 }
-.treinadores-pokemon li:nth-child(11):hover{
+.treinadores-pokemon li:nth-child(11):hover:after{
     content: url('http://cdn.bulbagarden.net/upload/thumb/8/8d/Bonnie_XY_2.png/140px-Bonnie_XY_2.png');
 }
-.treinadores-pokemon li:nth-child(12):hover{
+.treinadores-pokemon li:nth-child(12):hover:after{
     content: url('http://2.bp.blogspot.com/-hIbPMo3XBnk/UjrmEVVx57I/AAAAAAAAAhk/jP91Axb7vJ8/s200/XY-Serena.png');
 }
 
