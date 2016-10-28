@@ -56,8 +56,8 @@
     <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MarioKart\MarioKart.csproj">
-      <Project>{5299c369-d70e-4602-875f-869467dd3e46}</Project>
+    <ProjectReference Include="..\MarioKart01\MarioKart.csproj">
+      <Project>{0270aa56-366b-4ec2-9df7-a5ddaff2bbe8}</Project>
       <Name>MarioKart</Name>
     </ProjectReference>
   </ItemGroup>
