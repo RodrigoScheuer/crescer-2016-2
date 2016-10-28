@@ -23,6 +23,5 @@ namespace TerraMedia.Equipamentos
                 return 0;
             }
         }
-
     }
 }

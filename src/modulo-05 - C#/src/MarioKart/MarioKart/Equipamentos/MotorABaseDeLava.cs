@@ -8,7 +8,7 @@ namespace MarioKart.Equipamentos
 {
     public class MotorABaseDeLava : IEquipamento
     {
-        public int Bonus
+        public double Bonus
         {
             get
             {

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace MarioKart
 {
-    public class Kart
+    public abstract class Kart
     {
         public Corredor Corredor { get; set; }
-        public int Velocidade { get; private set; }
+        public double Velocidade { get; protected set; }
         protected List<IEquipamento> Equipamentos { get; set; }
 
         public Kart(Corredor corredor)
@@ -23,12 +23,12 @@ namespace MarioKart
             this.Equipamentos.Add(equipamento);
         }
 
-        public void CalcularVelocidade()
+        public virtual void CalcularVelocidade()
         {
             this.Velocidade = 3 + SomaBonusEquipamentos() + BonusHabilidadeCorredor();
         }
 
-        private int BonusHabilidadeCorredor()
+        protected int BonusHabilidadeCorredor()
         {
             if (Corredor.Equals("Noob"))
             {
@@ -38,12 +38,20 @@ namespace MarioKart
             {
                 return 5;
             }
-            return 6 + Equipamentos
-        
+            return 6 + Equipamentos.Capacity;
+        }
 
-        public int SomaBonusEquipamentos()
+        protected double SomaBonusEquipamentos()
         {
-            return 1;
+            double Soma = 0;
+            if (Equipamentos.Capacity > 0)
+            {
+                foreach (var item in Equipamentos)
+                {
+                    Soma += item.Bonus;
+                }
+            }
+            return Soma;
         }
 
     }

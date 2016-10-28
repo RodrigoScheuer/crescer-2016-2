@@ -6,22 +6,16 @@ using System.Threading.Tasks;
 
 namespace MarioKart
 {
-    public enum NivelCorredor
-    {
-        Noob, Mediano, Profissional
-    };
-
     public class Corredor
     {   
         // enum dentro da classe       
-        public String Nome { get; }
-        public NivelCorredor Nivel { get; set; }
+        public string Nome { get; }
+        public Enumerador.NivelCorredor Nivel{ get; }
 
-        public Corredor(String nome, NivelCorredor nivel)
+        public Corredor(String nome, Enumerador.NivelCorredor nivel)
         {
             this.Nome = nome;
-            this.Nivel = nivel;
-
+            this.Nivel = Enumerador.NivelCorredor.Noob | nivel;
         }
 
     }

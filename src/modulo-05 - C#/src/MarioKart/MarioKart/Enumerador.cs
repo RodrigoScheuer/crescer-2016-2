@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace MarioKart
 {
-    public interface IEquipamento
+    public class Enumerador
     {
-          double Bonus { get; }
+        public enum NivelCorredor
+        {
+            Noob, Mediano, Profissional
+        };
     }
 }

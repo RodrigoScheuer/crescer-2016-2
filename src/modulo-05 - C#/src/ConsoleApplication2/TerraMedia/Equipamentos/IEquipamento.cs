@@ -8,9 +8,8 @@ namespace TerraMedia.Equipamentos
 {
     public interface IEquipamento
     {
-        int BonusPneuCouroDragao { get; }
-
-        int BonusMotorABaseDeLava{ get; }
+        int BonusDeAtaque { get; }
+        int BonusDeDefesa { get; }
 
     }
 }
