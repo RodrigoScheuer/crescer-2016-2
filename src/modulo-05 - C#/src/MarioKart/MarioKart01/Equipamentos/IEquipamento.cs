@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarioKart
+namespace MarioKart.Equipamentos
 {
     public interface IEquipamento
     {
