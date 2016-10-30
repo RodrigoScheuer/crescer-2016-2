@@ -13,15 +13,15 @@ namespace MarioKart.Karts
 
         }
 
-        public override void CalcularVelocidade()
+        public override int CalcularVelocidade()
         {
-            base.CalcularVelocidade();
-
-            if(Equipamentos.Capacity > 0)
+            if(this.Equipamentos.Capacity > 0)
             {
-                Velocidade += 2;
+                this.Velocidade += 2;
             }
-            
+
+            return Velocidade += SomaBonusEquipamentos() + BonusHabilidadeCorredor();
+
         }
     }
 }

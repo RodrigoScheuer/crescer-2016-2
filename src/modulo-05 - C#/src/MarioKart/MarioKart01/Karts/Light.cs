@@ -13,19 +13,19 @@ namespace MarioKart.Karts
             
         }
 
-        public override void CalcularVelocidade()
+        public override int CalcularVelocidade()
         {
-            base.CalcularVelocidade();
-
             if (Corredor.Nivel == Enumerador.NivelCorredor.Noob)
             {
-                Velocidade += 3;
+                this.Velocidade += 3;
             }
 
             if (Corredor.Nivel == Enumerador.NivelCorredor.Profissional)
             {
-                Velocidade -= 1;
+                this.Velocidade -= 1;
             }
+
+            return this.Velocidade += SomaBonusEquipamentos() + BonusHabilidadeCorredor();
 
         }
     }

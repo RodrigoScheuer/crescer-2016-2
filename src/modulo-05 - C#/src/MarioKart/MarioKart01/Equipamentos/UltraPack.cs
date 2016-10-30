@@ -10,6 +10,11 @@ namespace MarioKart.Equipamentos
     {
         IEquipamento Equipamento;
 
+        public UltraPack(IEquipamento equipamento)
+        {
+            Equipamento = equipamento;
+        }
+
         public int Bonus
         {
             get
@@ -18,9 +23,6 @@ namespace MarioKart.Equipamentos
             }
         }
 
-        public UltraPack(IEquipamento equipamento)
-        {
-            Equipamento = equipamento;
-        }
+        
     }
 }

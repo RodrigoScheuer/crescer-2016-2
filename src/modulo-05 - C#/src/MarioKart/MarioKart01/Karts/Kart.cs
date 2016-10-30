@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MarioKart.Equipamentos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarioKart
+namespace MarioKart.Karts
 {
     public abstract class Kart
     {
@@ -16,6 +17,7 @@ namespace MarioKart
         {
             this.Corredor = corredor;
             this.Equipamentos = new List<IEquipamento>();
+            this.Velocidade = 3;
         }
 
         public void Equipar(IEquipamento equipamento)
@@ -23,30 +25,38 @@ namespace MarioKart
             this.Equipamentos.Add(equipamento);
         }
 
-        public virtual void CalcularVelocidade()
+        public virtual int CalcularVelocidade()
         {
-            this.Velocidade = 3 + SomaBonusEquipamentos() + BonusHabilidadeCorredor();
+            return Velocidade += SomaBonusEquipamentos() + BonusHabilidadeCorredor();
         }
 
         protected int BonusHabilidadeCorredor()
         {
-            if (Corredor.Equals("Noob"))
+            if (Corredor.Nivel == Enumerador.NivelCorredor.Noob)
             {
                 return 3;
             }
-            else if (Corredor.Equals("Mediano"))
+            else if (Corredor.Nivel == Enumerador.NivelCorredor.Mediano)
             {
                 return 5;
             }
-            return 6 + Equipamentos.Capacity;
+            else if(Corredor.Nivel == Enumerador.NivelCorredor.Profissional)
+            {
+                return 6 + this.Equipamentos.Count;
+            }
+            else
+            {
+                return 0;
+            }
+            
         }
 
         protected int SomaBonusEquipamentos()
         {
             int Soma = 0;
-            if (Equipamentos.Capacity > 0)
+            if (this.Equipamentos.Count > 0)
             {
-                foreach (var item in Equipamentos)
+                foreach (var item in this.Equipamentos)
                 {
                     Soma += item.Bonus;
                 }
