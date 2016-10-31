@@ -3,6 +3,7 @@ body{
     font-family: Arial;
     background: url(http://4.bp.blogspot.com/-w_GprQ4SLoE/VQHySIpXH5I/AAAAAAAANQE/58anVPr_o7w/s1600/Pok%C3%A9mon%2B8.gif)
     no-repeat center top;
+
 }
 
 header{
@@ -163,7 +164,7 @@ h2, h3{
     margin: 1px;
     font-family: times;
     text-align: center;
-    background-color: silver;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .personagens li:hover:after{

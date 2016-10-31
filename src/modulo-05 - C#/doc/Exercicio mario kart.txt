@@ -1,0 +1,87 @@
+Exercício Mario Kart
+Criar uma corrida de kart no console do C#
+
+Guia de Referência
+
+
+
+Nível 1
+
+Criar as seguintes classes e/ou interfaces: 
+Corredor
+
+Nome (obrigatório, não pode mudar depois)
+Nível de habilidade (Noob, Mediano, Profissional)
+Kart
+
+Corredor (obrigatório)
+Equipamentos (lista de equipamentos)
+Velocidade (somente leitura)
+A velocidade de um kart é a seguinte soma:
+3 + a soma dos bônus de todos os equipamentos + bônus de habilidade do Corredor 
+(Noob: 3, Mediano: 5, Profissional: 6 + quantidade de equipamentos no kart)
+Equipamentos 
+Existem os seguintes equipamentos que podem ser equipados:
+
+Pneus de Couro de Dragão (Bônus + 2)
+Motor a base de Lava (Bônus + 3)
+Exemplo
+
+Corredor
+
+Nome: Yoshi
+Habilidade: Mediano
+Kart
+
+Corredor: Yoshi
+Equipamentos
+Pneus de Couro de Dragão
+O kart teria Velocidade 10 (3 do kart + 5 pelo nível de habilidade do piloto +
+2 pelos pneus).
+
+
+Nível 2
+
+Agora existem 3 tipos de kart:
+
+Sonnar: possui + 2 de velocidade se possuir pelo menos 1 equipamento.
+
+Light: ganha velocidade + 3 se dirigido por um corredor Noob, 
+perde 1 de velocidade se dirigido por um corredor Profissional
+
+Dinam: dobra o bônus de velocidade que o kart ganha do corredor 
+(e apenas do corredor).
+
+
+Nível 3
+
+Agora existem os seguintes equipamentos:
+
+Foguete de Plutônio
+Nivel: pode ir de 1 até 5 
+(caso seja informado o valor inválido ou o valor não for informado, será 2)
+Bônus: deverá ser +1 por nível.
+
+
+Ultra Pack
+Equipamento: este equipamento possui outro equipamento dentro. 
+Ex: new UltraPack(new PneuDeCouroDeDragao())
+Bônus: um ultra pack possui um valor igual bônus do equipamento que 
+tiver dentro dele, +20%, arredondado para cima.
+
+
+Nível 4
+
+Agora existe um novo kart: SKY FUSION!!!
+
+Ele é um kart normal, mas pode servir de equipamento para outro kart.
+Bônus:
++1 por equipamento equipado.
++1 por nível de habilidade do corredor (Noob 1, Mediano 2, Profissional 3)
+Se a velocidade do SKY FUSION!!! for maior que 12, concede + 5 de bônus.
+Considereções importantes
+
+Lembre-se das boas práticas da linguagem (camelCase, PascalCase, etc)
+Testes são importantíssimos e serão cobrados.
+Não faça plágio, seja justo com você mesmo... ou nós seremos.
+Bom trabalho à todos =).
