@@ -7,27 +7,25 @@ namespace StreetFighter.web.Models
 {
     public class FichaTecnicaModel
     {
-        public FichaTecnicaModel()
-        {
-            String primeiraAparicao = "Street Fighter II The World Warrior(1991)";
-            String Nascimento = "12 de fevereiro de 1966.";
-            int Altura = 192;
-            double Peso = 96;
-            String Medidas = " B198, C120, Q172.";
-            String TipoSanguineo = "B";
-            String HabilidadesEspeciais = "Caçar, Eletricidade.";
-            String Gosta = "Frutas tropicais, Pirarucu, Sua mãe.";
-            String Desgosta = "Army ants(espécie de formiga).";
-            String EstiloDeLuta = "Luta Selvagem autodidata(Army Ants) / Capoeira.";
-            String Origem = " Brasil(lugar de nascença é provável como sendo Tailândia).";
-            String FalaVitoria = "Ver você em ação é uma piada!";
-            String SSF2_NickName = "A selvagem criança da natureza";
-            String SFA3_NickName = "A animal pessoa amazônica";
-            String SF4_NickName = "Guerreiro da selva";
-            String SFA3_Stage = "Ramificação do Rio Madeira - pantano, Brasil \n (ramificação do rio Madeira: talvez possa ser Mato Grosso, ou Tocantins?).";
-            String SF2_Stage = "Bacia do rio Amazonas(Brasil).";
-            String GolpesEspeciasFamosos = "Electric Thunder, Rolling Attack.";
-
-        }
+        
+        public String PrimeiraAparicao { get; set; }
+        public String Nascimento { get; set; }
+        public int Altura { get; set; }
+        public int Peso { get; set; }
+        public String Medidas { get; set; }
+        public String TipoSanguineo { get; set; }
+        public String HabilidadesEspeciais { get; set; }
+        public String Gosta { get; set; }
+        public String Desgosta { get; set; }
+        public String EstiloDeLuta { get; set; }
+        public String Origem { get; set; }
+        public String FalaVitoria { get; set; }
+        public String SSF2_NickName { get; set; }
+        public String SFA3_NickName { get; set; }
+        public String SF4_NickName { get; set; }
+        public String SFA3_Stage { get; set; }
+        public String SF2_Stage { get; set; }
+        public String GolpesEspeciaisFamosos { get; set; }
+        
     }
 }

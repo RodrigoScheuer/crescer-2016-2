@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Rodrigo Scheuer";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    @model StreetFighter.web.Models.SobreModel
 }
 
 <div class="menu">
@@ -10,19 +11,19 @@
     <img src="~/Content/Images/Vinganca.jpg" alt="V de Vingança">
     <div class="text-float" id="perfil">
 
-        <p><strong>Primeira aparição:</strong> Projeto Crescer </p>
-        <p><strong>Nascimento:</strong> 30 de Dezembro de 1992.</p>
-        <p><strong>Altura:</strong> 175cm.</p>
-        <p><strong>Peso:</strong> 71kg.</p>
-        <p><strong>Medidas:</strong> B150, C100, Q150.</p>
-        <p><strong>Tipo sanguíneo:</strong> B+.</p>
-        <p><strong>Habilidades especiais:</strong> Programar Java, Piloto de Fuga.</p>
-        <p><strong>Gosta:</strong> Frutas, Churrasco, Pizza.</p>
-        <p><strong>Desgosta:</strong> vegetais e legumes.</p>
-        <p><strong>Estilo de luta:</strong> Luta pela sobrevivência.</p>
-        <p><strong>Origem:</strong> Brasil (lugar de nascença Sapucaia do Sul).</p>
-        <p><strong>Uma fala de vitória:</strong> "uhuulll!" </p>
-        <p><strong>Golpes especiais famosos:</strong> gancho de direita, cabeçada.</p>
+        <p><strong>Primeira aparição:</strong> @Model.PrimeiraAparicao</p>
+        <p><strong>Nascimento:</strong> @Model.Nascimento .</p>
+        <p><strong>Altura:</strong> @Model.Altura cm.</p>
+        <p><strong>Peso:</strong> @Model.Peso Kg.</p>
+        <p><strong>Medidas:</strong> @Model.Medidas .</p>
+        <p><strong>Tipo sanguíneo:</strong>@Model.TipoSanguineo .</p>
+        <p><strong>Habilidades especiais:</strong> @Model.HabilidadesEspeciais </p>
+        <p><strong>Gosta:</strong> @Model.Gosta </p>
+        <p><strong>Desgosta:</strong> @Model.Desgosta </p>
+        <p><strong>Estilo de luta:</strong> @Model.EstiloDeLuta </p>
+        <p><strong>Origem:</strong> @Model.Origem </p>
+        <p><strong>Uma fala de vitória:</strong> @Model.FalaVitoria .</p>
+        <p><strong>Golpes especiais famosos:</strong> @Model.GolpesEspeciaisFamosos </p>
 
     </div>
 </div>    

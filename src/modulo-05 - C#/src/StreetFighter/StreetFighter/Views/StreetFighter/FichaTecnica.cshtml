@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Blanka";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    @model StreetFighter.web.Models.FichaTecnicaModel
 }
 
 <div class="menu">
@@ -10,25 +11,25 @@
     <img src="http://www.streetfighter.com.br/upload/editor/20120823194105_127.png" alt="Blanka">
     <div class="text-float" id="blanka">
 
-        <p><strong>Primeira aparição:</strong> Street Fighter II The World Warrior (1991)</p>
-        <p><strong>Nascimento:</strong> 12 de fevereiro de 1966.</p>
-        <p><strong>Altura:</strong> 192cm.</p>
-        <p><strong>Peso:</strong> 96kg.</p>
-        <p><strong>Medidas:</strong> B198, C120, Q172.</p>
-        <p><strong>Tipo sanguíneo:</strong> B.</p>
-        <p><strong>Habilidades especiais:</strong> Caçar, Eletricidade.</p>
-        <p><strong>Gosta:</strong> Frutas tropicais, Pirarucu, Sua mãe.</p>
-        <p><strong>Desgosta:</strong> Army ants (espécie de formiga).</p>
-        <p><strong>Estilo de luta:</strong> Luta Selvagem autodidata (Army Ants) / Capoeira.</p>
-        <p><strong>Origem:</strong> Brasil (lugar de nascença é provável como sendo Tailândia).</p>
-        <p><strong>Uma fala de vitória:</strong> "Ver você em ação é uma piada!" </p>
-        <p><strong>SSF2 nickname:</strong> "A selvagem criança da natureza".</p>
-        <p><strong>SFA3 nickname:</strong> "A animal pessoa amazônica".</p>
-        <p><strong>SF4 nickname:</strong> "Guerreiro da selva".</p>
+        <p><strong>Primeira aparição:</strong> @Model.PrimeiraAparicao </p>
+        <p><strong>Nascimento:</strong> @Model.Nascimento</p>
+        <p><strong>Altura:</strong> @Model.Altura cm.</p>
+        <p><strong>Peso:</strong> @Model.Peso kg.</p>
+        <p><strong>Medidas:</strong> @Model.Medidas</p>
+        <p><strong>Tipo sanguíneo:</strong> @Model.TipoSanguineo </p>
+        <p><strong>Habilidades especiais:</strong> @Model.HabilidadesEspeciais</p>
+        <p><strong>Gosta:</strong> @Model.Gosta </p>
+        <p><strong>Desgosta:</strong> @Model.Desgosta </p>
+        <p><strong>Estilo de luta:</strong> @Model.EstiloDeLuta </p>
+        <p><strong>Origem:</strong> Brasil @Model.Origem </p>
+        <p><strong>Uma fala de vitória:</strong> @Model.FalaVitoria </p>
+        <p><strong>SSF2 nickname:</strong> @Model.SSF2_NickName </p>
+        <p><strong>SFA3 nickname:</strong> @Model.SFA3_NickName </p>
+        <p><strong>SF4 nickname:</strong> @Model.SF4_NickName </p>
         <p><strong>SFA3 stage:</strong> Ramificação do Rio Madeira - pantano, Brasil </p>
         <p>(ramificação do rio Madeira: talvez possa ser Mato Grosso, ou Tocantins?).</p>
-        <p><strong>SF2 stage:</strong> Bacia do rio Amazonas (Brasil).</p>
-        <p><strong>Golpes especiais famosos:</strong> Electric Thunder, Rolling Attack.</p>
+        <p><strong>SF2 stage:</strong> @Model.SF2_Stage </p>
+        <p><strong>Golpes especiais famosos:</strong> @Model.GolpesEspeciaisFamosos </p>
 
     </div>
 </div>    
