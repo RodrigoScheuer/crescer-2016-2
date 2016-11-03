@@ -1,8 +1,7 @@
-﻿
+﻿@model StreetFighter.web.Models.FichaTecnicaModel
 @{
     ViewBag.Title = "Personagem";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    @model StreetFighter.web.Models.CadastrarModel
 }
 
 <div class="menu">
@@ -12,7 +11,7 @@
 
     <div class="text-float" id="blanka">
         <p><strong>Nome:</strong> @Model.Nome </p><br />
-        <p><strong>Nascimento:</strong> @Model.DataNascimento</p><br />
+        <p><strong>Nascimento:</strong> @Model.Nascimento</p><br />
         <p><strong>Altura:</strong> @Model.Altura cm.</p><br />
         <p><strong>Peso:</strong> @Model.Peso kg.</p><br />
         <p><strong>Origem:</strong> @Model.IdOrigem </p><br />

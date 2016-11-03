@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace StreetFighter.web.Models
 {
-    public class CadastrarModel
+    public class FichaTecnicaModel
     {
         [DisplayName("URL da Imagem")]
         public String Imagem { get; set; }
@@ -18,7 +18,7 @@ namespace StreetFighter.web.Models
 
         [Required]
         [DisplayName("Data de Nascimento")]
-        public DateTime DataNascimento { get; set; }
+        public DateTime Nascimento { get; set; }
 
         [Required]
         public int Altura { get; set; }
@@ -27,7 +27,7 @@ namespace StreetFighter.web.Models
         public decimal Peso { get; set; }
 
         [Required]
-        [DisplayName("Golpes Especiais") ]
+        [DisplayName("Golpes Especiais")]
         public String GolpesEspeciais { get; set; }
 
         [DisplayName("Personagem Oculto")]

@@ -1,5 +1,6 @@
 ﻿
 using StreetFighter.web.Models;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -19,7 +20,8 @@ namespace StreetFighter.web.Controllers
 
            model.Imagem = "http://www.streetfighter.com.br/upload/editor/20120823194105_127.png";
            model.Nome = "Blanka";
-           model.Nascimento = "12/02/1966";
+           DateTime data = Convert.ToDateTime("12/02/1966");
+           model.Nascimento = data;
            model.Altura = 192;
            model.Peso = 96;
            model.IdOrigem = "BR";
@@ -58,11 +60,12 @@ namespace StreetFighter.web.Controllers
             return View("TelaDeCadastro");
         }
 
-        public ActionResult Salvar(CadastrarModel model)
+        public ActionResult Salvar(FichaTecnicaModel model)
         {
             Origens();
 
-            if (ModelState.IsValid)
+            return View("ItemCadastrado", model);
+            /*if (ModelState.IsValid)
             {
                 ViewBag.Mensagem = "Cadastro concluído com sucesso.";
                 return View("ItemCadastrado", model);
@@ -71,7 +74,7 @@ namespace StreetFighter.web.Controllers
             {
                 ModelState.AddModelError("", "Ocorreu algum erro. Da uma olhada aí pls :(");
                 return View("TelaDeCadastro");
-            }
+            }*/
         }
 
         public void Origens()
