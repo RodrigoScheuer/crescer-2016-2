@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace StreetFighter.web.Models
 {
@@ -20,6 +17,5 @@ namespace StreetFighter.web.Models
         public String Origem { get; set; }
         public String FalaVitoria { get; set; }
         public String GolpesEspeciaisFamosos { get; set; }
-        
     }
 }

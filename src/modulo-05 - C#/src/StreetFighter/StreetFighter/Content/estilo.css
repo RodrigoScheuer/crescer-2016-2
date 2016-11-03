@@ -49,6 +49,7 @@ h1{
 }
 
 .text-float{
+    padding-top:20px;
     margin-left: 10px; 
     overflow: hidden; 
     float:right; 
@@ -65,9 +66,3 @@ h1{
     width: 520px; 
     height:340px;
 }
-
-
-
-
-
-

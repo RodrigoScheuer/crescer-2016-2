@@ -1,8 +1,6 @@
-﻿using StreetFighter.web.Models;
-using System;
+﻿
+using StreetFighter.web.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace StreetFighter.web.Controllers
@@ -17,29 +15,19 @@ namespace StreetFighter.web.Controllers
 
         public ActionResult FichaTecnica()
         {
-            var model = new FichaTecnicaModel();
-            
-                
-           model.PrimeiraAparicao = "Street Fighter II The World Warrior(1991)";
-           model.Nascimento = "12 de fevereiro de 1966.";
+           var model = new FichaTecnicaModel();
+
+           model.Imagem = "http://www.streetfighter.com.br/upload/editor/20120823194105_127.png";
+           model.Nome = "Blanka";
+           model.Nascimento = "12/02/1966";
            model.Altura = 192;
            model.Peso = 96;
-           model.Medidas = " B198, C120, Q172.";
-           model.TipoSanguineo = "B";
-           model.HabilidadesEspeciais = "Caçar, Eletricidade.";
-           model.Gosta = "Frutas tropicais, Pirarucu, Sua mãe.";
-           model.Desgosta = "Army ants(espécie de formiga).";
-           model.EstiloDeLuta = "Luta Selvagem autodidata(Army Ants) / Capoeira.";
-           model.Origem = " Brasil(lugar de nascença é provável como sendo Tailândia).";
-           model.FalaVitoria = "Ver você em ação é uma piada!";
-           model.SSF2_NickName = "A selvagem criança da natureza";
-           model.SFA3_NickName = "A animal pessoa amazônica";
-           model.SF4_NickName = "Guerreiro da selva";
-           model.SFA3_Stage = "Ramificação do Rio Madeira - pantano, Brasil \n (ramificação do rio Madeira: talvez possa ser Mato Grosso, ou Tocantins?).";
-           model.SF2_Stage = "Bacia do rio Amazonas(Brasil).";
-           model.GolpesEspeciaisFamosos = "Electric Thunder, Rolling Attack.";
-            
-            return View(model);
+           model.IdOrigem = "BR";
+           model.GolpesEspeciais = "Electric Thunder, Rolling Attack.";
+           model.PersonagemOculto = false;
+
+           return View(model);
+
         }
 
         public ActionResult Sobre()
@@ -61,6 +49,40 @@ namespace StreetFighter.web.Controllers
             model.GolpesEspeciaisFamosos = "gancho de direita, cabeçada.";
 
             return View(model);
+        }
+
+        public ActionResult Cadastrar()
+        {
+            Origens();
+
+            return View("TelaDeCadastro");
+        }
+
+        public ActionResult Salvar(CadastrarModel model)
+        {
+            Origens();
+
+            if (ModelState.IsValid)
+            {
+                ViewBag.Mensagem = "Cadastro concluído com sucesso.";
+                return View("ItemCadastrado", model);
+            }
+            else
+            {
+                ModelState.AddModelError("", "Ocorreu algum erro. Da uma olhada aí pls :(");
+                return View("TelaDeCadastro");
+            }
+        }
+
+        public void Origens()
+        {
+            //@ViewBag.ListaPais
+            ViewData["ListaPais"] = new List<SelectListItem>()
+            {
+                new SelectListItem() { Value = "BR", Text = "Brasil" },
+                new SelectListItem() { Value = "AR", Text = "Argentina" },
+                new SelectListItem() { Value = "JP", Text = "Japão" }
+            };
         }
     }
 }
