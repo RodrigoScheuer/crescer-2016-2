@@ -14,7 +14,7 @@ namespace StreetFighter.web.Controllers
             return View();
         }
 
-        public ActionResult FichaTecnica()
+        public ActionResult FichaTecnica(int id)
         {
            var model = new FichaTecnicaModel();
 
@@ -64,17 +64,18 @@ namespace StreetFighter.web.Controllers
         {
             Origens();
 
-            return View("ItemCadastrado", model);
-            /*if (ModelState.IsValid)
+            //return View("ItemCadastrado", model);
+            if (ModelState.IsValid)
             {
                 ViewBag.Mensagem = "Cadastro concluído com sucesso.";
+
                 return View("ItemCadastrado", model);
             }
             else
             {
                 ModelState.AddModelError("", "Ocorreu algum erro. Da uma olhada aí pls :(");
                 return View("TelaDeCadastro");
-            }*/
+            }
         }
 
         public void Origens()

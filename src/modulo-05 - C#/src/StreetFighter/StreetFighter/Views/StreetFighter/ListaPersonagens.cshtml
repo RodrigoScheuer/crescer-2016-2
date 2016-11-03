@@ -1,0 +1,20 @@
+﻿@model List<StreetFighter.Dominio.Personagem>
+
+@{
+    ViewBag.Title = "Lista de Personagens";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">@ViewBag.title</h2>
+
+    <ul>
+        foreach (var personagem in Model)
+        {
+            <li><a href="~/StreetFighter/FichaTecnica?id=personagem.Id">personagem.Nome</a></li>
+        }
+    </ul>
+
+
+
+
+

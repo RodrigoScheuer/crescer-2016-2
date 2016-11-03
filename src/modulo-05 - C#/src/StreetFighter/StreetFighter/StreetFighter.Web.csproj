@@ -172,6 +172,7 @@
     <Content Include="scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\StreetFighter\ItemCadastrado.cshtml" />
     <Content Include="Views\StreetFighter\TelaDeCadastro.cshtml" />
+    <Content Include="Views\StreetFighter\ListaPersonagens.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -181,6 +182,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StreetFighter.Aplicativo\StreetFighter.Aplicativo.csproj">
+      <Project>{6b3cb15a-77b4-4303-9c7e-22ab69c6f295}</Project>
+      <Name>StreetFighter.Aplicativo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StreetFighter.Dominio\StreetFighter.Dominio.csproj">
+      <Project>{fce72e32-dad4-47e0-8fda-6a778f7cff7a}</Project>
+      <Name>StreetFighter.Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
