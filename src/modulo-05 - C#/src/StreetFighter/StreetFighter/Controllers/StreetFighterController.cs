@@ -107,6 +107,15 @@ namespace StreetFighter.web.Controllers
             return View("TelaDeCadastro", model);
         }
 
+        public ActionResult ObterPersonagemDoBanco(String pesquisar)
+        {
+            int id = Convert.ToInt32(pesquisar);
+            var aplicativo = new PersonagemAplicativo();
+            List<Dominio.Personagem> lista =  aplicativo.ObterPersonagemDoBanco(id);
+
+            return View("ListaPersonagens", lista);
+        }
+
         private void PopularDropDownOrigens()
         {
             ViewData["ListaPais"] = new List<SelectListItem>()

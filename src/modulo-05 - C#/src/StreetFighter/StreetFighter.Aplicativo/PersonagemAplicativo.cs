@@ -39,5 +39,11 @@ namespace StreetFighter.Aplicativo
         {
             repositorio.ExcluirPersonagem(personagem);
         }
+
+        public List<Personagem> ObterPersonagemDoBanco(int id)
+        {
+            return repositorio.ObterPersonagem(id);
+        }
+
     }
 }

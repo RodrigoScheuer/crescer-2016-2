@@ -4,14 +4,22 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="menu">
-    <h2 style="text-align:center">@ViewBag.title</h2>
+    <div class="menu">
+        <h2 style="text-align:center">@ViewBag.title</h2>
 
-@using (Html.BeginForm("ListaPersonagens", "StreetFighter", FormMethod.Get, new { @class = "form-horizontal" }))
-{
-    <input type="submit" value="Go" style="float:right;" />
-    <input type="text" name="pesquisar" placeholder="Pesquisar..." style="float:right;" />
-}
+    @using (Html.BeginForm("ListaPersonagens", "StreetFighter", FormMethod.Get, new { @class = "form-horizontal" }))
+    {
+        <input type="submit" value="Go" style="float:right;" />
+        <input type="text" name="pesquisar" placeholder="Pesquisar..." style="float:right;" />
+    }
+    <br />
+    <br />
+    @using (Html.BeginForm("ObterPersonagemDoBanco", "StreetFighter", FormMethod.Get, new { @class = "form-horizontal" }))
+    {
+        <input type="submit" value="Go" style="float:right;" />
+        <input type="text" name="pesquisar" placeholder="Pesquisar no banco" style="float:right;" />
+    }
+
     <br><hr>
     <h3><a href="~/StreetFighter/Cadastrar">Cadastrar novo personagem</a></h3>
     <h3 style="color:red">

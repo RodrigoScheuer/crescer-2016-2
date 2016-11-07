@@ -2,6 +2,8 @@
 using StreetFighter.Repositorio;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,8 +11,37 @@ using System.Threading.Tasks;
 namespace StreetFighter.Repositorio
 {
 
-    public class PersonagemRepositorio : IPersonagemRepositorio
+    public class PersonagemRepositorio : IPersonagemRepositorio 
     {
+        private String Diretorio = @"C:\Users\rodrigo.scheuer\GitHub\src\modulo-05 - C#\src\StreetFighter\DadosPersonagens.txt";
+
+        public List<Personagem> ObterPersonagem(int id)
+        {
+            String connectionString = ConfigurationManager.ConnectionStrings["StreetConnection"].ConnectionString;
+
+            List<Personagem> result = new List<Personagem>();
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                String sql = $"SELECT * FROM Personagens WHERE id = @param_id";
+
+                var command = new SqlCommand(sql, connection);
+                command.Parameters.Add(new SqlParameter("param_id", id));
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Personagem found = ConvertReaderToPersonagem(reader);
+
+                    result.Add(found);
+                }
+            }
+            return result;
+	}
+
         public List<Personagem> ListarPersonagens(string filtroNome)
         {
             string line;
@@ -18,7 +49,7 @@ namespace StreetFighter.Repositorio
             List<Personagem> lista = new List<Personagem>();
             // Read the file and display it line by line.
             System.IO.StreamReader file = 
-            new System.IO.StreamReader(@"C:\Users\Rodrigo\GitHub\src\modulo-05 - C#\src\StreetFighter\DadosPersonagens.txt");
+            new System.IO.StreamReader(Diretorio);
 
             while ((line = file.ReadLine()) != null)
             {
@@ -38,7 +69,7 @@ namespace StreetFighter.Repositorio
 
         public void IncluirPersonagem(Personagem personagem)
         {
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Rodrigo\GitHub\src\modulo-05 - C#\src\StreetFighter\DadosPersonagens.txt");
+            string[] lines = System.IO.File.ReadAllLines(Diretorio);
             if(personagem.Id == 0)
             {
                 personagem.Id = lines.Count() + 1;
@@ -53,7 +84,7 @@ namespace StreetFighter.Repositorio
                 }
             }
             arquivo.Add(personagem.DadosString());
-            System.IO.File.WriteAllLines(@"C:\Users\Rodrigo\GitHub\src\modulo-05 - C#\src\StreetFighter\DadosPersonagens.txt", arquivo);
+            System.IO.File.WriteAllLines(Diretorio, arquivo);
         }
 
         public void EditarPersonagem(Personagem personagem)
@@ -64,7 +95,7 @@ namespace StreetFighter.Repositorio
 
         public void ExcluirPersonagem(Personagem personagem)
         {
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Rodrigo\GitHub\src\modulo-05 - C#\src\StreetFighter\DadosPersonagens.txt");
+            string[] lines = System.IO.File.ReadAllLines(Diretorio);
             String[] dados;
             List<String> arquivo = new List<string>();
 
@@ -78,7 +109,7 @@ namespace StreetFighter.Repositorio
                 }
             }
             
-            System.IO.File.WriteAllLines(@"C:\Users\Rodrigo\GitHub\src\modulo-05 - C#\src\StreetFighter\DadosPersonagens.txt", arquivo);
+            System.IO.File.WriteAllLines(Diretorio, arquivo);
         }
 
 
@@ -99,6 +130,23 @@ namespace StreetFighter.Repositorio
             personagem = new Personagem(id, imagem, nome, idOrigem, nascimento,
                                         altura, peso, golpesEspeciais, personagemOculto);
             return personagem;
+        }
+
+        private Personagem ConvertReaderToPersonagem(SqlDataReader reader)
+        {
+            int IdRow = Convert.ToInt32(reader["id"]);
+            String ImagemRow = reader["urlImagem"].ToString();
+            String NomeRow = reader["nome"].ToString();
+            String IdOrigemRow = reader["idOrigem"].ToString();
+            DateTime NascimentoRow = Convert.ToDateTime(reader["nascimento"]);
+            int AlturaRow = Convert.ToInt32(reader["altura"]);
+            decimal PesoRow = Convert.ToDecimal(reader["peso"]);
+            String GolpesEspeciaisRow = reader["golpesEspeciais"].ToString();
+            bool PersonagemOcultoRow = Convert.ToBoolean(reader["personagemOculto"]);
+
+           return new Personagem(id: IdRow, imagem: ImagemRow, nome: NomeRow, idOrigem: IdOrigemRow,
+                                            nascimento: NascimentoRow, altura: AlturaRow, peso: PesoRow,
+                                            golpesEspeciais: GolpesEspeciaisRow, personagemOculto: PersonagemOcultoRow);
         }
     }
 
