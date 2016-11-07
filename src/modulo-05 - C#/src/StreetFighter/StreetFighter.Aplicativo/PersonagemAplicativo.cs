@@ -19,7 +19,7 @@ namespace StreetFighter.Aplicativo
 
         internal PersonagemAplicativo(IPersonagemRepositorio repositorio)
         {
-            this.repositorio = repositorio;
+            this.repositorio = (PersonagemRepositorio) repositorio;
         }
 
         public List<Personagem> ListarPersonagens(string filtroNome)
@@ -33,6 +33,11 @@ namespace StreetFighter.Aplicativo
                 repositorio.IncluirPersonagem(personagem);
             else
                 repositorio.EditarPersonagem(personagem);
+        }
+
+        public void Excluir(Personagem personagem)
+        {
+            repositorio.ExcluirPersonagem(personagem);
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿
+using StreetFighter.Aplicativo;
+using StreetFighter.Dominio;
 using StreetFighter.web.Models;
 using System;
 using System.Collections.Generic;
@@ -16,20 +18,8 @@ namespace StreetFighter.web.Controllers
 
         public ActionResult FichaTecnica(int id)
         {
-           var model = new FichaTecnicaModel();
-
-           model.Imagem = "http://www.streetfighter.com.br/upload/editor/20120823194105_127.png";
-           model.Nome = "Blanka";
-           DateTime data = Convert.ToDateTime("12/02/1966");
-           model.Nascimento = data;
-           model.Altura = 192;
-           model.Peso = 96;
-           model.IdOrigem = "BR";
-           model.GolpesEspeciais = "Electric Thunder, Rolling Attack.";
-           model.PersonagemOculto = false;
-
+           var model = pesquisarPersonagem(id);
            return View(model);
-
         }
 
         public ActionResult Sobre()
@@ -55,38 +45,99 @@ namespace StreetFighter.web.Controllers
 
         public ActionResult Cadastrar()
         {
-            Origens();
+            PopularDropDownOrigens();
 
             return View("TelaDeCadastro");
         }
 
         public ActionResult Salvar(FichaTecnicaModel model)
         {
-            Origens();
-
-            //return View("ItemCadastrado", model);
+            PopularDropDownOrigens();
+            
             if (ModelState.IsValid)
             {
-                ViewBag.Mensagem = "Cadastro concluído com sucesso.";
+                TempData["cadastradoComSucesso"] = "* Personagem Cadastrado com sucesso!";
 
-                return View("ItemCadastrado", model);
+                var aplicativo = new PersonagemAplicativo();
+                Personagem personagem = new Personagem(Convert.ToInt32(model.Id), model.Imagem, model.Nome, model.IdOrigem, model.Nascimento,
+                                                       model.Altura, model.Peso, model.GolpesEspeciais, model.PersonagemOculto);
+                aplicativo.Salvar(personagem);
+                return RedirectToAction("ListaPersonagens");
             }
             else
             {
-                ModelState.AddModelError("", "Ocorreu algum erro. Da uma olhada aí pls :(");
+                ModelState.AddModelError("", "Ocorreu algum erro.");
+                if (model.Nome != null && model.IdOrigem != null)
+                {
+                    if (model.Nome.Equals("Nunes"))
+                        ModelState.AddModelError("", "Não é permitido cadastrar persongens overpowered.");
+
+                    if (model.IdOrigem.Equals("RS") && !model.Nome.Equals("Nunes"))
+                        ModelState.AddModelError("", "Somente um personagem pode ser dessa região e não é o " + model.Nome + ".");
+                }
                 return View("TelaDeCadastro");
             }
         }
 
-        public void Origens()
+        public ActionResult ListaPersonagens(String pesquisar = "AllPersonagens")
         {
-            //@ViewBag.ListaPais
+            var aplicativo = new PersonagemAplicativo();
+            return View(aplicativo.ListarPersonagens(pesquisar));
+        }
+
+        public ActionResult ExcluirPersonagem(int id)
+        {
+            var aplicativo = new PersonagemAplicativo();
+            foreach (var personagem in aplicativo.ListarPersonagens("AllPersonagens"))
+            {
+                if (personagem.Id == id)
+                {
+                    aplicativo.Excluir(personagem);
+                    TempData["PersonagemExcluido"] = "* Personagem Excluido!";
+                }
+            }        
+            return RedirectToAction("ListaPersonagens");
+        }
+
+        public ActionResult EditarPersonagem(int id)
+        {
+            PopularDropDownOrigens();
+            TempData["PersonagemEditado"] = "* Personagem Editado.";
+            var model = pesquisarPersonagem(id);
+            return View("TelaDeCadastro", model);
+        }
+
+        private void PopularDropDownOrigens()
+        {
             ViewData["ListaPais"] = new List<SelectListItem>()
             {
                 new SelectListItem() { Value = "BR", Text = "Brasil" },
                 new SelectListItem() { Value = "AR", Text = "Argentina" },
-                new SelectListItem() { Value = "JP", Text = "Japão" }
+                new SelectListItem() { Value = "JP", Text = "Japão" },
+                new SelectListItem() { Value = "RS", Text = "Morro da Pedra"}
             };
+        }
+
+        private FichaTecnicaModel pesquisarPersonagem(int id)
+        {
+            var model = new FichaTecnicaModel();
+            var aplicativo = new PersonagemAplicativo();
+            foreach (var personagem in aplicativo.ListarPersonagens("AllPersonagens"))
+            {
+                if (personagem.Id == id)
+                {
+                    model.Imagem = personagem.Imagem;
+                    model.Nome = personagem.Nome;
+                    model.Nascimento = personagem.Nascimento;
+                    model.Altura = personagem.Altura;
+                    model.Peso = personagem.Peso;
+                    model.IdOrigem = personagem.IdOrigem;
+                    model.GolpesEspeciais = personagem.GolpesEspeciais;
+                    model.PersonagemOculto = personagem.PersonagemOculto;
+                    break;
+                }
+            }
+            return model;
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StreetFighter.Dominio
 {
-    interface IPersonagemRepositorio
+    public interface IPersonagemRepositorio
     {
         List<Personagem> ListarPersonagens(string filtroNome);
         void IncluirPersonagem(Personagem personagem);

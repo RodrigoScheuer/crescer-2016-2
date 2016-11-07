@@ -149,13 +149,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\StreetFighterController.cs" />
+    <Compile Include="Filter\CwiAutorizador.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\FichaTecnicaModel.cs" />
     <Compile Include="Models\SobreModel.cs" />
+    <Compile Include="Models\UsuarioLogadoModel.cs" />
+    <Compile Include="Models\ValidacaoPersonagem.cs" />
+    <Compile Include="Models\ValidacaoRegiao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ServicoDeAutenticacao.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -170,9 +176,9 @@
       <BrowseToURL>~/StreetFighter/Sobre</BrowseToURL>
     </Content>
     <Content Include="scripts\jquery-1.9.1.min.map" />
-    <Content Include="Views\StreetFighter\ItemCadastrado.cshtml" />
     <Content Include="Views\StreetFighter\TelaDeCadastro.cshtml" />
     <Content Include="Views\StreetFighter\ListaPersonagens.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -184,6 +190,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ServicoDeCriptografia\StreetFighter.Infra.csproj">
+      <Project>{197fe19b-9e69-4faf-b15b-8bd7f9ee2cd3}</Project>
+      <Name>StreetFighter.Infra</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StreetFighter.Aplicativo\StreetFighter.Aplicativo.csproj">
       <Project>{6b3cb15a-77b4-4303-9c7e-22ab69c6f295}</Project>
       <Name>StreetFighter.Aplicativo</Name>

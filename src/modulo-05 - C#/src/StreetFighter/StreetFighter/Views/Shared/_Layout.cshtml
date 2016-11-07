@@ -16,7 +16,7 @@
         <table>
             <tr>
                 <td><a href="~/StreetFighter/Index">Inicio</a></td>
-                <td><a href="~/StreetFighter/Cadastrar">Cadastrar</a></td>
+                @*<td><a href="~/StreetFighter/Cadastrar">Cadastrar</a></td>*@
                 <td><a href="~/StreetFighter/ListaPersonagens">Lista de Personagens</a></td>
                 <td><a href="~/StreetFighter/Sobre">Sobre</a></td>
             </tr>
@@ -28,6 +28,7 @@
     <div>
         @RenderBody()
     </div>
-
+    <script src="~/Scripts/jquery-1.9.1.js"></script>
+    @RenderSection("Scripts", false)
 </body>
 </html>

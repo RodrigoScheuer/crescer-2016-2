@@ -19,7 +19,7 @@
         }
     </style>
 </head>
-<body>
+<body style="background:url(https://hqwallbase.site/images/medium/a-zombies-street-fighter-akuma-wallpaper.jpg) no-repeat right">
 
     <h1 style="text-align:center">Cadastrar novo personagem</h1>
     <hr>
@@ -31,11 +31,11 @@
     {
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        @*Html.HiddenFor(model => model.Id)*@
+        @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Imagem, new { @class = "col-sm-2 control-label" })
-            <div class="col-sm-10">
+            <div class="col-sm-10" style="width:800px;">
                 @Html.TextBoxFor(model => model.Imagem, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Imagem)
             </div>
@@ -43,7 +43,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Nome, new { @class = "col-sm-2 control-label" })
-            <div class="col-sm-10">
+            <div class="col-sm-10" style="width:800px;">
                 @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Nome)
             </div>
@@ -51,7 +51,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Nascimento, new { @class = "col-sm-2 control-label" })
-            <div class="col-sm-10">
+            <div class="col-sm-10" style="width:800px;">
                 @Html.TextBoxFor(model => model.Nascimento, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Nascimento)
             </div>
@@ -59,7 +59,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Altura, new { @class = "col-sm-2 control-label" })
-            <div class="col-sm-10">
+            <div class="col-sm-10" style="width:800px;">
                 @Html.TextBoxFor(model => model.Altura, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Altura)
             </div>
@@ -67,7 +67,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Peso, new { @class = "col-sm-2 control-label" })
-            <div class="col-sm-10">
+            <div class="col-sm-10" style="width:800px;">
                 @Html.TextBoxFor(model => model.Peso, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Peso)
             </div>
@@ -75,7 +75,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.IdOrigem, new { @class = "col-sm-2 control-label" })
-            <div class="col-sm-10">
+            <div class="col-sm-10" style="width:800px;">
                 @Html.DropDownListFor(model => model.IdOrigem, (IEnumerable<SelectListItem>)ViewBag.ListaPais, "Selecione...", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdOrigem)
             </div>
@@ -83,7 +83,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.GolpesEspeciais, new { @class = "col-sm-2 control-label" })
-            <div class="col-sm-10">
+            <div class="col-sm-10" style="width:800px;">
                 @Html.TextBoxFor(model => model.GolpesEspeciais, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.GolpesEspeciais)
             </div>
@@ -91,7 +91,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.PersonagemOculto, new { @class = "col-sm-2 control-label" })
-            <div class="col-sm-10">
+            <div class="col-sm-10" style="width:800px;">
                 @Html.CheckBoxFor(model => model.PersonagemOculto)
                 @Html.ValidationMessageFor(model => model.PersonagemOculto)
             </div>
@@ -102,17 +102,13 @@
                 <button type="submit" class="btn btn-default">Salvar</button>
             </div>
         </div>
-
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button type="button" class="btn btn-default">Voltar</button>
-            </div>
-        </div>
+        <div style="align-content:center">@Html.ActionLink("Voltar", "ListaPersonagens")</div>
+        
     }
 
 
     @*Java Script, validações, formatar decimal, formatar data modelo Brasil*@
-    <script src="~/Scripts/jquery-1.9.1.js"></script>
+    @section Scripts { 
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
 
@@ -127,5 +123,6 @@
             return this.optional(element) || !/Invalid|NaN/.test(date.toString());
         }
     </script>
+    }
 </body>
 </html>
