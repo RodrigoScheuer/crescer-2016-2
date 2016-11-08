@@ -32,6 +32,8 @@ namespace StreetFighter.Dominio
             this.PersonagemOculto = personagemOculto;
         }
 
+        public Personagem() { }
+
         public String DadosString()
         {
             return  this.Id + ";" + this.Imagem + ";" + this.Nome + ";" + this.IdOrigem + ";" + this.Nascimento + ";" +

@@ -1,20 +1,19 @@
 ﻿using StreetFighter.Dominio;
 using StreetFighter.Repositorio;
-using System;
+using StreetFighter.RepositorioEntityFramework;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StreetFighter.Aplicativo
 {
     public class PersonagemAplicativo
     {
         private readonly PersonagemRepositorio repositorio;
+        private readonly PersonagemRepositorioEf repositorioEf;
 
         public PersonagemAplicativo()
         {
             this.repositorio = new PersonagemRepositorio();
+            this.repositorioEf = new PersonagemRepositorioEf();
         }
 
         internal PersonagemAplicativo(IPersonagemRepositorio repositorio)
@@ -43,6 +42,12 @@ namespace StreetFighter.Aplicativo
         public List<Personagem> ObterPersonagemDoBanco(int id)
         {
             return repositorio.ObterPersonagem(id);
+        }
+
+        // chamar esse metodo na controler
+        public Personagem BuscarPersonagemPorIdEntityFramework(int id)
+        {
+            return repositorioEf.BuscarPersonagem(id);
         }
 
     }
