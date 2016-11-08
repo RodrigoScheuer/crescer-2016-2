@@ -12,8 +12,10 @@ namespace StreetFighter.Repositorio
 {
 
     public class PersonagemRepositorio : IPersonagemRepositorio 
-    {
-        private String Diretorio = @"C:\Users\rodrigo.scheuer\GitHub\src\modulo-05 - C#\src\StreetFighter\DadosPersonagens.txt";
+    {   // diretorio cwi
+        //private String Diretorio = @"C:\Users\rodrigo.scheuer\GitHub\src\modulo-05 - C#\src\StreetFighter\DadosPersonagens.txt";
+        // diretorio casa
+        private String Diretorio = @"C:\Users\Rodrigo\GitHub\src\modulo-05 - C#\src\StreetFighter\DadosPersonagens.txt";
 
         public List<Personagem> ObterPersonagem(int id)
         {
@@ -41,6 +43,64 @@ namespace StreetFighter.Repositorio
             }
             return result;
 	}
+
+        public void Save(Personagem personagem)
+        {
+            string connectionString =
+                ConfigurationManager.ConnectionStrings["MovieConnection"]
+                                    .ConnectionString;
+
+            var result = new List<Personagem>();
+
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required))
+            using (var connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string sql = "";
+                    var parameters = new List<SqlParameter>();
+
+                    if (personagem.Id > 0)
+                    {
+                        sql = $"UPDATE Personagem SET urlImagem=@param_imagem, nome=@param_nome, nascimento=@param_nascimento, altura=@param_altura, peso=@param_peso, golpesEspecias=@param_golpesEspeciais, personagemOculto=@param_personagemOculto WHERE Id = @param_id";
+                        parameters.Add(new SqlParameter("param_id", personagem.Id));
+                        parameters.Add(new SqlParameter("param_imagem", personagem.Imagem));
+                        parameters.Add(new SqlParameter("param_nome", personagem.Nome));
+                        parameters.Add(new SqlParameter("param_nascimento", personagem.Nascimento));
+                        parameters.Add(new SqlParameter("param_altura", personagem.Altura));
+                        parameters.Add(new SqlParameter("param_peso", personagem.Peso));
+                        parameters.Add(new SqlParameter("param_golpesEspeciais", personagem.GolpesEspeciais));
+                        parameters.Add(new SqlParameter("param_personagemOculto", personagem.PersonagemOculto));
+                    }
+                    else
+                    {
+                        sql = $"INSERT INTO Movies (Title) values (@param_title)";
+                        //parameters.Add(new SqlParameter("param_title", movie.Title));
+                        //....
+                    }
+
+                    var command = new SqlCommand(sql, connection);
+                    foreach (SqlParameter param in parameters)
+                    {
+                        command.Parameters.Add(param);
+                    }
+                    command.ExecuteNonQuery();
+                    // nunca esquecer de colocar o codigo abaixo
+                    transaction.Complete();
+                }
+                catch (Exception ex)
+                {
+                    // tratar erro aki
+                    Console.WriteLine(ex); 
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
 
         public List<Personagem> ListarPersonagens(string filtroNome)
         {

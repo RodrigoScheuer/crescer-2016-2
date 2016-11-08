@@ -109,11 +109,16 @@ namespace StreetFighter.web.Controllers
 
         public ActionResult ObterPersonagemDoBanco(String pesquisar)
         {
+            if(pesquisar != null) { 
             int id = Convert.ToInt32(pesquisar);
             var aplicativo = new PersonagemAplicativo();
             List<Dominio.Personagem> lista =  aplicativo.ObterPersonagemDoBanco(id);
-
             return View("ListaPersonagens", lista);
+            }else
+            {
+                return View("ListaPersonagens");
+            }
+            
         }
 
         private void PopularDropDownOrigens()
