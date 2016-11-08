@@ -1,3 +1,40 @@
-git ignore
 
-pesquisar parametro vazio
+------------------ mt uteis
+.take(10)
+.skip(10)
+
+yield return
+
+auto mapper ferramenta
+
+----------------------------------------------------
+public set (variavel? nomeVariavel) = variavel pode ser nula
+
+public set (variavel nomeVariavel = null) = variavel recebe null se naum receber parametro
+ boa
+----------MEGA IMPORTANTE
+usar transactionScope
+entrar no projeto que vai usar
+adicionar referencia
+no campo de pesquisa das referencias,
+pesquisar transaction.
+
+Estudar linguagem funcional.
+
+
+@using html.beginForm
+@Html.labelFor
+
+
+---instalar ou desinstalar extensões---
+
+tools => extensions and Updates
+
+jqueryValidate
+
+----------------------------------------
+viewBag dura uma request
+tempData dura varias requests ate ser chamado
+
+readonly = não deixa modificar (pode instanciar em run time ex.objetos)
+

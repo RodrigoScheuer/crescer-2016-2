@@ -1,0 +1,32 @@
+executar como administrador
+somente REPOSITORIO
+
+package manager console - instalar framework
+pm> Install-Package EntityFramework
+
+package manager console - Uninstalar framework
+pm> Uninstall-Package EntityFramework
+
+criar classe no repositorio = class DatabaseContext : dbContext
+informar connection string
+informar tabelas - que é a classe com propriedades (dbSet)
+
+package manager console - permite mexer no banco
+pm> enable-migrations
+
+executar comando para nao pluralizar os nomes das tabelas
+
+package manager console - cria tabela no banco no formato indicado
+e monta comandos para banco
+pm> Add-migration "Initial"
+
+package manager console - gera scripts do banco(para ver as alterações)
+pm> update-database -script
+
+package manager console - cria table no banco
+pm> update-database
+
+
+
+
+
