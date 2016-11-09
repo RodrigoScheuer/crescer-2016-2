@@ -12,7 +12,7 @@ informar connection string
 informar tabelas - que é a classe com propriedades (dbSet)
 
 package manager console - permite mexer no banco
-pm> enable-migrations
+pm> Enable-Migrations
 
 executar comando para nao pluralizar os nomes das tabelas
 
@@ -21,10 +21,10 @@ e monta comandos para banco
 pm> Add-migration "Initial"
 
 package manager console - gera scripts do banco(para ver as alterações)
-pm> update-database -script
+pm> Update-Database -Script
 
 package manager console - cria table no banco
-pm> update-database
+pm> Update-Database
 
 
 

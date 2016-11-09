@@ -14,9 +14,9 @@ namespace StreetFighter.Repositorio
 
     public class PersonagemRepositorio : IPersonagemRepositorio 
     {   // diretorio cwi
-        //private String Diretorio = @"C:\Users\rodrigo.scheuer\GitHub\src\modulo-05 - C#\src\StreetFighter\DadosPersonagens.txt";
+        private String Diretorio = @"C:\Users\rodrigo.scheuer\GitHub\src\modulo-05 - C#\src\StreetFighter\DadosPersonagens.txt";
         // diretorio casa
-        private String Diretorio = @"C:\Users\Rodrigo\GitHub\src\modulo-05 - C#\src\StreetFighter\DadosPersonagens.txt";
+        //private String Diretorio = @"C:\Users\Rodrigo\GitHub\src\modulo-05 - C#\src\StreetFighter\DadosPersonagens.txt";
 
         public List<Personagem> ObterPersonagem(int id)
         {

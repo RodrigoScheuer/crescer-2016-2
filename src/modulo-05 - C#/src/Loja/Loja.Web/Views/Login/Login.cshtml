@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = null;
+    ViewBag.Title = "Login";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        <h2>Bem Vindo</h2>
+        <h2>Login</h2>
+
+
+        @using (Html.BeginForm("Entrar", "Login", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.TextBox("email", "", new { placeholder = "email" });
+            <br /><br />
+            @Html.Password("senha", "", new { placeholder = "senha" });
+
+            <button type="submit">Entrar</button>
+        }
+        <h5 style="color:red;">@TempData["mensagemLogin"]</h5>
+
+    </div>
+</body>
+</html>
