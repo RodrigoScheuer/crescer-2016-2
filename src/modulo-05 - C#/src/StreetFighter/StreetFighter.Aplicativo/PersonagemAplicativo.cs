@@ -44,10 +44,18 @@ namespace StreetFighter.Aplicativo
             return repositorio.ObterPersonagem(id);
         }
 
-        // chamar esse metodo na controler
+        // chamar esse metodo na controller
         public Personagem BuscarPersonagemPorIdEntityFramework(int id)
         {
             return repositorioEf.BuscarPersonagem(id);
+        }
+
+        public void AdicionarPersonagemEntityFramework(Personagem personagem)
+        {
+            if (personagem.Id == 0)
+                repositorioEf.AdicionarPersonagem(personagem);
+            else
+                repositorioEf.EditarPersonagem(personagem);
         }
 
     }

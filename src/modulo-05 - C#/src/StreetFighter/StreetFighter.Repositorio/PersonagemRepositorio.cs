@@ -14,9 +14,9 @@ namespace StreetFighter.Repositorio
 
     public class PersonagemRepositorio : IPersonagemRepositorio 
     {   // diretorio cwi
-        private String Diretorio = @"C:\Users\rodrigo.scheuer\GitHub\src\modulo-05 - C#\src\StreetFighter\DadosPersonagens.txt";
+        //private String Diretorio = @"C:\Users\rodrigo.scheuer\GitHub\src\modulo-05 - C#\src\StreetFighter\DadosPersonagens.txt";
         // diretorio casa
-        //private String Diretorio = @"C:\Users\Rodrigo\GitHub\src\modulo-05 - C#\src\StreetFighter\DadosPersonagens.txt";
+        private String Diretorio = @"C:\Users\Rodrigo\GitHub\src\modulo-05 - C#\src\StreetFighter\DadosPersonagens.txt";
 
         public List<Personagem> ObterPersonagem(int id)
         {
@@ -64,7 +64,7 @@ namespace StreetFighter.Repositorio
 
                     if (personagem.Id > 0)
                     {
-                        sql = $"UPDATE Personagem SET urlImagem=@param_imagem, nome=@param_nome, nascimento=@param_nascimento, altura=@param_altura, peso=@param_peso, golpesEspecias=@param_golpesEspeciais, personagemOculto=@param_personagemOculto WHERE Id = @param_id";
+                        sql = $"UPDATE Personagens SET urlImagem=@param_imagem, nome=@param_nome, nascimento=@param_nascimento, altura=@param_altura, peso=@param_peso, golpesEspecias=@param_golpesEspeciais, personagemOculto=@param_personagemOculto WHERE Id = @param_id";
                         parameters.Add(new SqlParameter("param_id", personagem.Id));
                         parameters.Add(new SqlParameter("param_imagem", personagem.Imagem));
                         parameters.Add(new SqlParameter("param_nome", personagem.Nome));
@@ -76,8 +76,8 @@ namespace StreetFighter.Repositorio
                     }
                     else
                     {
-                        sql = $"INSERT INTO Movies (Title) values (@param_title)";
-                        //parameters.Add(new SqlParameter("param_title", movie.Title));
+                        sql = $"INSERT INTO Personagens (id) values (@param_id)";
+                        //parameters.Add(new SqlParameter("param_id", personagem.Id));
                         //....
                     }
 

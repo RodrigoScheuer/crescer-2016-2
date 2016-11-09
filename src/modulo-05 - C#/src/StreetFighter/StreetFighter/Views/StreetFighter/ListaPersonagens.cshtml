@@ -14,7 +14,7 @@
     }
     <br />
     <br />
-    @using (Html.BeginForm("ObterPersonagemDoBanco", "StreetFighter", FormMethod.Get, new { @class = "form-horizontal" }))
+    @using (Html.BeginForm("BuscarPorId", "StreetFighter", FormMethod.Get, new { @class = "form-horizontal" }))
     {
         <input type="submit" value="Go" style="float:right;" />
         <input type="text" name="pesquisar" placeholder="Pesquisar por id" style="float:right;" />
@@ -38,7 +38,7 @@
             <div class="Personagens" style="display:inline-block; width:200px; height:200px; border:solid; border-color:black; margin-right:10px;">
                 <a href="~/StreetFighter/FichaTecnica?id=@personagem.Id"><h3>@personagem.Nome</h3></a>
                 <a href="~/StreetFighter/ExcluirPersonagem?id=@personagem.Id"><h6>Excluir personagem</h6></a>
-                <a href="~/StreetFighter/EditarPersonagem?id=@personagem.Id"><h6>Editar personagem</h6></a>
+                <a href="~/StreetFighter/editarPersonagemEntityFramework?id=@personagem.Id"><h6>Editar personagem</h6></a>
             </div>
         }
     }

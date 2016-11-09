@@ -18,6 +18,7 @@ namespace StreetFighter.web.Controllers
 
         public ActionResult FichaTecnica(int id)
         {
+           
            var model = pesquisarPersonagem(id);
            return View(model);
         }
@@ -61,7 +62,9 @@ namespace StreetFighter.web.Controllers
                 var aplicativo = new PersonagemAplicativo();
                 Personagem personagem = new Personagem(Convert.ToInt32(model.Id), model.Imagem, model.Nome, model.IdOrigem, model.Nascimento,
                                                        model.Altura, model.Peso, model.GolpesEspeciais, model.PersonagemOculto);
-                aplicativo.Salvar(personagem);
+                //aplicativo.Salvar(personagem);
+                // usando entityFramework
+                aplicativo.AdicionarPersonagemEntityFramework(personagem);
                 return RedirectToAction("ListaPersonagens");
             }
             else
@@ -103,10 +106,31 @@ namespace StreetFighter.web.Controllers
         {
             PopularDropDownOrigens();
             TempData["PersonagemEditado"] = "* Personagem Editado.";
+
             var model = pesquisarPersonagem(id);
             return View("TelaDeCadastro", model);
         }
 
+        public ActionResult editarPersonagemEntityFramework(int id)
+        {
+            PopularDropDownOrigens();
+            TempData["PersonagemEditado"] = "* Personagem Editado.";
+
+            var model = new FichaTecnicaModel();
+            var aplicativo = new PersonagemAplicativo();
+            Personagem personagem = aplicativo.BuscarPersonagemPorIdEntityFramework(id);
+            model.Imagem = personagem.Imagem;
+            model.Nome = personagem.Nome;
+            model.Nascimento = personagem.Nascimento;
+            model.Altura = personagem.Altura;
+            model.Peso = personagem.Peso;
+            model.IdOrigem = personagem.IdOrigem;
+            model.GolpesEspeciais = personagem.GolpesEspeciais;
+            model.PersonagemOculto = personagem.PersonagemOculto;
+            return View("TelaDeCadastro", model);
+        }
+
+        // sem EntityFramework
         public ActionResult ObterPersonagemDoBanco(String pesquisar)
         {
             if(pesquisar != null) { 
@@ -119,6 +143,27 @@ namespace StreetFighter.web.Controllers
                 return View("ListaPersonagens");
             }
             
+        }
+
+        // com EntityFramework
+        public  ActionResult BuscarPorId(String pesquisar)
+        {
+            if (pesquisar != null)
+            {
+                int id = Convert.ToInt32(pesquisar);
+                var aplicativo = new PersonagemAplicativo();
+                Personagem personagem = aplicativo.BuscarPersonagemPorIdEntityFramework(id);
+                List<Dominio.Personagem> lista = new List<Personagem>();
+                if(personagem != null)
+                {
+                    lista.Add(personagem);
+                }
+                return View("ListaPersonagens", lista);
+            }
+            else
+            {
+                return View("ListaPersonagens");
+            }
         }
 
         private void PopularDropDownOrigens()

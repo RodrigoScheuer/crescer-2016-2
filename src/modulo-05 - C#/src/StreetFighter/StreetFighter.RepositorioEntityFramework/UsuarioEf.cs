@@ -8,35 +8,33 @@ using System.Threading.Tasks;
 
 namespace StreetFighter.RepositorioEntityFramework
 {
-    public class PersonagemRepositorioEf
+    class UsuarioEf
     {
-
-        public Personagem BuscarPersonagem(int id)
+        public Usuario BuscarUsuario(int id)
         {
             using (var context = new DatabaseContext())
             {
-                Personagem personagemFound = context.personagem.FirstOrDefault(u => u.Id == id);
-                return personagemFound;
+                Usuario usuarioFound = context.usuario.FirstOrDefault(u => u.Id == id);
+                return usuarioFound;
             }
         }
 
-        public void AdicionarPersonagem(Personagem personagem)
+        public void AdicionarUsuario(Usuario usuario)
         {
             using (var context = new DatabaseContext())
             {
-                context.Entry<Personagem>(personagem).State = EntityState.Added;
+                context.Entry<Usuario>(usuario).State = EntityState.Added;
                 context.SaveChanges();
             }
         }
 
-        public void EditarPersonagem(Personagem personagem)
+        public void EditarUsuario(Usuario usuario)
         {
             using (var context = new DatabaseContext())
             {
-                context.Entry<Personagem>(personagem).State = EntityState.Modified;
+                context.Entry<Usuario>(usuario).State = EntityState.Modified;
                 context.SaveChanges();
             }
         }
-
     }
 }

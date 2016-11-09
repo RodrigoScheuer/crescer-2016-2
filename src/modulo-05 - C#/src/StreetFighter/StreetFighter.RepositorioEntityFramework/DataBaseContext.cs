@@ -12,6 +12,7 @@ namespace StreetFighter.RepositorioEntityFramework
     public class DatabaseContext : DbContext
     {
         public DbSet<Personagem> personagem { get; set; }
+        public DbSet<Usuario> usuario { get; set; }
 
         public DatabaseContext() : base("StreetConnection")
         {
