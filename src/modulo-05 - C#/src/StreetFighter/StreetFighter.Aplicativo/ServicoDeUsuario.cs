@@ -10,6 +10,7 @@ namespace StreetFighter.Aplicativo
         {
             new Usuario()
             {
+                // buscar dados no banco aki
                 Nome = "rodrigo",
                 Senha = "afc1237c6b7b965e3d24791d7c7c7966",
                 Permissoes = new string[] { "CHINELO" }
@@ -26,7 +27,6 @@ namespace StreetFighter.Aplicativo
 
             if (usuarioEncontrado != null && usuarioEncontrado.Senha.Equals(senhaDeComparacao))
             {
-                // escrever dados em arquivo de txt
                 return usuarioEncontrado;
             }
 
