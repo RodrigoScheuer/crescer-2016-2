@@ -63,6 +63,7 @@ namespace StreetFighter.web.Controllers
                 Personagem personagem = new Personagem(Convert.ToInt32(model.Id), model.Imagem, model.Nome, model.IdOrigem, model.Nascimento,
                                                        model.Altura, model.Peso, model.GolpesEspeciais, model.PersonagemOculto);
                 //aplicativo.Salvar(personagem);
+
                 // usando entityFramework
                 aplicativo.AdicionarPersonagemEntityFramework(personagem);
                 return RedirectToAction("ListaPersonagens");

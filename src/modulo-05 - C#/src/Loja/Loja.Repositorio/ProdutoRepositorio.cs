@@ -1,6 +1,7 @@
 ﻿using Loja.Dominio;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,24 +12,61 @@ namespace Loja.Repositorio
     {
         public void AdicionarProdutos(Produto produto)
         {
-            throw new NotImplementedException();
+            using (var context = new ContextoDeDados())
+            {
+                if(produto.Id == 0)
+                {
+                    context.Entry<Produto>(produto).State = EntityState.Added;
+                    context.SaveChanges();
+                }
+                else
+                {
+                    context.Entry<Produto>(produto).State = EntityState.Modified;
+                    context.SaveChanges();
+                }
+                
+            }
         }
 
         public Produto BuscarProduto(int id)
         {
-            throw new NotImplementedException();
+            using (var context = new ContextoDeDados())
+            {
+                Produto produtoFound = context.Produto.FirstOrDefault(p => p.Id == id);
+                return produtoFound;
+            }
+                
+        }
+
+        public void Excluir(int id)
+        {
+            using (var context = new ContextoDeDados())
+            {
+                //context.Produto.Attach(id);
+                context.Produto.Remove(context.Produto.FirstOrDefault(p => p.Id == id));
+                context.SaveChanges();
+            }
         }
 
         public List<Produto> ListarProdutos()
         {
-            List<Produto> lista = new List<Produto>();
-
             using (var context = new ContextoDeDados())
             {
-                lista = context.Produto.ToList();
+                return context.Produto.ToList();
             }
-
-            return lista;
+        }
+        
+        public bool BuscarNomeRepetido(String nome)
+        {
+            using (var context = new ContextoDeDados())
+            {
+                Produto produtoFound = context.Produto.FirstOrDefault(p => p.Nome.Equals(nome));
+                if(produtoFound != null)
+                {
+                    return false;
+                }
+                return true;
+            }
         }        
     }
 }

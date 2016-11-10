@@ -28,7 +28,7 @@ namespace Loja.Web.Controllers
 
             if (usuario != null)
             {
-                return View("ListaProdutos");
+                return RedirectToAction("Listar", "Home");
             }
                 
             else

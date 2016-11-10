@@ -11,5 +11,6 @@ namespace Loja.Dominio
         List<Produto> ListarProdutos();
         void AdicionarProdutos(Produto produto);
         Produto BuscarProduto(int id);
+        void Excluir(int id);
     }
 }

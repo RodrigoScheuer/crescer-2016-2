@@ -1,6 +1,6 @@
 ﻿
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Login";
 }
 
@@ -11,23 +11,25 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
 </head>
-<body>
-    <div>
-        <h2>Bem Vindo</h2>
-        <h2>Login</h2>
+<body style="background-image:url(http://toudyconnect.com.br/images/sliders/master/slide1/bg-loja-1.jpg);">
+    <center>
+        <div style="background-color:rgba(102, 145, 181, 0.5); margin-left:500px; margin-top:50px; margin-right:600px; padding:20px; border-radius:5px;">
+            <h2>Bem Vindo!</h2>
+            <h2>@ViewBag.Title</h2>
 
 
-        @using (Html.BeginForm("Entrar", "Login", FormMethod.Post))
-        {
-            @Html.AntiForgeryToken()
-            @Html.TextBox("email", "", new { placeholder = "email" });
-            <br /><br />
-            @Html.Password("senha", "", new { placeholder = "senha" });
+            @using (Html.BeginForm("Entrar", "Login", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.TextBox("email", "", new { placeholder = "email" });
+                <br /><br />
+                @Html.Password("senha", "", new { placeholder = "senha" });
+                <br /><br />
+                <button type="submit" class="btn btn-success">Entrar</button>
+            }
+            <h5 style="color:red;">@TempData["mensagemLogin"]</h5>
 
-            <button type="submit">Entrar</button>
-        }
-        <h5 style="color:red;">@TempData["mensagemLogin"]</h5>
-
-    </div>
+        </div>
+    </center>
 </body>
 </html>

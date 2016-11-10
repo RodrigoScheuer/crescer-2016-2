@@ -1,7 +1,7 @@
-﻿@model Loja.Dominio.Produto
+﻿@model Loja.Web.Models.ProdutoModel
 @{
     ViewBag.Title = "Tela de Cadastro";
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -40,6 +40,25 @@
                 @Html.ValidationMessageFor(model => model.Valor)
             </div>
         </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Salvar</button>
+            </div>
+        </div>
+    }
+
+    @*Java Script, validações, formatar decimal, formatar data modelo Brasil*@
+    @section Scripts {
+        <script src="~/Scripts/jquery.validate.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+        <script type="text/javascript">
+        $.validator.methods.number = function (value, element) {
+            var regex = /^(\d*)(\,\d{1,2})?$/; //99999,99
+            return this.optional(element) || regex.test(value);
+        }
+        </script>
     }
 
 </body>
