@@ -1,0 +1,4 @@
+ Install-Package Bootstrap
+
+ Install-Package Microsoft.jQuery.Unobtrusive.Validation 
+//Esse daqui já instala o Jquery.Validation

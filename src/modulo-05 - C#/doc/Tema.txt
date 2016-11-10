@@ -1,2 +1,0 @@
-não cadastrar usuario com msm email.
-nao cadastrar produto com msm nome ou menor que 2 caracteres.
