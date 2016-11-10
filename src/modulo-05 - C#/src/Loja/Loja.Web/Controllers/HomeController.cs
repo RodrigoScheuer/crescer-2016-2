@@ -1,6 +1,7 @@
 ﻿using Loja.Dominio;
 using Loja.Repositorio;
 using Loja.Web.Models;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace Loja.Web.Controllers
@@ -16,8 +17,7 @@ namespace Loja.Web.Controllers
 
         public ActionResult Salvar(ProdutoModel produto)
         {
-            if (ModelState.IsValid)
-            {
+           
                 if (produto.Nome.Length > 2 )
                 {
                     if (produto.Valor > 0)
@@ -33,15 +33,13 @@ namespace Loja.Web.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("", "Valor deve ser maior que 0");
+                    TempData["mensagemErro"] = "Valor deve ser maior que 0";
                     }     
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Nome Inválido!");
+                TempData["mensagemErro"] = "Nome Inválido!";
                 }
-            }
-            ModelState.AddModelError("", "Ocorreu algum erro.");
             return View("TelaDeCadastro", produto);           
         }
 
@@ -55,7 +53,19 @@ namespace Loja.Web.Controllers
 
         public ActionResult Listar()
         {
-            return View("ListaProdutos", repositorio.ListarProdutos());
+            List<Produto> dadosDoBanco = repositorio.ListarProdutos();
+            List<ProdutoModel> dadosNaTela = new List<ProdutoModel>();
+
+            foreach (var produto in dadosDoBanco)
+            {
+                ProdutoModel produtoNovo = new ProdutoModel();
+                produtoNovo.Id = produto.Id;
+                produtoNovo.Nome = produto.Nome;
+                produtoNovo.Valor = produto.Valor;
+                dadosNaTela.Add(produtoNovo);
+            }
+
+            return View("ListaProdutos", dadosNaTela);
         }
 
         public ActionResult ExcluirProduto(int id)

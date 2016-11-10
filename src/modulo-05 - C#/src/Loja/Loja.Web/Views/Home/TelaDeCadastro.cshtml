@@ -18,10 +18,10 @@
     <div class="jumbotron">
         <h1>Cadastrar Novo Produto</h1>
     </div>
+    <h2 style="color:red">@TempData["mensagemErro"]</h2>
 
     @using (Html.BeginForm("Salvar", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
     {
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         @Html.HiddenFor(model => model.Id)
 
