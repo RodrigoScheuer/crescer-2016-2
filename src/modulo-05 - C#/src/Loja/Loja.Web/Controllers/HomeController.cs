@@ -17,7 +17,6 @@ namespace Loja.Web.Controllers
 
         public ActionResult Salvar(ProdutoModel produto)
         {
-           
                 if (produto.Nome.Length > 2 )
                 {
                     if (produto.Valor > 0)
