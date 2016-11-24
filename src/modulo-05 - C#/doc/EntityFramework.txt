@@ -1,5 +1,6 @@
 executar como administrador
-somente REPOSITORIO
+
+somente -------------REPOSITORIO--------------
 
 package manager console - instalar framework
 pm> Install-Package EntityFramework
