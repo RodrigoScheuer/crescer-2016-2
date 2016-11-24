@@ -1,0 +1,4 @@
+gitbook
+https://cwisoftware.gitbooks.io/projetocrescer/content/java/java.html#date
+
+ctrl + shift + L  = extrair conteudo para variavel.
