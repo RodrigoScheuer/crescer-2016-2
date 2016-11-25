@@ -5,12 +5,6 @@
  */
 package br.com.cwi.crescer.aula1;
 
-import java.text.DateFormat;
-import java.text.Format;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Calendar;
-import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -29,6 +23,7 @@ public class MeuStringUtil {
                 System.out.println("");
                 System.out.println("Informe uma frase ou palavra: ");
                 frase = scanner.nextLine();
+                
                 // se frase vazia não entra em nenhum caso
                 if (verificaSeStringVazia(frase)) {
                     opcao = 0;
@@ -91,6 +86,10 @@ public class MeuStringUtil {
         return cont;
     }
 
+    public static boolean isEmpty(String string){
+        return string.isEmpty();
+    }
+    
     public static String inverterPalavra(String palavra) {
         return new StringBuilder(palavra).reverse().toString();
     }
