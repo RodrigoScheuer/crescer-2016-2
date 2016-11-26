@@ -68,7 +68,7 @@ public class MeuCalendarioUtil {
     }
 
     public static void calcularTempoDecorrido(String dataEntrada) throws ParseException {
-        Date data = df.parse(dataEntrada);
+        Date data = transformarEmDate(dataEntrada);
         long diff = new Date().getTime() - data.getTime();
         calendar.setTime(new Date(diff));
 
@@ -77,5 +77,9 @@ public class MeuCalendarioUtil {
                             calendar.get(Calendar.MONTH) + " mese(s), " + 
                             calendar.get(Calendar.DAY_OF_MONTH) + " dia(s).");
     }
-
+    
+    public static Date transformarEmDate(String dataEntrada) throws ParseException{
+        Date data = df.parse(dataEntrada);
+        return data;
+    }
 }
