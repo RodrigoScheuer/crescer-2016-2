@@ -14,6 +14,10 @@ import java.util.Scanner;
  */
 public class MeuCalendarioUtil {
 
+    static final String pattern = "dd/MM/yyyy";
+    static final DateFormat df = new SimpleDateFormat(pattern);
+    static final Calendar calendar = Calendar.getInstance();
+    
     public static void main(String[] args) {
 
         try (final Scanner scanner = new Scanner(System.in)) {
@@ -31,7 +35,7 @@ public class MeuCalendarioUtil {
                 System.out.println("9 - sair");
                 System.out.print("\n Digite a opção desejada: ");
                 opcao = scanner.nextInt();
-                // se opcao invalida não entra em nenhum caso
+                // se opcao invalida, não entra em nenhum caso
                 if (opcao < 1 || opcao > 2 && opcao != 9) {
                     opcao = 0;
                 }
@@ -58,24 +62,20 @@ public class MeuCalendarioUtil {
 
     public static void buscarSemanaDeNascimento(String data) throws ParseException {
         String[] semana = {"", "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sabado"};
-        String pattern = "dd/MM/yyyy";
-        DateFormat df = new SimpleDateFormat(pattern);
         Date dataNasc = df.parse(data);
-        Calendar c = Calendar.getInstance();
-        c.setTime(dataNasc);
-        System.out.println("Semana da data de nascimento: " + semana[c.get(Calendar.DAY_OF_WEEK)]);
+        calendar.setTime(dataNasc);
+        System.out.println("Semana da data de nascimento: " + semana[calendar.get(Calendar.DAY_OF_WEEK)]);
     }
 
     public static void calcularTempoDecorrido(String dataEntrada) throws ParseException {
-        Date dataAtual = new Date();
-        String pattern = "dd/MM/yyyy";
-        DateFormat df = new SimpleDateFormat(pattern);
         Date data = df.parse(dataEntrada);
-        long diferencaDias = (dataAtual.getTime() - data.getTime()) / (1000 * 60 * 60 * 24);
-        long diferencaMeses = (dataAtual.getTime() - data.getTime()) / (1000 * 60 * 60 * 24) / 30;
-        long diferencaAnos = ((dataAtual.getTime() - data.getTime()) / (1000 * 60 * 60 * 24) / 30) / 12;
-        System.out.println("Tempo decorrido até a data atual: " + diferencaAnos +" ano(s), " +
-                            diferencaMeses + " mese(s), " + diferencaDias + " dia(s).");
+        long diff = new Date().getTime() - data.getTime();
+        calendar.setTime(new Date(diff));
+
+        System.out.println("Tempo decorrido até a data atual: " + 
+                           (calendar.get(Calendar.YEAR) - 1970) +" ano(s), " +
+                            calendar.get(Calendar.MONTH) + " mese(s), " + 
+                            calendar.get(Calendar.DAY_OF_MONTH) + " dia(s).");
     }
 
 }

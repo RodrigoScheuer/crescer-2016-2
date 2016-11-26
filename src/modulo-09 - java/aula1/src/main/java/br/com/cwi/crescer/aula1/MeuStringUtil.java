@@ -85,10 +85,6 @@ public class MeuStringUtil {
 
         return cont;
     }
-
-    public static boolean isEmpty(String string){
-        return string.isEmpty();
-    }
     
     public static String inverterPalavra(String palavra) {
         return new StringBuilder(palavra).reverse().toString();
