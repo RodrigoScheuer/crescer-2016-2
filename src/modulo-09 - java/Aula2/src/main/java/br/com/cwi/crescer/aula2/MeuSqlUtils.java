@@ -12,9 +12,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -31,12 +34,17 @@ public class MeuSqlUtils {
             System.out.println("Digite o arquivo para leitura:");
             arquivo = scanner.nextLine();
 
-            executarSQL(arquivo);
+            //executarSQL(arquivo);
+            importarArquivo(arquivo);
         }
     }
 
     private static boolean accept(final File pathname) {
         return pathname.getName().contains(".sql");
+    }
+
+    private static boolean acceptCSV(final File pathname) {
+        return pathname.getName().contains(".csv");
     }
 
     public static void executarSQL(String arquivo) throws IOException {
@@ -87,9 +95,9 @@ public class MeuSqlUtils {
                         try (final Connection connection = ConnectionUtils.getConnection()) {
                             try (final Statement statement = connection.createStatement()) {
                                 System.out.println("\n Executando comandos... \n");
-                                
+
                                 statement.executeUpdate(ddl);
-                                
+
                                 System.out.println("\n Executado com sucesso!!! \n");
 
                             } catch (final SQLException e) {
@@ -100,7 +108,7 @@ public class MeuSqlUtils {
                             System.err.format("SQLException: %s", e);
                         }
                     }
-                    
+
                 } catch (FileNotFoundException e) {
                     System.out.println(e);
                 }
@@ -108,12 +116,66 @@ public class MeuSqlUtils {
         }
     }
 
-    public static void ImportarArquivo(){
-    
+    public static void importarArquivo(String arquivo) throws IOException {
+
+        final File file = new File(arquivo);
+
+        if (file.exists()) {
+
+            if (acceptCSV(file)) {
+
+                try (final BufferedReader bufferReader = new BufferedReader(new FileReader(arquivo))) {
+
+                    String linha = null;
+                    List<Pessoa> lista = new ArrayList<>();
+
+                    while ((linha = bufferReader.readLine()) != null) {
+                        String[] colunas = linha.split(";");
+                        Pessoa pessoa = new Pessoa(Integer.parseInt(colunas[0]), colunas[1]);
+                        lista.add(pessoa);
+                    }
+
+                    SalvarNoBanco(lista);
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+            } else {
+                System.out.println("\n Arquivo incompatível");
+            }
+
+        } else {
+            System.out.println("\n Arquivo não existe!!");
+        }
     }
-    
-    public static void ExportarArquivo(){
-    
+
+    public static void ExportarArquivo() {
+
     }
-    
+
+    private static void SalvarNoBanco(List<Pessoa> lista) {
+
+        for (int i = 0; i < lista.size(); i++) {
+
+            final String insert = "INSERT INTO RODRIGO("
+                    + "ID_PESSOA, NM_PESSOA ) "
+                    + "VALUES (?, ?)";
+            try (
+                    final Connection connection = ConnectionUtils.getConnection();
+                    final PreparedStatement preparedStatement = connection.prepareStatement(insert)) {
+
+                preparedStatement.setLong(1, lista.get(i).getId());
+                preparedStatement.setString(2, lista.get(i).getNome());
+                
+                preparedStatement.executeUpdate();
+                System.out.println("Importação realizada com sucesso!!!");
+                
+            } catch (final SQLException e) {
+                System.err.format("SQLException: %s", e);
+            }
+        }
+
+    }
+
 }
