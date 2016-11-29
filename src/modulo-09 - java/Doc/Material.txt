@@ -11,10 +11,11 @@ psvm = main
 
 alt + seta = move linha de codigo.
 
+alt + shift + R = renomear todas as variaveis do msm tipo.
+
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
             <version>11.2.0.3</version>
         </dependency>
 
-alt + shift + R = renomear todas as variaveis do msm tipo

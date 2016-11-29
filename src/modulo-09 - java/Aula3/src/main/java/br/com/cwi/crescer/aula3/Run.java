@@ -30,7 +30,8 @@ public class Run {
         
         pessoaDao.insert(pessoa);
         
-        pessoaDao.findByPessoa(pessoa).forEach(p -> System.out.println(p.getNmPessoa()));
+        pessoaDao.findByPessoa(pessoa).forEach(p -> System.out.println(p.getNmPessoa()));        
+        
         em.close();
         emf.close();        
     }
