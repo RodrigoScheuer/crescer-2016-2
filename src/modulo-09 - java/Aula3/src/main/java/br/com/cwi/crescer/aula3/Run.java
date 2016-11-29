@@ -20,25 +20,18 @@ public class Run {
 
     public static void main(String[] args) {
 
-        final EntityManagerFactory entityManagerFactory;
-        entityManagerFactory = Persistence.createEntityManagerFactory("CRESCER");
-        final EntityManager entityManager;
-        entityManager = entityManagerFactory.createEntityManager();
+        final EntityManagerFactory emf = Persistence.createEntityManagerFactory("CRESCER");
+        final EntityManager em = emf.createEntityManager();
 
-        PessoaDao pessoaDao = new PessoaDao();
+        PessoaDao pessoaDao = new PessoaDao(em);
         Pessoa pessoa = new Pessoa();
+        //pessoa.setIdPessoa(1l);
         pessoa.setNmPessoa("Rodrigo Scheuer");
-        //pessoaDao.insert(pessoa);
         
-        List<Pessoa> pessoasDoBanco = pessoaDao.findAll();
+        pessoaDao.insert(pessoa);
         
-        for (Pessoa p : pessoasDoBanco) {
-            System.out.println(p.getNmPessoa());
-        }
-        
-        //pessoaDao.delete();
-        
-        entityManager.close();
-        entityManagerFactory.close();        
+        pessoaDao.findByPessoa(pessoa).forEach(p -> System.out.println(p.getNmPessoa()));
+        em.close();
+        emf.close();        
     }
 }

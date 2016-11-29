@@ -5,52 +5,51 @@
  */
 package br.com.cwi.crescer.aula3.dao;
 
+import static org.hibernate.criterion.MatchMode.ANYWHERE;
+
 import br.com.cwi.crescer.aula3.entity.Pessoa;
 import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.Example;
+import org.hibernate.criterion.Restrictions;
 /**
  *
  * @author rodrigo.scheuer
  */
 public class PessoaDao implements IDao<Pessoa, Long> {
 
+    final EntityManager entityManager;
+
+    public PessoaDao(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
     @Override
     public void insert(Pessoa pessoa) {
-
-        final EntityManagerFactory entityManagerFactory;
-        entityManagerFactory = Persistence.createEntityManagerFactory("CRESCER");
-        final EntityManager entityManager;
-        entityManager = entityManagerFactory.createEntityManager();
-
-        entityManager.getTransaction().begin();
         try {
+            entityManager.getTransaction().begin();
 
-            entityManager.persist(pessoa);
+            if (pessoa.getIdPessoa() == null) {
+                entityManager.persist(pessoa);
+            } else {
+                entityManager.merge(pessoa);
+            }
             entityManager.getTransaction().commit();
 
         } catch (Exception e) {
             entityManager.getTransaction().rollback();
         }
-
-        entityManager.close();
-        entityManagerFactory.close();
     }
 
     @Override
     public void delete(Pessoa pessoa) {
 
-        final EntityManagerFactory entityManagerFactory;
-        entityManagerFactory = Persistence.createEntityManagerFactory("CRESCER");
-        final EntityManager entityManager;
-        entityManager = entityManagerFactory.createEntityManager();
-
         if (entityManager.isOpen()) {
 
-            entityManager.getTransaction().begin();
             try {
+                entityManager.getTransaction().begin();
                 entityManager.remove(pessoa);
                 entityManager.getTransaction().commit();
 
@@ -58,30 +57,29 @@ public class PessoaDao implements IDao<Pessoa, Long> {
                 entityManager.getTransaction().rollback();
             }
         }
-
-        entityManager.close();
-        entityManagerFactory.close();
     }
 
     @Override
     public Pessoa find(Long id) {
-
-        final EntityManagerFactory entityManagerFactory;
-        entityManagerFactory = Persistence.createEntityManagerFactory("CRESCER");
-        final EntityManager entityManager;
-        entityManager = entityManagerFactory.createEntityManager();
-
         return entityManager.find(Pessoa.class, id);
     }
 
     @Override
     public List<Pessoa> findAll() {
-        
-        final EntityManagerFactory entityManagerFactory;
-        entityManagerFactory = Persistence.createEntityManagerFactory("CRESCER");
-        final EntityManager entityManager;
-        entityManager = entityManagerFactory.createEntityManager();
-        
         return entityManager.createQuery("select p from Pessoa p").getResultList();
+    }
+    
+    public List<Pessoa> findByNome(String nmPessoa) {
+        final Session session = entityManager.unwrap(Session.class);
+        final Criteria criteria = session.createCriteria(Pessoa.class);
+        criteria.add(Restrictions.like("nmPessoa", nmPessoa, ANYWHERE));
+        return criteria.list();
+    }
+
+    public List<Pessoa> findByPessoa(Pessoa pessoa) {
+        final Session session = entityManager.unwrap(Session.class);
+        final Criteria criteria = session.createCriteria(Pessoa.class);
+        criteria.add(Example.create(pessoa));
+        return criteria.list();
     }
 }
