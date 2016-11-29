@@ -19,3 +19,9 @@ alt + shift + R = renomear todas as variaveis do msm tipo.
             <version>11.2.0.3</version>
         </dependency>
 
+
+Pessoa				filho
+id_Pessoa ---------------> fk_ID_Pessoa
+@oneToMany		     @ManyToOne
+  ^
+  |--- não é necessário

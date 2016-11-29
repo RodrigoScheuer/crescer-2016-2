@@ -1,0 +1,11 @@
+aula 3 ---------
+
+adicionar classe de entidade do banco de dados
+
+mapea todas as classes, so precisa implementar gerador de sequency
+
+criar classe dao abstrata...
+
+aula 4 ---------
+
+exec XDB.DBMS_XDB.SETHTTPPORT('4321')
