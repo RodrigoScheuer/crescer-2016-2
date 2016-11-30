@@ -1,8 +1,6 @@
 
 package br.com.cwi.crescer.aula3.dao;
 
-import java.util.List;
-
 /**
  *
  * @author Rodrigo
@@ -16,6 +14,4 @@ public interface ICrudDao<T, ID>  {
     public void delete(T t);
 
     public T find(ID id);
-    
-    public List<T> list();
 }

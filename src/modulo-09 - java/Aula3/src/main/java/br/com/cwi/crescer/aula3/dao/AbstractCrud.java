@@ -5,7 +5,6 @@
  */
 package br.com.cwi.crescer.aula3.dao;
 
-import java.util.List;
 import javax.persistence.EntityManager;
 
 /**
@@ -46,10 +45,4 @@ public abstract class AbstractCrud<T, ID> implements ICrudDao<T, ID> {
     public T find(ID id) {
         return this.getEntityManager().find(clazz, id);
     }
-    
-    @Override
-    public List<T> list() {
-        return this.getEntityManager().createQuery("select p from Pessoa p").getResultList();
-    }
-
 }

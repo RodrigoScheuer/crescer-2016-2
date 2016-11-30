@@ -42,7 +42,7 @@ public class ExportadorCSV {
                         
                         String[] inf = dados.split(";");
 
-                        for (int i = 0; i < inf.length; i++) {
+                        for(int i = 0; i < inf.length; i++) {
                             bufferedWriter.newLine();
                             bufferedWriter.append(inf[i]);
                         }

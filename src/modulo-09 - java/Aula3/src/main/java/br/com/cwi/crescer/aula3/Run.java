@@ -5,7 +5,6 @@
  */
 package br.com.cwi.crescer.aula3;
 
-import br.com.cwi.crescer.aula3.dao.CrudDao;
 import br.com.cwi.crescer.aula3.dao.PessoaDao;
 import br.com.cwi.crescer.aula3.entity.Pessoa;
 import javax.persistence.EntityManager;

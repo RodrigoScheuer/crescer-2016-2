@@ -29,31 +29,31 @@ public class PessoaServlet extends HttpServlet {
         try (final PrintWriter out = response.getWriter();) {
 
             out.append("<table id=\"tabela-pessoas\">");
-           out.append("<thead>");
-           out.append("<tr>");
-           out.append("<th>");
-           out.append("Nome");
-           out.append("</th>");        
-           out.append("</tr>");
-           out.append("<thead>");
-           out.append("<tbody>");
-           pessoaBean.findAll().forEach(p -> {
-               out.append("<tr>");
-               out.append("<td>").append(p.getNmPessoa()).append("</td>");
-               out.append("</tr>");
-           });
-           out.append("</tbody>");
-           out.append("</table>");
+            out.append("<thead>");
+            out.append("<tr>");
+            out.append("<th>");
+            out.append("Nome");
+            out.append("</th>");
+            out.append("</tr>");
+            out.append("<thead>");
+            out.append("<tbody>");
+            pessoaBean.findAll().forEach(p -> {
+                out.append("<tr>");
+                out.append("<td>").append(p.getNmPessoa()).append("</td>");
+                out.append("</tr>");
+            });
+            out.append("</tbody>");
+            out.append("</table>");
 
-           out.append("</body>");
-           out.append("</html>");
+            out.append("</body>");
+            out.append("</html>");
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String nomePessoa = request.getParameter("nome");
-      
+
         Pessoa pessoa = new Pessoa();
         pessoa.setNmPessoa(nomePessoa);
         pessoaBean.insert(pessoa);
