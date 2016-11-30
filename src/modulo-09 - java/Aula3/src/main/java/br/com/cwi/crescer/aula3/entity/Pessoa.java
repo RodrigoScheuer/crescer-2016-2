@@ -49,4 +49,7 @@ public class Pessoa implements Serializable {
     public void setNmPessoa(String nmPessoa) {
         this.nmPessoa = nmPessoa;
     }
+
+    public Pessoa() {
+    }
 }
