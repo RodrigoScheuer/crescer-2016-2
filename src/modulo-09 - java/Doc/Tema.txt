@@ -1,0 +1,26 @@
+vida de processador
+
+tema
+
+tabela
+----> filme --
+
+titulo
+genero --------> genero (acao, terror...)
+diretor
+data de lançamento
+elenco ------------> ator
+classificação ----- > classificação (16, 18...)
+Idiomas -------> Idiomas
+
+
+classificação
+idade
+descricao
+
+genero
+nome
+
+idioma
+nome
+
