@@ -27,20 +27,21 @@ public class Genero implements Serializable {
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_GENERO")
     @SequenceGenerator(name = "SEQ_GENERO", sequenceName = "SEQ_GENERO", allocationSize = 1) 
+    
     @Basic(optional = false)
-    @Column(name = "ID")
-    private Long id;
+    @Column(name = "ID_GENERO")
+    private Long idGenero;
     
     @Basic(optional = false)
     @Column(name = "DESCRICAO")
     private String descricao;
 
     public Long getId() {
-        return id;
+        return idGenero;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.idGenero = id;
     }
 
     public String getDescricao() {

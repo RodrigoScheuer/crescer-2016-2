@@ -26,9 +26,10 @@ public class Classificacao implements Serializable{
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_CLASSIFICACAO")
     @SequenceGenerator(name = "SEQ_CLASSIFICACAO", sequenceName = "SEQ_CLASSIFICACAO", allocationSize = 1)
+    
     @Basic(optional = false)
-    @Column(name = "ID")
-    private Long id;
+    @Column(name = "ID_CLASSIFICACAO")
+    private Long idClassificacao;
     
     @Basic(optional = false)
     @Column(name = "DESCRICAO")
@@ -38,11 +39,11 @@ public class Classificacao implements Serializable{
     private String idade;
 
     public Long getId() {
-        return id;
+        return idClassificacao;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.idClassificacao = id;
     }
 
     public String getDescricao() {

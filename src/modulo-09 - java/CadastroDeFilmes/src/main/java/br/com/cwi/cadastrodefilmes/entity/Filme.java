@@ -26,7 +26,7 @@ import static javax.persistence.TemporalType.DATE;
  */
 @Entity
 @Table(name = "Filme")
-public class Filme implements Serializable{
+public class Filme implements Serializable {
 
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_FILME")
@@ -34,26 +34,27 @@ public class Filme implements Serializable{
     @Basic(optional = false)
     @Column(name = "ID")
     private Long id;
-    
+
     @Basic(optional = false)
     @Column(name = "TITULO")
     private String titulo;
-    
-    @ManyToOne(optional=false) 
-    @JoinColumn(name="ID")@Basic(optional = false)
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "ID_GENERO")
+    @Basic(optional = false)
     private Genero genero;
 
-    @ManyToOne(optional=false) 
-    @JoinColumn(name="ID")
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "ID_CLASSIFICACAO")
     private Classificacao classificacao;
-    
+
     @Basic(optional = false)
     private String diretor;
-    
+
     @Column(name = "DT_LANCAMENTO", nullable = true)
     @Temporal(DATE)
     private Date dataDeLancamento;
-    
+
     /*@ManyToOne
     @JoinColumn(name = "ID")
     private Elenco elenco;
@@ -61,8 +62,6 @@ public class Filme implements Serializable{
     @ManyToOne
     @JoinColumn(name = "ID")
     private Idioma idioma;*/
-    
-    
     //-----------------------------------------
     public Long getId() {
         return id;
@@ -127,5 +126,4 @@ public class Filme implements Serializable{
     public void setElenco(Elenco elenco) {
         this.elenco = elenco;
     }*/
-    
 }

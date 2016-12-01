@@ -14,31 +14,44 @@
             <h:outputLabel for="titulo" value="#{bundle.filme_titulo}"></h:outputLabel>
             <h:inputText id="titulo" value="#{helloFilme.filme.titulo}" styleClass="form-control"/>
         </div>
-        
+
         <div class="form-group"> 
-            <h:outputLabel for="genero" value="#{bundle.filme_idGenero}"></h:outputLabel>
-            <h:inputText id="genero" value="#{helloFilme.filme.genero}" styleClass="form-control"/>
+
+            <h:outputLabel for="genero" value="#{bundle.filme_genero}"></h:outputLabel>
+
+            <h:selectOneListbox id="genero"
+                                value="#{helloFilme.filme.genero.id}" styleClass="form-control">
+                <f:selectItems value="#{helloFilme.generos}" var="genero"
+                               itemLabel="#{genero.descricao}" itemValue="#{genero.id}" />
+            </h:selectOneListbox>
         </div>
-        
+
         <div class="form-group"> 
             <h:outputLabel for="dataDeLancamento" value="#{bundle.filme_dataDeLancamento}"></h:outputLabel>
             <h:inputText id="dataDeLancamento" value="#{helloFilme.filme.dataDeLancamento}" styleClass="form-control"/>
         </div>
-        
+
         <div class="form-group"> 
-            <h:outputLabel for="classificacao" value="#{bundle.filme_idClassificacao}"></h:outputLabel>
-            <h:inputText id="classificacao" value="#{helloFilme.filme.classificacao}" styleClass="form-control"/>
+
+            <h:outputLabel for="classificacao" value="#{bundle.filme_classificacao}"></h:outputLabel>
+
+            <h:selectOneListbox id="classificacao"
+                                value="#{helloFilme.filme.classificacao.id}" styleClass="form-control">
+                <f:selectItems value="#{helloFilme.classificacoes}" var="classificacao"
+                               itemLabel="#{classificacao.descricao}" itemValue="#{classificacao.id}" />
+            </h:selectOneListbox>
         </div>
-        
+
         <div class="form-group"> 
             <h:outputLabel for="diretor" value="#{bundle.filme_diretor}"></h:outputLabel>
             <h:inputText id="diretor" value="#{helloFilme.filme.diretor}" styleClass="form-control"/>
         </div>
-        
+
         <h:commandButton type="submit" value="Enviar" styleClass="btn btn-success" action="#{helloFilme.adicionar}">    
             <f:ajax execute="@form" render="@form" />
         </h:commandButton>
-        
+        <br/>
+
         <h:dataTable id="pessoa" value="#{helloFilme.filmes}" var="filme" styleClass="table table-hover">
             <h:column>
                 <f:facet name="header">
@@ -58,11 +71,14 @@
                 </f:facet>
                 <h:outputText value="#{filme.genero}"/>
             </h:column>
+
             <h:column>
                 <f:facet name="header">
-                    <h:outputText value="#{bundle.filme_dataLancamento}"/>
+                    <h:outputText value="#{bundle.filme_dataDeLancamento}"/>
                 </f:facet>
-                <h:outputText value="#{filme.dataDeLancamento}"/>
+                <h:outputText value="#{filme.dataDeLancamento}">
+                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                </h:outputText>
             </h:column>
             <h:column>
                 <f:facet name="header">
@@ -76,7 +92,7 @@
                 </f:facet>
                 <h:outputText value="#{filme.diretor}"/>
             </h:column>
-            
+
 
         </h:dataTable>
 
