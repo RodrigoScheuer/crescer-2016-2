@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    template="/templates/template.xhtml">
+
+    <ui:define name="form">
+        <h1>Cadastro de Filmes</h1><br />
+
+        <div class="form-group"> 
+            <h:outputLabel for="titulo" value="#{bundle.filme_titulo}"></h:outputLabel>
+            <h:inputText id="titulo" value="#{helloFilme.filme.titulo}" styleClass="form-control"/>
+        </div>
+        
+        <div class="form-group"> 
+            <h:outputLabel for="genero" value="#{bundle.filme_idGenero}"></h:outputLabel>
+            <h:inputText id="genero" value="#{helloFilme.filme.genero}" styleClass="form-control"/>
+        </div>
+        
+        <div class="form-group"> 
+            <h:outputLabel for="dataDeLancamento" value="#{bundle.filme_dataDeLancamento}"></h:outputLabel>
+            <h:inputText id="dataDeLancamento" value="#{helloFilme.filme.dataDeLancamento}" styleClass="form-control"/>
+        </div>
+        
+        <div class="form-group"> 
+            <h:outputLabel for="classificacao" value="#{bundle.filme_idClassificacao}"></h:outputLabel>
+            <h:inputText id="classificacao" value="#{helloFilme.filme.classificacao}" styleClass="form-control"/>
+        </div>
+        
+        <div class="form-group"> 
+            <h:outputLabel for="diretor" value="#{bundle.filme_diretor}"></h:outputLabel>
+            <h:inputText id="diretor" value="#{helloFilme.filme.diretor}" styleClass="form-control"/>
+        </div>
+        
+        <h:commandButton type="submit" value="Enviar" styleClass="btn btn-success" action="#{helloFilme.adicionar}">    
+            <f:ajax execute="@form" render="@form" />
+        </h:commandButton>
+        
+        <h:dataTable id="pessoa" value="#{helloFilme.filmes}" var="filme" styleClass="table table-hover">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.filme_id}"/>
+                </f:facet>
+                <h:outputText value="#{filme.id}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.filme_titulo}"/>
+                </f:facet>
+                <h:outputText value="#{filme.titulo}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.filme_genero}"/>
+                </f:facet>
+                <h:outputText value="#{filme.genero}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.filme_dataLancamento}"/>
+                </f:facet>
+                <h:outputText value="#{filme.dataDeLancamento}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.filme_classificacao}"/>
+                </f:facet>
+                <h:outputText value="#{filme.classificacao}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.filme_diretor}"/>
+                </f:facet>
+                <h:outputText value="#{filme.diretor}"/>
+            </h:column>
+            
+
+        </h:dataTable>
+
+        <h:messages id="messages">
+
+        </h:messages>
+
+    </ui:define>
+
+</ui:composition>
