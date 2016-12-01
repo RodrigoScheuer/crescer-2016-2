@@ -13,7 +13,7 @@ alt + seta = move linha de codigo.
 
 alt + shift + R = renomear todas as variaveis do msm tipo.
 
-ctrl + shift + r = pesquisar arquivo
+ctrl + shift + R = pesquisar arquivo
 
         <dependency>
             <groupId>com.oracle</groupId>
