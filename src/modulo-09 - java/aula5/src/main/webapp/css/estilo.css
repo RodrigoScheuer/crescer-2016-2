@@ -1,0 +1,20 @@
+
+/* 
+    Created on : 03/12/2016, 14:14:28
+    Author     : Rodrigo
+*/
+
+#link-cadastro{
+    position: absolute;
+    display: inline-block;
+    top: 72%;
+    right: 5%;
+}
+
+#logout{
+    position: absolute;
+    display: inline-block;
+    top: 6%;
+    right: 2%;
+}
+

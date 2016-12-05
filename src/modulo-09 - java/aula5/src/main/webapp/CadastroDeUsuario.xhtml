@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="/templates/template.xhtml"    
+    xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="form">
+
+        <div class="panel panel-default">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="page-header">
+                        <h:outputText value="#{bundle.cadastro_usuario_titulo}"/>
+                    </h1> 
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="panel panel-success">
+                        <div class="panel-heading" style="padding: 20px;">
+                            <span class="glyphicon glyphicon-user"></span> 
+                        </div>
+
+
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <h:outputLabel for="username" value="#{bundle.cadastro_username}"/>
+                                <h:inputText id="username" styleClass="form-control" value="#{usuarioCadastradoMBean.entity.email}" required="true"/>
+                            </div>
+                            
+                            <div class="form-group">
+                                <h:outputLabel for="password" value="#{bundle.login_password}" />
+                                <h:inputSecret id="password" styleClass="form-control" value="#{usuarioCadastradoMBean.entity.senha}" required="true" maxlength="15"/>
+                            </div>
+                            
+                            <div class="form-group">
+                                <h:outputLabel for="confirmaPassword" value="#{bundle.cadastro_confirma_password}"/>
+                                <h:inputSecret id="confirmaPassword" styleClass="form-control"  value="#{usuarioCadastradoMBean.entity.confirmaSenha}" required="true" />
+                            </div>
+                            
+                            <h:commandButton type="submit" value="Enviar" styleClass="btn btn-success" action="#{usuarioCadastradoMBean.adicionar}">    
+                                <f:ajax execute="@form" render="@form" />
+                            </h:commandButton>
+
+                            <h:dataTable id="pessoas" value="#{usuarioCadastradoMBean.list}" var="usuario" styleClass="table table-hover">
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ator_id}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{usuario.id}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ator_nome}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{usuario.email}"/>
+                                </h:column>
+                            </h:dataTable>
+
+                            <h:messages styleClass="alert" errorClass="alert-danger"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>
