@@ -1,0 +1,5 @@
+br\com\cwi\redesocial\controller\PerfilRest.class
+br\com\cwi\redesocial\repositorio\PerfilRepositorio.class
+br\com\cwi\redesocial\AppRun.class
+br\com\cwi\redesocial\servico\PerfilServico.class
+br\com\cwi\redesocial\entity\Perfil.class

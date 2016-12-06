@@ -1,0 +1,105 @@
+/* 
+    Created on : 06/12/2016, 10:25:47
+    Author     : Rodrigo
+*/
+
+.login{
+    background-image: url('http://www.downloadswallpapers.com/wallpapers/2012/agosto/sempre-conectado-wallpaper-18862.jpg');
+    background-size: cover;
+}
+
+.cabecalho-login{
+    background-color: cadetblue;
+    color: white;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 25px;
+}
+
+.cabecalho-login span{
+    padding-left: 50px;
+}
+
+.cabecalho-login span:nth-child(3){
+    margin-left: 60%;
+}
+
+.cabecalho-login span:nth-child(2){
+    padding-left: 10px;
+}
+
+.conteudo-login{
+    display: inline-block;
+    position: absolute;
+    top: 40px;
+    left: 20%;
+    color: white;
+    text-align: center;
+}
+
+.conteudo-login h1{
+    margin-top: 50px;
+    font-size: 80px;
+}
+
+.div-login{
+    display: inline-block;
+    position: absolute;
+    top: 20%;
+    right: 3%;
+    width: 300px;
+    height: 350px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.titulo-login{
+    background-color: cadetblue;
+    height: 45px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-style: italic;
+    padding: 5px;
+}
+
+.formulario-login{
+    margin-top: 20px;
+    padding: 5px;
+}
+
+.tit{
+    padding-left: 55px;
+}
+
+.centralizar{
+    text-align: center;
+}
+
+.login-facebook{
+    display: inline-block;
+    padding-left: 105px;
+}
+
+.icone-login-facebook{
+    position: relative;
+    left: 0px;
+    top: 18px;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-image: url(http://icons.iconarchive.com/icons/icontexto/social-inside/128/social-inside-facebook-icon.png);
+    background-size: cover;
+}
+
+.logo{
+    display: inline-block;
+    position: relative;
+    top:5px;
+    left: 10px;
+    padding-left: 10px;
+    width: 30px;
+    height: 30px;
+    background-image: url(https://rlv.zcache.com.br/pata_do_lobo_adesivo_quadrado-r35f1590f51cc4bfdb0ae173495ba1a84_v9wf3_8byvr_50.jpg);
+    background-size: cover;
+}

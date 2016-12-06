@@ -38,7 +38,7 @@ public class Pessoa implements Serializable {
     @Column(name = "DT_NASCIMENTO", nullable = true)
     @Temporal(DATE)
     @Basic(optional = true)
-    private Date dtNascimento;
+    private Date dataNascimento;
 
     public Long getIdPessoa() {
         return idPessoa;
@@ -57,11 +57,11 @@ public class Pessoa implements Serializable {
     }
 
     public Date getDtNascimento() {
-        return dtNascimento;
+        return dataNascimento;
     }
 
     public void setDtNascimento(Date dtNascimento) {
-        this.dtNascimento = dtNascimento;
+        this.dataNascimento = dtNascimento;
     }
 
     
