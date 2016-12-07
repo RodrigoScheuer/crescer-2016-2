@@ -1,0 +1,17 @@
+br\com\cwi\cadastrodefilmes\controller\AtorController.class
+br\com\cwi\cadastrodefilmes\controller\DataController.class
+br\com\cwi\cadastrodefilmes\security\CrescerWebSecurityConfig.class
+br\com\cwi\cadastrodefilmes\entity\Filme.class
+br\com\cwi\cadastrodefilmes\entity\Ator.class
+br\com\cwi\cadastrodefilmes\security\Roles.class
+br\com\cwi\cadastrodefilmes\AppRun.class
+br\com\cwi\cadastrodefilmes\entity\Classificacao.class
+br\com\cwi\cadastrodefilmes\entity\Idioma.class
+br\com\cwi\cadastrodefilmes\entity\Genero.class
+br\com\cwi\cadastrodefilmes\controller\AtorRest.class
+br\com\cwi\cadastrodefilmes\security\CrescerUserDetailsService.class
+br\com\cwi\cadastrodefilmes\repositorio\AtorRepositorio.class
+br\com\cwi\cadastrodefilmes\dto\AtorDto.class
+br\com\cwi\cadastrodefilmes\service\AtorService.class
+br\com\cwi\cadastrodefilmes\controller\LoginController.class
+br\com\cwi\cadastrodefilmes\entity\Elenco.class
