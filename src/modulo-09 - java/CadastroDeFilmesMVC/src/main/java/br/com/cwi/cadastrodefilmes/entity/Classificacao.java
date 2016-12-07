@@ -36,7 +36,7 @@ public class Classificacao implements Serializable{
     private String descricao;
     
     @Column(name = "IDADE")
-    private String idade;
+    private int idade;
 
     public Long getId() {
         return idClassificacao;
@@ -54,11 +54,11 @@ public class Classificacao implements Serializable{
         this.descricao = descricao;
     }
 
-    public String getIdade() {
+    public int getIdade() {
         return idade;
     }
 
-    public void setIdade(String idade) {
+    public void setIdade(int idade) {
         this.idade = idade;
     }
 }
