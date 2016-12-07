@@ -19,6 +19,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import static javax.persistence.TemporalType.DATE;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -51,6 +52,7 @@ public class Filme implements Serializable {
     @Basic(optional = false)
     private String diretor;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "DT_LANCAMENTO", nullable = true)
     @Temporal(DATE)
     private Date dataDeLancamento;
@@ -110,6 +112,8 @@ public class Filme implements Serializable {
     public void setClassificacao(Classificacao classificacao) {
         this.classificacao = classificacao;
     }
+    
+    
 
     /*public Idioma getIdioma() {
         return idioma;
@@ -126,4 +130,12 @@ public class Filme implements Serializable {
     public void setElenco(Elenco elenco) {
         this.elenco = elenco;
     }*/
+
+    public String toStringGenero() {
+        return this.genero.toString();
+    }
+    
+    public String toStringClassificacao(){
+        return this.classificacao.toString();
+    }
 }

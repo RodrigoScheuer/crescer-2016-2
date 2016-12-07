@@ -61,4 +61,11 @@ public class Classificacao implements Serializable{
     public void setIdade(int idade) {
         this.idade = idade;
     }
+
+    @Override
+    public String toString() {
+        return "" + descricao + "\n";
+    }
+    
+    
 }

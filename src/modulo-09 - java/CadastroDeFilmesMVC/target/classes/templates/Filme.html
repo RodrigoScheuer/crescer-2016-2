@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="fragments :: head('Cadastro de Filmes')">
+        <!-- pega do templates/fragments.html o frament:head -->
+        <title>Filmes</title>
+    </head>
+
+    <body>
+
+        <div th:replace="fragments :: navbar">
+            <!-- pega do templates/fragments.html o frament:navbar -->
+        </div>
+
+        <div class="container">
+
+            <h1 th:text="#{filme.form}" class="page-header"></h1>
+
+            <form action="#" th:action="@{/filme}" th:object="${filme}" method="POST">
+
+                <input type="hidden" th:field="*{id}"/> 
+
+                <div class="form-group" th:classappend="${#fields.hasErrors('titulo')} ? has-error">
+                    <label for="titulo" th:text="#{filme.titulo}"></label>
+                    <input class="form-control" type="text" th:field="*{titulo}" autofocus="true" />
+                    <span th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}" class="help-block"></span>
+                </div>
+                
+                <div class="form-group" th:classappend="${#fields.hasErrors('diretor')} ? has-error">
+                    <label for="diretor" th:text="#{filme.diretor}"></label>
+                    <input class="form-control" type="text" th:field="*{diretor}" />
+                    <span th:if="${#fields.hasErrors('diretor')}" th:errors="*{diretor}" class="help-block"></span>
+                </div>
+                
+                <label for="genero" th:text="#{filme.genero}"></label>
+                <select class="form-control" th:field="*{genero}">
+                    <option value="0" th:text="Selecione.."></option>
+                    <option th:each="g: ${genero}" th:value="${g.id}" th:text="${g.descricao}"> </option>
+                </select>                
+                
+                <br/>
+                <div class="form-group">
+                    <label for="nascimento" th:text="#{filme.dataDeLancamento}"></label>
+                    <input class="form-control" type="date" th:field="*{dataDeLancamento}" />
+                    <span th:if="${#fields.hasErrors('dataDeLancamento')}" th:errors="*{dataDeLancamento}"></span>
+                </div>
+                
+                <label for="classificacao" th:text="#{filme.classificacao}"></label>
+                <select class="form-control" th:field="*{classificacao}">
+                    <option value="0" th:text="Selecione.."></option>
+                    <option th:each="c: ${classificacao}" th:value="${c.id}" 
+                            th:text="${c.descricao}">
+                    </option>
+                </select>
+                <br />
+                <div class="form-group">
+                    <input class="btn btn-success" type="submit" th:value="#{form.submit}" />
+                    <input class="btn btn-primary" type="reset" th:value="#{form.reset}" />
+                </div>
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th th:text="#{filme.id}" />
+                            <th th:text="#{filme.titulo}" />
+                            <th th:text="#{filme.genero}" />
+                            <th th:text="#{filme.dataDeLancamento}" />
+                            <th th:text="#{filme.classificacao}" />
+                            <th th:text="#{filme.diretor}" />
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="p : ${filmes}">
+                            <td th:text="${p.id}">ID</td>
+                            <td th:text="${p.titulo}">TITULO</td>
+                            <td th:text="${p.toStringGenero()}">GENERO</td>
+                            <td th:text="${#dates.format(p.dataDeLancamento, 'dd/MM/yyyy')}">DATA DE LANÇAMENTO</td>
+                            <td th:text="${p.toStringClassificacao()}">CLASSIFICAÇÃO</td>
+                            <td th:text="${p.diretor}"> Diretor</td>
+                            <td>
+                                <a th:href="@{${'/filme'}(id=${p.id})}" class="btn btn-default btn-xs">Editar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+
+
+            <div class="alert alert-success" th:if="${msg}">
+                <strong>Sucess!</strong> <span th:text="${msg}"></span>
+            </div>
+
+
+            <div th:replace="fragments :: paginator(${filmes}, '/filme')">
+
+            </div>
+        </div>
+
+        <div th:replace="fragments :: footer">
+            <!-- pega do templates/fragments.html o frament:footer -->
+        </div>
+
+
+    </body>
+
+</html>
